@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LILY · 2024届湖南选调生回城考试备考工作台</title>
+  <style>
+    :root {
+      --primary-green: #10b981;
+      --dark-green: #047857;
+      --light-green: #d1fae5;
+      --accent-red: #ef4444;
+      --dark-red: #b91c1c;
+      --light-red: #fee2e2;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1f2937;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+    header h1 { font-size: 2rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
+    header .subtitle { opacity: 0.92; font-size: 0.95rem; }
+    .countdown-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .countdown-item {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      border-radius: 12px;
+      padding: 0.8rem 1.2rem;
+      min-width: 80px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .countdown-item .num {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .countdown-item .num.red { color: #fecaca; }
+    .countdown-item .label { font-size: 0.75rem; opacity: 0.9; margin-top: 0.3rem; }
+    .target-date { margin-top: 0.8rem; font-size: 0.85rem; opacity: 0.9; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      box-shadow: var(--shadow);
+    }
+    nav a {
+      display: inline-block;
+      padding: 0.5rem 0.9rem;
+      margin-right: 0.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    nav a:hover, nav a.active {
+      background: var(--light-green);
+      color: var(--dark-green);
+      font-weight: 600;
+    }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+    section { margin-bottom: 2rem; }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-left: 0.8rem;
+      border-left: 4px solid var(--primary-green);
+    }
+    .section-title.red { border-left-color: var(--accent-red); }
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .card-title { font-weight: 700; font-size: 1.05rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge-green { background: var(--light-green); color: var(--dark-green); }
+    .badge-red { background: var(--light-red); color: var(--dark-red); }
+    .badge-orange { background: #ffedd5; color: #c2410c; }
+
+    .task-list { list-style: none; }
+    .task-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .task-list li:last-child { border-bottom: none; }
+    .task-check {
+      width: 1.3rem;
+      height: 1.3rem;
+      accent-color: var(--primary-green);
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    .task-text { flex: 1; }
+    .task-text.done { text-decoration: line-through; opacity: 0.6; }
+    .priority { font-size: 0.75rem; padding: 0.15rem 0.4rem; border-radius: 4px; margin-left: 0.5rem; }
+    .priority-high { background: var(--light-red); color: var(--dark-red); }
+    .priority-mid { background: #fef3c7; color: #92400e; }
+    .priority-low { background: var(--light-green); color: var(--dark-green); }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .article-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .article-card h4 { font-size: 0.95rem; margin-bottom: 0.4rem; line-height: 1.45; }
+    .article-card .meta { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.7rem; }
+    .article-card .tags { margin-bottom: 0.8rem; }
+    .article-card a {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-green {
+      background: var(--primary-green);
+      color: white;
+    }
+    .btn-green:hover { background: var(--dark-green); }
+    .btn-outline {
+      border: 1px solid var(--primary-green);
+      color: var(--dark-green);
+      background: white;
+    }
+    .btn-outline:hover { background: var(--light-green); }
+    .btn-red {
+      background: var(--accent-red);
+      color: white;
+    }
+    .btn-red:hover { background: var(--dark-red); }
+
+    .material-tabs {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .material-tabs button {
+      padding: 0.35rem 0.75rem;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+    .material-tabs button.active {
+      background: var(--primary-green);
+      color: white;
+      border-color: var(--primary-green);
+    }
+    .material-content { display: none; }
+    .material-content.active { display: block; }
+    .material-item {
+      padding: 0.8rem;
+      background: #f9fafb;
+      border-radius: 8px;
+      margin-bottom: 0.7rem;
+      border-left: 3px solid var(--primary-green);
+    }
+    .material-item h5 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .material-item p { font-size: 0.9rem; color: var(--text-secondary); }
+    .material-item ul { margin-left: 1.2rem; margin-top: 0.4rem; font-size: 0.9rem; color: var(--text); }
+    .material-item li { margin-bottom: 0.25rem; }
+
+    .question-block {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .question-block .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .question-block .q-title { font-weight: 700; }
+    .question-block .q-score { color: var(--accent-red); font-weight: 700; }
+    .question-block .q-body {
+      background: #f9fafb;
+      padding: 0.9rem;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+    .answer-area {
+      width: 100%;
+      min-height: 140px;
+      padding: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+      margin-bottom: 0.6rem;
+    }
+    .answer-area:focus { outline: 2px solid var(--primary-green); border-color: var(--primary-green); }
+    .answer-actions { display: flex; gap: 0.6rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .reference-answer {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+    .reference-answer.show { display: block; }
+    .reference-answer h5 { color: var(--dark-green); margin-bottom: 0.5rem; }
+    .saved-badge {
+      font-size: 0.8rem;
+      color: var(--dark-green);
+      margin-left: 0.5rem;
+    }
+
+    .prediction-zone {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .prediction-zone h4 { color: #92400e; margin-bottom: 0.6rem; }
+    .prediction-zone .q-body { background: #fff; }
+    .prediction-zone .framework {
+      background: #fefce8;
+      border: 1px dashed #f59e0b;
+      border-radius: 6px;
+      padding: 0.6rem 0.8rem;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .panorama-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.8rem;
+    }
+    .panorama-cat {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem;
+      box-shadow: var(--shadow);
+    }
+    .panorama-cat h4 {
+      font-size: 0.95rem;
+      color: var(--dark-green);
+      margin-bottom: 0.4rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--light-green);
+    }
+    .panorama-cat ul {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+    .panorama-cat li {
+      padding: 0.15rem 0;
+      padding-left: 0.8rem;
+      position: relative;
+    }
+    .panorama-cat li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--primary-green);
+      font-weight: bold;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.4rem;
+      top: 0.3rem;
+      bottom: 0.3rem;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.15rem;
+      top: 0.35rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary-green);
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px var(--primary-green);
+    }
+    .timeline-item.red::before { background: var(--accent-red); box-shadow: 0 0 0 2px var(--accent-red); }
+    .timeline-item .phase { font-weight: 700; color: var(--dark-green); }
+    .timeline-item.red .phase { color: var(--dark-red); }
+
+    .footer-note {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .update-notice {
+      background: var(--light-red);
+      color: var(--dark-red);
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .public-url-notice {
+      background: var(--light-green);
+      color: var(--dark-green);
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    .public-url-notice a {
+      color: var(--dark-green);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.5rem; }
+      .countdown-item { min-width: 65px; padding: 0.6rem 0.8rem; }
+      .countdown-item .num { font-size: 1.5rem; }
+      main { padding: 1rem 0.8rem 3rem; }
+      .article-grid { grid-template-columns: 1fr; }
+      .panorama-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="update-notice">🔴 每日凌晨 6:00 自动更新 · 今日任务、时政、资源、素材、真题、预测全部刷新</div>
+  <div class="public-url-notice">📱 手机访问：<a href="https://lily-xds-workbench-tpzfidkz.edgeone.dev?eo_token=5ba543fc7ab849beebf085cfe70132df&eo_time=1785223367" target="_blank">https://lily-xds-workbench-tpzfidkz.edgeone.dev</a> · 每日自动重新部署</div>
+
+  <header>
+    <h1>🌱 LILY 选调生备考工作台</h1>
+    <p class="subtitle">2024届湖南选调生基层锻炼期满回城考试 · 每日一战</p>
+    <div class="countdown-bar">
+      <div class="countdown-item">
+        <span class="num red" id="cd-days">363</span>
+        <span class="label">天</span>
+      </div>
+      <div class="countdown-item">
+        <span class="num" id="cd-hours">00</span>
+        <span class="label">时</span>
+      </div>
+      <div class="countdown-item">
+        <span class="num" id="cd-minutes">00</span>
+        <span class="label">分</span>
+      </div>
+      <div class="countdown-item">
+        <span class="num" id="cd-seconds">00</span>
+        <span class="label">秒</span>
+      </div>
+    </div>
+    <p class="target-date">目标日期：<span id="target-date">2027年7月26日</span>（预计笔试时间）</p>
+  </header>
+
+  <nav id="navbar">
+    <a href="#daily-plan" class="active">今日任务</a>
+    <a href="#current-affairs">时政推送</a>
+    <a href="#resources">学习资源</a>
+    <a href="#materials">素材积累</a>
+    <a href="#prediction">预测考题</a>
+    <a href="#practice">真题演练</a>
+    <a href="#panorama">乡镇工作全景</a>
+    <a href="#past-exams">往年真题</a>
+    <a href="#roadmap">备考路线图</a>
+  </nav>
+
+  <main>
+    <!-- ============ 每日任务与备考提醒 ============ -->
+    <section id="daily-plan">
+      <h2 class="section-title red">📋 今日任务 & LILY 提醒</h2>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Day 1 · 备考启动日</span>
+          <span class="badge badge-red">今日重点</span>
+        </div>
+        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">从今天开始，LILY 陪你系统备考。第一天先立住方向和节奏，不求多但求稳。</p>
+        <ul class="task-list" id="today-tasks">
+          <li>
+            <input type="checkbox" class="task-check" data-task="1">
+            <span class="task-text">通读今日时政 3 篇，重点标记省委书记沈晓明7月讲话关键词（安全生产/基层减负/防汛）<span class="priority priority-high">高</span></span>
+          </li>
+          <li>
+            <input type="checkbox" class="task-check" data-task="2">
+            <span class="task-text">完成今日 3 道真题演练，手写或键入答案后保存（每题限时25分钟）<span class="priority priority-high">高</span></span>
+          </li>
+          <li>
+            <input type="checkbox" class="task-check" data-task="3">
+            <span class="task-text">浏览「预测考题」板块，了解明年可能出现的题型方向和热点话题<span class="priority priority-high">高</span></span>
+          </li>
+          <li>
+            <input type="checkbox" class="task-check" data-task="4">
+            <span class="task-text">阅读「素材积累」中乡村振兴、矛盾调解、安全生产三个模块，各记 2 个金句/案例<span class="priority priority-mid">中</span></span>
+          </li>
+          <li>
+            <input type="checkbox" class="task-check" data-task="5">
+            <span class="task-text">浏览「乡镇工作全景图」，了解乡镇工作全貌，建立系统认知<span class="priority priority-mid">中</span></span>
+          </li>
+          <li>
+            <input type="checkbox" class="task-check" data-task="6">
+            <span class="task-text">整理自己的基层工作案例库：列出 3 件最具代表性的工作（角色、举措、成效）<span class="priority priority-low">低</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">💡 LILY 今日提醒</span>
+          <span class="badge badge-green">每日更新</span>
+        </div>
+        <p>1. <strong style="color:var(--dark-red);">不要囤资料，先建立框架。</strong> 湖南近三年题型明显从"宏观论述"转向"基层实务"，答题一定要落地、有场景、有举措。</p>
+        <p style="margin-top:0.5rem;">2. <strong style="color:var(--dark-green);">从今天开始，每日必看「预测考题」板块。</strong> 结合全国基层治理新趋势和湖南实际，预判明年可能的命题方向。</p>
+        <p style="margin-top:0.5rem;">3. <strong>时政不是死记硬背。</strong> 沈晓明书记 7 月常委会强调"应消合一"机制、基层减负、和美湘村——这些都是明年考题的"题眼"。</p>
+        <p style="margin-top:0.5rem;">4. <strong>基层案例是硬通货。</strong> 你的帮扶计划、矛盾调解、防汛防火经历，最后都要变成卷面上的"具体工作事例"。</p>
+      </div>
+    </section>
+
+    <!-- ============ 时政推送 ============ -->
+    <section id="current-affairs">
+      <h2 class="section-title">📰 时政推送 · 湖南重点 + 全国基层</h2>
+      <div class="article-grid">
+        <div class="article-card">
+          <div>
+            <h4>沈晓明主持召开省委常委会：以严实作风坚决守牢安全底线</h4>
+            <p class="meta">来源：湖南日报 · 2026-07-16</p>
+            <div class="tags"><span class="badge badge-red">重点</span> <span class="badge badge-green">安全生产</span></div>
+          </div>
+          <a href="https://blfj.yueyang.gov.cn/11696/content_2389372.html" target="_blank" class="btn-green">阅读原文</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h4>沈晓明：以万全之策确保防汛万无一失（省委常委会7.9）</h4>
+            <p class="meta">来源：华声在线/腾讯新闻 · 2026-07-09</p>
+            <div class="tags"><span class="badge badge-red">热点</span> <span class="badge badge-green">防汛</span></div>
+          </div>
+          <a href="https://new.qq.com/rain/a/20260709A09LQR00" target="_blank" class="btn-green">阅读原文</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h4>湖南省印发《"向县放权"实施方案》，破解县域发展体制障碍</h4>
+            <p class="meta">来源：湖南省发改委 · 2026-07-20</p>
+            <div class="tags"><span class="badge badge-green">基层赋能</span> <span class="badge badge-orange">放管服</span></div>
+          </div>
+          <a href="https://fgw.hunan.gov.cn/fgw/xxgk_70899/zcfg/dfxfg/202607/t20260720_34029853.html" target="_blank" class="btn-green">阅读原文</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h4>全省地质灾害风险隐患排查和防范应对工作部署会召开</h4>
+            <p class="meta">来源：湖南省人民政府网 · 2026-07-20</p>
+            <div class="tags"><span class="badge badge-red">应急</span> <span class="badge badge-orange">地质灾害</span></div>
+          </div>
+          <a href="https://hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202607/t20260720_34029645.html" target="_blank" class="btn-green">阅读原文</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h4>永寿县"全响应、立即办"网格化模式筑牢乡村振兴治理根基</h4>
+            <p class="meta">来源：陕西党建网 · 2026</p>
+            <div class="tags"><span class="badge badge-green">全国基层</span> <span class="badge badge-orange">网格治理</span></div>
+          </div>
+          <a href="https://www.sx-dj.gov.cn/ztzl/zdjcxczx/2028359379949211649.html" target="_blank" class="btn-green">阅读原文</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h4>协同发力完善基层社会治理体系（数字赋能+权责清单）</h4>
+            <p class="meta">来源：金华新闻网-理论 · 2026</p>
+            <div class="tags"><span class="badge badge-green">全国基层</span> <span class="badge badge-orange">数字治理</span></div>
+          </div>
+          <a href="http://www.jhxww.net/cn/lilun/info_48.aspx?itemid=183067" target="_blank" class="btn-green">阅读原文</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 学习资源 ============ -->
+    <section id="resources">
+      <h2 class="section-title">📚 学习资源 · 每日精选</h2>
+      <div class="article-grid">
+        <div class="article-card">
+          <div>
+            <h4>选调札记：我在蒲荡夏村的"扎根记"</h4>
+            <p class="meta">来源：共产党员网-先锋文汇 · 选调生驻村感悟</p>
+            <div class="tags"><span class="badge badge-green">基层感悟</span> <span class="badge badge-orange">范文</span></div>
+          </div>
+          <a href="https://tougao.12371.cn/gaojian.php?tid=6420801" target="_blank" class="btn-outline">阅读原文</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h4>用"三心"书写驻村工作"答卷"</h4>
+            <p class="meta">来源：南京党建 · 选调生工作方法</p>
+            <div class="tags"><span class="badge badge-green">驻村工作</span> <span class="badge badge-orange">方法论</span></div>
+          </div>
+          <a href="https://www.njzdj.gov.cn/2023/0316/21874.html" target="_blank" class="btn-outline">阅读原文</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h4>选调生日志丨常"行"好事 用"心"驻村</h4>
+            <p class="meta">来源：谯城组工 · 基层实务案例</p>
+            <div class="tags"><span class="badge badge-green">基层实务</span> <span class="badge badge-orange">法治乡村</span></div>
+          </div>
+          <a href="https://www.qcdj.gov.cn/e/action/ShowInfo.php?classid=65&id=15728" target="_blank" class="btn-outline">阅读原文</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h4>2026年选调生考试备考指南与真题解析</h4>
+            <p class="meta">来源：book118 · 全面备考策略</p>
+            <div class="tags"><span class="badge badge-green">备考指南</span> <span class="badge badge-orange">方法论</span></div>
+          </div>
+          <a href="https://max.book118.com/html/2026/0420/6134014112012124.shtm" target="_blank" class="btn-outline">阅读原文</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h4>坚决打赢安全生产主动战攻坚战持久战</h4>
+            <p class="meta">来源：湖南省应急管理厅 · 2026-05-13</p>
+            <div class="tags"><span class="badge badge-green">安全生产</span> <span class="badge badge-red">重点</span></div>
+          </div>
+          <a href="https://yjt.hunan.gov.cn/yjt/tszt/ywzl/aqsczbgjsnxd/202605/t20260513_33976066.html" target="_blank" class="btn-outline">阅读原文</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h4>数字技术凝合流动的乡土中国（清华公共管理学院）</h4>
+            <p class="meta">来源：今日头条/清华大学 · 2026</p>
+            <div class="tags"><span class="badge badge-green">数字乡村</span> <span class="badge badge-orange">前沿</span></div>
+          </div>
+          <a href="https://www.toutiao.com/article/7644131627777540617" target="_blank" class="btn-outline">阅读原文</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 素材积累 ============ -->
+    <section id="materials">
+      <h2 class="section-title">🧱 素材积累 · 基层工作实务</h2>
+      <div class="card">
+        <div class="material-tabs">
+          <button class="active" onclick="switchMaterial('xczx')">乡村振兴</button>
+          <button onclick="switchMaterial('fxaq')">防汛防火·安全生产</button>
+          <button onclick="switchMaterial('mftj')">矛盾调解·枫桥经验</button>
+          <button onclick="switchMaterial('djxc')">党建·宣传·舆情</button>
+          <button onclick="switchMaterial('hjzz')">人居环境·农业</button>
+          <button onclick="switchMaterial('jcgt')">基层感悟·方法</button>
+          <button onclick="switchMaterial('msbz')">民生保障</button>
+          <button onclick="switchMaterial('yjgl')">应急管理</button>
+        </div>
+
+        <div id="xczx" class="material-content active">
+          <div class="material-item">
+            <h5>【政策锚点】乡村振兴总要求 + "和美湘村"</h5>
+            <p>产业兴旺、生态宜居、乡风文明、治理有效、生活富裕。"五个振兴"（产业、人才、文化、生态、组织）。湖南特色：建设宜居宜业"和美湘村"，深入学习运用"千万工程"经验。</p>
+          </div>
+          <div class="material-item">
+            <h5>【湖南最新】沈晓明 2026.7 省委常委会强调</h5>
+            <p>坚决扛牢粮食安全政治责任，健全高标准农田管护体系，落细落实藏粮于地、藏粮于技战略。因地制宜建设宜居宜业"和美湘村"。深入整治形式主义为基层减负赋能。</p>
+          </div>
+          <div class="material-item">
+            <h5>【金句】</h5>
+            <ul>
+              <li>"乡村振兴，关键是把基层党组织建好建强。"</li>
+              <li>"五级书记抓乡村振兴"是政治责任。</li>
+              <li>"联农带农机制"是实现稳定增收的关键抓手。</li>
+              <li>"因地制宜发展新型农村集体经济。"</li>
+            </ul>
+          </div>
+          <div class="material-item">
+            <h5>【案例】彬州市龙高镇：党建"红色引擎"驱动乡村全面振兴</h5>
+            <p>党支部+合作社+农户模式；党员产业带头人 39 名；划分 47 个网格，党员网格员化解矛盾纠纷 39 起。</p>
+          </div>
+        </div>
+
+        <div id="fxaq" class="material-content">
+          <div class="material-item">
+            <h5>【最新政策】沈晓明强调安全生产（2026.7.16省委常委会）</h5>
+            <ul>
+              <li>清醒认识当前安全生产严峻形势，深刻汲取各类事故教训</li>
+              <li>扎实开展消防领域突出风险隐患集中攻坚</li>
+              <li>加快完善基层应急消防治理体系，探索乡镇"应消合一"机制</li>
+              <li>统筹抓好重点行业领域安全防范，以"零容忍"态度打非治违</li>
+              <li>坚持防汛、抗旱两手抓</li>
+            </ul>
+          </div>
+          <div class="material-item">
+            <h5>【工作口诀】防汛"四预"+"631"机制</h5>
+            <p>预报、预判、预警、预案、预演（湖南"五预贯通"）。"631"预报预警叫应机制：提前6小时预报暴雨落区、提前3小时预警、提前1小时叫应。基层答题可写：早部署、早排查、早整治、早演练。</p>
+          </div>
+          <div class="material-item">
+            <h5>【湖南特色】地质灾害"四个一律"</h5>
+            <p>明确"四个一律"要求：全员提前转移、白天转移、应转尽转。聚焦"一切、两线、三沿、四临"重点区域（切坡建房、公路铁路沿线、沿河沿溪沿库、临崖临水临坡临沟）。</p>
+          </div>
+          <div class="material-item">
+            <h5>【防火】森林防灭火要点</h5>
+            <p>宣传入户、以案释法、隐患排查、重点人群包保、应急队伍备勤、物资储备、值班值守、火情"打早打小打了"。</p>
+          </div>
+        </div>
+
+        <div id="mftj" class="material-content">
+          <div class="material-item">
+            <h5>【理论】新时代"枫桥经验"</h5>
+            <p>坚持和发展新时代"枫桥经验"，完善正确处理新形势下人民内部矛盾机制，及时把矛盾纠纷化解在基层、化解在萌芽状态。核心：小事不出村、大事不出镇、矛盾不上交。</p>
+          </div>
+          <div class="material-item">
+            <h5>【方法】矛盾调解"五步工作法"</h5>
+            <ul>
+              <li>排查发现：网格走访、入户听诉、线上平台</li>
+              <li>分析研判：分类分级、部门联动</li>
+              <li>分流交办：属事属地、限时办结</li>
+              <li>调处化解：法理情结合、乡贤/"法律明白人"参与</li>
+              <li>反馈回访：销号管理、防止反弹</li>
+            </ul>
+          </div>
+          <div class="material-item">
+            <h5>【案例】马鞍山博望区"叶家·连心桥"工作法</h5>
+            <p>村党支部-网格党小组-党员中心户三级联动；"连心桥调解室"汇聚老党员、乡贤、法律明白人；2026年化解矛盾70余起，化解率98%。</p>
+          </div>
+          <div class="material-item">
+            <h5>【案例】井冈山厦坪镇"乡土智慧"调解</h5>
+            <p>常态化入户听诉、镇村网格三级联动、多部门信息互通、限时办结、事后回访；矛盾纠纷综合化解率98%。</p>
+          </div>
+        </div>
+
+        <div id="djxc" class="material-content">
+          <div class="material-item">
+            <h5>【党建】大抓基层鲜明导向</h5>
+            <p>深入推进抓党建促乡村振兴；持续深化党建引领基层治理；加强新经济组织、新社会组织、新就业群体党的建设。健全"乡镇党委—村党支部—网格党小组—党员中心户"四级架构。</p>
+          </div>
+          <div class="material-item">
+            <h5>【党建动态】沈晓明 2026.7.9 常委会</h5>
+            <p>夯实基层基础，健全上下贯通、执行有力的组织体系，深化党建引领基层治理，增强基层党组织政治功能和组织功能。注重在大战大考、一线火线考察识别干部。</p>
+          </div>
+          <div class="material-item">
+            <h5>【宣传】基层宣传"三贴近"</h5>
+            <p>贴近实际、贴近生活、贴近群众。用群众语言讲政策，用身边事讲道理，把理论课堂搬到文化广场、田间地头。</p>
+          </div>
+          <div class="material-item">
+            <h5>【舆情处理】黄金4小时原则</h5>
+            <ul>
+              <li>快速响应：第一时间发声，掌握主动权</li>
+              <li>实事求是：不回避、不遮掩、不夸大</li>
+              <li>以人为本：把群众利益放在首位</li>
+              <li>闭环管理：调查-处置-回应-复盘</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="hjzz" class="material-content">
+          <div class="material-item">
+            <h5>【政策】农村人居环境整治提升</h5>
+            <p>厕所革命、生活垃圾治理、生活污水治理、村容村貌提升、长效管护机制。湖南：农村人居环境整治提升五年行动。</p>
+          </div>
+          <div class="material-item">
+            <h5>【方法】人居环境"清脏、治乱、增绿、提质"</h5>
+            <ul>
+              <li>清脏：垃圾、沟渠淤泥、农业废弃物</li>
+              <li>治乱：乱堆乱放、违章搭建、线缆杂乱</li>
+              <li>增绿：庭院绿化、道路绿化、隙地增绿</li>
+              <li>提质：污水管网、垃圾分类、公共服务</li>
+            </ul>
+          </div>
+          <div class="material-item">
+            <h5>【案例】南阳西峡二郎坪镇：党建引领绘就和美乡村</h5>
+            <p>三级联动网格管理、党员责任区、群众协商共议、门前三包、美丽庭院挂牌、积分兑换。</p>
+          </div>
+          <div class="material-item">
+            <h5>【农业】粮食安全</h5>
+            <p>藏粮于地、藏粮于技；严守耕地红线；调动农民种粮积极性；湖南作为水稻主产区，关注高标准农田建设、种业创新、农机社会化服务。</p>
+          </div>
+        </div>
+
+        <div id="jcgt" class="material-content">
+          <div class="material-item">
+            <h5>【基层感悟写作框架】</h5>
+            <ul>
+              <li>破题：从一件具体小事切入（方言、��访、矛盾、项目）</li>
+              <li>转变：从"外来人"到"自家人"，从"书本"到"泥土"</li>
+              <li>方法：跟学、实干、担当、创新</li>
+              <li>升华：把个人成长融入乡村振兴、基层治理大局</li>
+            </ul>
+          </div>
+          <div class="material-item">
+            <h5>【金句】基层感悟</h5>
+            <ul>
+              <li>"基层不是'镀金场'，而是'练兵地'。"</li>
+              <li>"民生无小事，枝叶总关情。"</li>
+              <li>"驻村更驻心，常行好事，用心为民。"</li>
+              <li>"用脚步丈量民情，用实干回应期待。"</li>
+            </ul>
+          </div>
+          <div class="material-item">
+            <h5>【经验】选调生成长"三心"</h5>
+            <p>不忘初心（担当品格）、坚定信心（钉钉子精神）、融入真心（为民情怀）。</p>
+          </div>
+          <div class="material-item">
+            <h5>【实战方法】"六小"工作法</h5>
+            <p>排查小隐患、调解小纠纷、改善小环境、解决小问题、办理小事情、满足小心愿。践行"早、快、融、实、稳、准"六字真言。</p>
+          </div>
+        </div>
+
+        <div id="msbz" class="material-content">
+          <div class="material-item">
+            <h5>【民生保障】乡镇民生工作全景</h5>
+            <ul>
+              <li>低保/特困人员救助供养：动态管理、应保尽保、应退尽退</li>
+              <li>医保参保/大病救助：参保缴费、异地就医备案、医疗救助</li>
+              <li>养老保险：城乡居民养老保险参保、待遇领取资格认证</li>
+              <li>残疾人服务：两项补贴、辅具适配、无障碍改造</li>
+              <li>留守儿童/困境儿童关爱保护：探访巡查、监护责任落实</li>
+              <li>退役军人服务：优抚安置、光荣牌悬挂、就业创业扶持</li>
+              <li>就业帮扶：扶贫车间、公益岗位、技能培训、招聘对接</li>
+            </ul>
+          </div>
+          <div class="material-item">
+            <h5>【金句】</h5>
+            <ul>
+              <li>"小康不小康，关键看老乡；共富不共富，关键看兜底。"</li>
+              <li>"织密扎牢社会保障安全网，不让一个困难群众掉队。"</li>
+              <li>"就业是最大的民生工程、民心工程、根基工程。"</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="yjgl" class="material-content">
+          <div class="material-item">
+            <h5>【应急管理】乡镇应急体系要点</h5>
+            <ul>
+              <li>防汛抗旱：预案编制、物资储备、队伍组建、应急演练、转移避险</li>
+              <li>森林防灭火：火源管控、巡查巡护、扑火队伍、值班值守</li>
+              <li>地质灾害防治：隐患点排查、监测预警、群测群防</li>
+              <li>消防：打通"生命通道"、九小场所排查、电动车充电管理</li>
+              <li>食品安全：农村集体聚餐备案、学校食堂检查、野生菌中毒防控</li>
+              <li>道路交通安全：农村道路隐患排查、劝导站建设</li>
+            </ul>
+          </div>
+          <div class="material-item">
+            <h5>【湖南最新】"应消合一"机制探索</h5>
+            <p>沈晓明 2026.7.16 强调：加快完善基层应急消防治理体系，积极探索乡镇（街道）"应消合一"机制，加强网格资源整合。这是湖南基层应急管理改革的新方向，极有可能成为明年考点。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 预测考题（NEW） ============ -->
+    <section id="prediction">
+      <h2 class="section-title red">🔮 预测考题 · 每日方向研判</h2>
+      <p style="margin-bottom:1rem;color:var(--text-secondary);">结合全国基层治理最新部署、湖南省委近期重点工作、各省选调生考试趋势，每日预判明年可能的命题方向。</p>
+
+      <div class="prediction-zone">
+        <h4>预测方向一：基层应急消防治理体系改革——"应消合一"</h4>
+        <div class="q-body">
+          <strong>预测理由：</strong>沈晓明7月16日省委常委会首次提出探索乡镇"应消合一"机制，这是湖南基层治理的重大改革方向。结合2026年全国安全生产形势严峻，此类实务操作题极可能成为2027年新题型。<br><br>
+          <strong>预测题型：</strong>实务操作题（15-20分）<br>
+          <strong>预测题目：</strong>你所在乡镇被确定为"应消合一"改革试点单位，领导安排你负责起草实施方案。请列出该方案的主要内容框架，并就如何整合现有网格资源提出具体建议。
+        </div>
+        <div class="framework">
+          <strong>答题框架提示：</strong>①机构整合：应急办+消防工作站合署办公 ②队伍整合：专职消防队+民兵应急排+网格员 ③平台整合：统一指挥调度系统 ④网格融合：将安全生产、消防、防灾减灾纳入网格员职责清单 ⑤机制创新：日常巡查-隐患上报-分级处置-闭环管理
+        </div>
+      </div>
+
+      <div class="prediction-zone">
+        <h4>预测方向二：向县放权与基层赋能——"权责匹配"</h4>
+        <div class="q-body">
+          <strong>预测理由：</strong>湖南省2026年7月印发《"向县放权"实施方案》，涉及基层治理权限重塑。"小马拉大车"一直是基层减负的核心议题，2027年考试极可能出现在此背景下的分析题或对策题。<br><br>
+          <strong>预测题型：</strong>综合分析/对策建议题（15-20分）<br>
+          <strong>预测题目：</strong>当前乡镇普遍存在"属地管理"泛化、"有责无权"等问题。结合湖南省"向县放权"实施方案，谈谈你对理顺乡镇权责关系的认识，并提出具体建议。
+        </div>
+        <div class="framework">
+          <strong>答题框架提示：</strong>①问题剖析：属地管理泛化表现、权责不对等现象、基层承接能力不足 ②放权原则：精准赋能、宜放则放、权责一致、闭环管理 ③关键举措：编制乡镇权责清单、建立"乡呼县应"机制、推动资源同步下沉 ④保障：赋予乡镇对派驻机构的人事建议权和考核评价权
+        </div>
+      </div>
+
+      <div class="prediction-zone">
+        <h4>预测方向三：数字乡村与基层治理现代化</h4>
+        <div class="q-body">
+          <strong>预测理由：</strong>2026年中央一号文件强调"实施数字乡村高质量发展行动"。全国多地推广"一网统管""村级服务平台"等数字化治理工具。此类题目考查选调生对新技术的理解和在基层场景中的应用能力，是各省选调考试的新宠。<br><br>
+          <strong>预测题型：</strong>发言稿/工作方案题（15-20分）<br>
+          <strong>预测题目：</strong>你镇拟在全镇推广网格化数字治理平台，但部分村干部和老年群众存在抵触情绪。你作为具体负责人，需要在全镇推进会上作动员发言。请撰写发言稿要点（不超过500字），重点回应基层干部的顾虑。
+        </div>
+        <div class="framework">
+          <strong>答题框架提示：</strong>①开场：基层治理现代化的必然要求 ②打消顾虑：数字平台不是"增负"而是"提效"，举例说明（一键上报、数据共享、减少重复填表） ③回应老年群体关切：保留传统服务渠道、"线上+线下"双轨并行 ④实操安排：分步推广、试点先行、培训到位 ⑤号召：以数字化"减法"换取服务群众"加法"
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 真题演练 ============ -->
+    <section id="practice">
+      <h2 class="section-title red">✍️ 真题演练 · 每日三题</h2>
+      <p style="margin-bottom:1rem;color:var(--text-secondary);">题目来源：湖南往年真题变形 + 各省选调生基层实务预测题 + 当日时政结合题。完成后点击"保存答案"，答案保存在本机浏览器。</p>
+
+      <div class="question-block" data-q="1">
+        <div class="q-header">
+          <span class="q-title">第 1 题 · 帮扶计划类</span>
+          <span class="q-score">15 分</span>
+        </div>
+        <div class="q-body">
+          你是某村驻村选调生，联系户张某因妻子重病致家庭收入锐减，且对帮扶政策不了解、存在"等靠要"思想。请你以村名义为其撰写一份帮扶计划。要求：目标明确、措施具体、责任到人、时限清晰。
+        </div>
+        <textarea class="answer-area" id="answer-1" placeholder="在此输入你的答案..."></textarea>
+        <div class="answer-actions">
+          <button class="btn-green" onclick="saveAnswer(1)">保存答案</button>
+          <button class="btn-outline" onclick="toggleReference(1)">查看参考答案</button>
+          <span class="saved-badge" id="saved-1"></span>
+        </div>
+        <div class="reference-answer" id="ref-1">
+          <h5>参考答案要点</h5>
+          <p><strong>一、基本情况</strong>：张某家庭人口、收入来源、支出困难、致困原因、思想状况。</p>
+          <p><strong>二、帮扶目标</strong>：短期（3个月内）解决基本生活和医疗保障；中期（1年内）实现稳定增收；长期（2年内）增强自我发展能力，消除"等靠要"思想。</p>
+          <p><strong>三、具体措施</strong>：</p>
+          <ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+            <li>政策兜底：协助申请低保、医疗救助、防返贫保险，落实医保报销；</li>
+            <li>产业帮扶：因地制宜发展种养业或安排公益性岗位，落实产业奖补；</li>
+            <li>就业帮扶：提供技能培训信息，对接帮扶车间或就近就业；</li>
+            <li>教育引导：入户宣讲政策、树立典型，激发内生动力；</li>
+            <li>社会帮扶：联系结对帮扶干部、社会慈善资源。</li>
+          </ul>
+          <p><strong>四、责任分工</strong>：村支书统筹、驻村干部/选调生具体跟踪、帮扶责任人定期走访。</p>
+          <p><strong>五、时间安排</strong>：按月/季度列出节点，明确回访和评估机制。</p>
+        </div>
+      </div>
+
+      <div class="question-block" data-q="2">
+        <div class="q-header">
+          <span class="q-title">第 2 题 · 防汛+群众工作类</span>
+          <span class="q-score">15 分</span>
+        </div>
+        <div class="q-body">
+          汛期来临，你镇决定对某低洼地带群众进行转移避险。部分群众嫌安置点条件差、不愿转移，村干部因多次上门劝说无果也产生畏难情绪，更有干部认为"年年防汛都没事，这次也不会有事"。请提出你的工作思路和解决措施。
+        </div>
+        <textarea class="answer-area" id="answer-2" placeholder="在此输入你的答案..."></textarea>
+        <div class="answer-actions">
+          <button class="btn-green" onclick="saveAnswer(2)">保存答案</button>
+          <button class="btn-outline" onclick="toggleReference(2)">查看参考答案</button>
+          <span class="saved-badge" id="saved-2"></span>
+        </div>
+        <div class="reference-answer" id="ref-2">
+          <h5>参考答案要点</h5>
+          <p><strong>一、稳定队伍、统一认识</strong>：立即召开镇村防汛紧急会议，通报雨情水情和上级指令，明确"人民至上、生命至上"，严明防汛纪律，消除麻痹思想和畏难情绪。</p>
+          <p><strong>二、分类施策、柔性劝离</strong>：</p>
+          <ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+            <li>干部带头：村两委干部、党员、人大代表率先转移亲属；</li>
+            <li>亲情动员：组织亲属、邻里、乡贤共同劝说；</li>
+            <li>改善条件：协调被褥、饮用水、医疗、孩童照护等；</li>
+            <li>解决后顾之忧：安排专人看管牲畜、转移贵重物资；</li>
+            <li>对拒不转移的，依法启动强制转移预案并全程录音录像。</li>
+          </ul>
+          <p><strong>三、闭环管理</strong>：建立转移人员台账，"不漏一户、不落一人"；安置点实行专人管理；风险解除后有序组织返回并开展灾情排查。</p>
+        </div>
+      </div>
+
+      <div class="question-block" data-q="3">
+        <div class="q-header">
+          <span class="q-title">第 3 题 · 基层减负体悟类</span>
+          <span class="q-score">20 分</span>
+        </div>
+        <div class="q-body">
+          结合你的基层锻炼实际，请谈谈当前基层减负赋能存在的突出问题，以及可采取的对策、建议。要求：问题具体、分析深入、对策可行。
+        </div>
+        <textarea class="answer-area" id="answer-3" placeholder="在此输入你的答案..."></textarea>
+        <div class="answer-actions">
+          <button class="btn-green" onclick="saveAnswer(3)">保存答案</button>
+          <button class="btn-outline" onclick="toggleReference(3)">查看参考答案</button>
+          <span class="saved-badge" id="saved-3"></span>
+        </div>
+        <div class="reference-answer" id="ref-3">
+          <h5>参考答案要点</h5>
+          <p><strong>一、突出问题</strong>：</p>
+          <ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+            <li>表格报表多：同一数据多头报送、重复填报；</li>
+            <li>会议文件多：文山会海，抓落实时间少；</li>
+            <li>督查检查多：频次高、留痕要求重；</li>
+            <li>权责不匹配："小马拉大车"，乡镇有责无权；</li>
+            <li>指尖负担重：工作群、APP、打卡任务过多；</li>
+            <li>激励保障不足：晋升通道窄、容错纠错难。</li>
+          </ul>
+          <p><strong>二、对策建议</strong>：</p>
+          <ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+            <li>精简规范：建立报表清单、会议审批、督查检查年度计划；</li>
+            <li>数字赋能：打通数据壁垒，"一次采集、多方共享"；</li>
+            <li>权责明晰：编制乡镇权责清单，依清单履职；</li>
+            <li>松绑增效：清理无意义的工作群、打卡、留痕；</li>
+            <li>激励关怀：落实工资待遇、晋升职级、容错纠错。</li>
+          </ul>
+          <p><strong>三、结合个人体会</strong>：举1-2个亲身经历的例子，增强说服力。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 乡镇工作全景图（NEW） ============ -->
+    <section id="panorama">
+      <h2 class="section-title">🏛️ 乡镇工作全景图 · 基层全部条线一览</h2>
+      <p style="margin-bottom:1rem;color:var(--text-secondary);">梳理乡镇所有工作条线，帮助你建立完整的基层工作认知框架。每个条线都可能成为考试素材。</p>
+
+      <div class="panorama-grid">
+        <div class="panorama-cat">
+          <h4>🏠 党的建设</h4>
+          <ul>
+            <li>基层党组织建设（村两委换届/软弱涣散整顿）</li>
+            <li>党员教育管理（远程教育/流动党员管理）</li>
+            <li>党风廉政建设（警示教育/村级巡察）</li>
+            <li>党建引领基层治理</li>
+            <li>党建促乡村振兴</li>
+            <li>非公企业/社会组织党建</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>🌾 农业农村</h4>
+          <ul>
+            <li>粮食安全/耕地保护/撂荒地整治</li>
+            <li>高标准农田建设</li>
+            <li>防止返贫动态监测和帮扶</li>
+            <li>农村集体经济/"消薄攻坚"</li>
+            <li>产业发展（一村一品/合作社）</li>
+            <li>农机推广/种业/农技服务</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>⚡ 应急管理</h4>
+          <ul>
+            <li>防汛抗旱（预案/物资/队伍/演练）</li>
+            <li>森林防灭火</li>
+            <li>地质灾害防治</li>
+            <li>安全生产监管（烟花爆竹/矿山/危化品）</li>
+            <li>消防安全（九小场所/"应消合一"）</li>
+            <li>道路交通安全</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>🤝 综治维稳</h4>
+          <ul>
+            <li>矛盾纠纷排查化解/"枫桥经验"</li>
+            <li>信访接待/积案化解</li>
+            <li>平安建设/扫黑除恶常态化</li>
+            <li>禁毒/反电诈/反邪教</li>
+            <li>网格化管理/"一网统管"</li>
+            <li>重点人群服务管理</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>💚 民生保障</h4>
+          <ul>
+            <li>低保/特困供养/临时救助</li>
+            <li>城乡居民医保+养老保险</li>
+            <li>残疾人"两项补贴"/无障碍改造</li>
+            <li>留守儿童/困境儿童关爱</li>
+            <li>退役军人优抚安置</li>
+            <li>就业帮扶（公益岗/扶贫车间）</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>🏗️ 城乡建设</h4>
+          <ul>
+            <li>农村人居环境整治（厕所革命/垃圾/污水）</li>
+            <li>住房安全（危房改造/自建房排查）</li>
+            <li>农村建房审批/宅基地管理</li>
+            <li>村镇规划/美丽乡村建设</li>
+            <li>农村道路建设养护</li>
+            <li>供水保障/电网改造</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>📣 宣传文化</h4>
+          <ul>
+            <li>意识形态/理论武装</li>
+            <li>新时代文明实践中心（所、站）</li>
+            <li>舆情监测与应对</li>
+            <li>移风易俗/文明村镇创建</li>
+            <li>文化活动/农家书屋/送戏下乡</li>
+            <li>微信公众号/村级广播</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>🌿 生态环保</h4>
+          <ul>
+            <li>河长制/林长制/田长制</li>
+            <li>秸秆禁烧/大气污染防治</li>
+            <li>水源地保护/黑臭水体治理</li>
+            <li>农业面源污染防治</li>
+            <li>环保督察反馈问题整改</li>
+            <li>生态修复/绿化造林</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>📊 经济发展</h4>
+          <ul>
+            <li>招商引资/营商环境优化</li>
+            <li>固定资产投资/项目建设</li>
+            <li>统计（经济普查/人口普查）</li>
+            <li>市场主体培育/"个转企"</li>
+            <li>电子商务/农村物流</li>
+            <li>乡村旅游/民宿发展</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>🏥 教科文卫</h4>
+          <ul>
+            <li>义务教育控辍保学/校园安全</li>
+            <li>公共卫生/疫情防控</li>
+            <li>乡镇卫生院/村卫生室管理</li>
+            <li>食品安全（农村聚餐备案）</li>
+            <li>爱国卫生运动</li>
+            <li>科技特派员/科普</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>⚖️ 依法行政</h4>
+          <ul>
+            <li>综合行政执法改革</li>
+            <li>"放管服"改革/"一窗受理"</li>
+            <li>政务公开/"互联网+政务服务"</li>
+            <li>行政复议/行政诉讼</li>
+            <li>"向县放权"承接落实</li>
+            <li>权责清单制度</li>
+          </ul>
+        </div>
+
+        <div class="panorama-cat">
+          <h4>👥 群团人武</h4>
+          <ul>
+            <li>团委/青年之家/大学生"返家乡"</li>
+            <li>妇联/妇女儿童权益保护</li>
+            <li>工会/职工权益</li>
+            <li>武装征兵/民兵建设</li>
+            <li>统战（民族宗教/港澳台侨）</li>
+            <li>残联/科协/红十字会</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 往年真题 ============ -->
+    <section id="past-exams">
+      <h2 class="section-title">📂 往年真题 · 湖南选调生基层锻炼期满回城考试</h2>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">2023 届湖南选调生基层锻炼期满考核笔试（考生回忆版）</span>
+          <span class="badge badge-red">最新风向</span>
+        </div>
+        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">考试时间：150 分钟 | 特点：题目新、题型实，从宏观论述转向基层实务。</p>
+        <ol style="margin-left:1.2rem;">
+          <li style="margin-bottom:0.5rem;">为联系户撰写一份帮扶计划。（15 分）</li>
+          <li style="margin-bottom:0.5rem;">结合防汛工作，存在的群众有意见、村干部有情绪、干部也有情绪，提解决措施。（15 分）</li>
+          <li style="margin-bottom:0.5rem;">写一份党群工作服务中心的暑假工作提示。（15 分）</li>
+          <li style="margin-bottom:0.5rem;">写在安全生产整治过程中的下一步工作思路。（15 分）</li>
+          <li style="margin-bottom:0.5rem;">结合新时代枫桥经验，写一个你的具体工作事例。（20 分）</li>
+          <li>你外出学习了先进的乡村振兴经验，开讨论会，要做一个发言，推动乡村振兴工作。（20 分）</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">2022 届湖南省选调生基层锻炼期满回省直单位笔试真题</span>
+          <span class="badge badge-orange">体悟为主</span>
+        </div>
+        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">考试时间：120 分钟</p>
+        <ol style="margin-left:1.2rem;">
+          <li style="margin-bottom:0.5rem;">刘某为新来的非定向选调生，工作一段时间后对未来感到担忧迷茫，给你写了一封信，请你回信。（20 分）</li>
+          <li style="margin-bottom:0.5rem;">第一问：基层工作中最具代表性的一件工作。①写明你的角色、举措以及成效等；②不能出现单位、个人真实信息等。（60 分）<br>第二问：结合三年工作经历，谈谈基层工作的感悟和体会。（20 分）</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">2021 届湖南省基层锻炼期满回省直、市直单位选调生笔试真题</span>
+          <span class="badge badge-green">乡村振兴</span>
+        </div>
+        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">考试时间：150 分钟</p>
+        <ol style="margin-left:1.2rem;">
+          <li style="margin-bottom:0.5rem;">结合你的工作实际与基层锻炼情况，请谈谈你对全面落实乡村振兴的认识。（20 分）</li>
+          <li style="margin-bottom:0.5rem;">根据你所在基层的锻炼情况，请谈谈当前基层减负赋能存在的突出问题，以及可采取的对策、建议。（20 分）</li>
+          <li>你新到一个单位，需要向领导汇报你在基层锻炼两年期间最具有亮点、最显成绩的工作，1000 字以上。①写明你的角色、举措、成效；②不能出现单位、个人真实信息等。（60 分）</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 备考路线图 ============ -->
+    <section id="roadmap">
+      <h2 class="section-title">🗺️ 备考路线图 · 循序渐进</h2>
+      <div class="card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="phase">第一阶段：筑基期（第 1-64 天）</span>
+            <p>熟悉题型，建立素材库。每天 3 题以"看题+列提纲"为主，重点积累乡村振兴、基层治理、党建等模块金句和案例。同步建立个人基层案例库。</p>
+          </div>
+          <div class="timeline-item">
+            <span class="phase">第二阶段：强化期（第 65-164 天）</span>
+            <p>完整作答，限时训练。每题控制在 25-30 分钟内完成，每周进行一次"3 题连做"模拟，形成自己的答题模板。时政与答题深度融合。</p>
+          </div>
+          <div class="timeline-item">
+            <span class="phase">第三阶段：融合期（第 165-264 天）</span>
+            <p>预测导向，精准突破。把省委书记讲话、省政府重点工作、全国基层创新案例融入答案。每日关注「预测考题」板块，提前储备新题型答题思路。</p>
+          </div>
+          <div class="timeline-item">
+            <span class="phase">第四阶段：冲刺期（第 265-334 天）</span>
+            <p>查漏补缺，重点突破。针对薄弱题型（如发言稿、工作提示、基层体悟）集中训练，打磨个人基层案例库。回看预测板块中未覆盖的方向。</p>
+          </div>
+          <div class="timeline-item red">
+            <span class="phase">第五阶段：决战期（第 335-363 天）</span>
+            <p>全真模拟，保持手感。按考试时间完整模拟，回顾错题和保存的答案，调整心态，确保最佳状态应考。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-note">LILY 工作台 · 每日凌晨 6:00 自动更新 · 今日生成时间：2026-07-28 · 所有板块每日刷新 · 答案仅保存在本机浏览器中</p>
+  </main>
+
+  <script>
+    // 倒计时
+    const today = new Date();
+    const target = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 363, 9, 0, 0);
+    document.getElementById('target-date').textContent = target.getFullYear() + '年' + (target.getMonth()+1) + '月' + target.getDate() + '日';
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = target - now;
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '0';
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-minutes').textContent = '00';
+        document.getElementById('cd-seconds').textContent = '00';
+        return;
+      }
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((diff % (1000*60)) / 1000);
+      document.getElementById('cd-days').textContent = days;
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+      document.getElementById('cd-minutes').textContent = String(minutes).padStart(2,'0');
+      document.getElementById('cd-seconds').textContent = String(seconds).padStart(2,'0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 导航高亮
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 100;
+        if (scrollY >= top) current = sec.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    });
+
+    // 素材标签切换
+    function switchMaterial(id) {
+      document.querySelectorAll('.material-content').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.material-tabs button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    // 本地存储答题
+    const dateKey = 'lily-' + today.toISOString().slice(0,10);
+    function loadAnswers() {
+      for (let i=1; i<=3; i++) {
+        const saved = localStorage.getItem(dateKey + '-answer-' + i);
+        if (saved) {
+          document.getElementById('answer-' + i).value = saved;
+          document.getElementById('saved-' + i).textContent = '✓ 已保存';
+        }
+      }
+      const tasks = JSON.parse(localStorage.getItem(dateKey + '-tasks') || '[]');
+      tasks.forEach(taskId => {
+        const cb = document.querySelector('.task-check[data-task="' + taskId + '"]');
+        if (cb) {
+          cb.checked = true;
+          cb.nextElementSibling.classList.add('done');
+        }
+      });
+    }
+    function saveAnswer(n) {
+      const val = document.getElementById('answer-' + n).value;
+      localStorage.setItem(dateKey + '-answer-' + n, val);
+      document.getElementById('saved-' + n).textContent = '✓ 已保存 ' + new Date().toLocaleTimeString();
+    }
+    function toggleReference(n) {
+      const ref = document.getElementById('ref-' + n);
+      ref.classList.toggle('show');
+      event.target.textContent = ref.classList.contains('show') ? '隐藏参考答案' : '查看参考答案';
+    }
+    document.querySelectorAll('.task-check').forEach(cb => {
+      cb.addEventListener('change', () => {
+        const taskId = cb.getAttribute('data-task');
+        let tasks = JSON.parse(localStorage.getItem(dateKey + '-tasks') || '[]');
+        if (cb.checked) {
+          if (!tasks.includes(taskId)) tasks.push(taskId);
+          cb.nextElementSibling.classList.add('done');
+        } else {
+          tasks = tasks.filter(id => id !== taskId);
+          cb.nextElementSibling.classList.remove('done');
+        }
+        localStorage.setItem(dateKey + '-tasks', JSON.stringify(tasks));
+      });
+    });
+    loadAnswers();
+  </script>
+</body>
+</html>
