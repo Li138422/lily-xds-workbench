@@ -299,138 +299,117 @@
       margin-bottom: 1rem;
     }
     .prediction-zone h4 { color: #92400e; margin-bottom: 0.6rem; }
-    .prediction-zone .q-body { background: #fff; }
     .prediction-zone .framework {
-      background: #fefce8;
-      border: 1px dashed #f59e0b;
-      border-radius: 6px;
-      padding: 0.6rem 0.8rem;
-      margin-top: 0.5rem;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 0.8rem;
+      margin-top: 0.8rem;
       font-size: 0.9rem;
+      color: var(--dark-green);
     }
 
     .panorama-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 0.8rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
     }
     .panorama-cat {
       background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1rem;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 0.9rem;
       box-shadow: var(--shadow);
     }
-    .panorama-cat h4 {
-      font-size: 0.95rem;
-      color: var(--dark-green);
-      margin-bottom: 0.4rem;
-      padding-bottom: 0.3rem;
-      border-bottom: 2px solid var(--light-green);
-    }
-    .panorama-cat ul {
-      list-style: none;
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-    }
-    .panorama-cat li {
-      padding: 0.15rem 0;
-      padding-left: 0.8rem;
-      position: relative;
-    }
-    .panorama-cat li::before {
-      content: "·";
-      position: absolute;
-      left: 0;
-      color: var(--primary-green);
-      font-weight: bold;
-    }
+    .panorama-cat h4 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--dark-green); }
+    .panorama-cat ul { margin-left: 1.2rem; font-size: 0.85rem; }
+    .panorama-cat li { margin-bottom: 0.25rem; }
 
-    .timeline {
-      position: relative;
-      padding-left: 1.5rem;
-    }
+    .timeline { position: relative; padding-left: 1.5rem; }
     .timeline::before {
       content: "";
       position: absolute;
-      left: 0.4rem;
-      top: 0.3rem;
-      bottom: 0.3rem;
-      width: 2px;
-      background: var(--border);
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--light-green), var(--primary-green), var(--dark-green), var(--accent-red));
     }
     .timeline-item {
       position: relative;
-      margin-bottom: 1rem;
-      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+      padding-left: 1.2rem;
     }
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -1.15rem;
-      top: 0.35rem;
-      width: 10px;
-      height: 10px;
+      left: -1.55rem;
+      top: 0.3rem;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background: var(--primary-green);
       border: 2px solid white;
-      box-shadow: 0 0 0 2px var(--primary-green);
     }
-    .timeline-item.red::before { background: var(--accent-red); box-shadow: 0 0 0 2px var(--accent-red); }
-    .timeline-item .phase { font-weight: 700; color: var(--dark-green); }
+    .timeline-item.red::before { background: var(--accent-red); }
+    .phase { font-weight: 700; font-size: 0.95rem; color: var(--dark-green); }
     .timeline-item.red .phase { color: var(--dark-red); }
+    .timeline-item p { margin-top: 0.3rem; font-size: 0.9rem; color: var(--text-secondary); }
+
+    .update-notice {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      color: var(--dark-red);
+      text-align: center;
+      padding: 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-bottom: 1px solid #fecaca;
+    }
+    .public-url-notice {
+      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+      color: var(--dark-green);
+      text-align: center;
+      padding: 0.6rem;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #a7f3d0;
+    }
+    .public-url-notice a {
+      color: var(--dark-green);
+      font-weight: 700;
+      text-decoration: underline;
+    }
 
     .footer-note {
       text-align: center;
       color: var(--text-secondary);
-      font-size: 0.85rem;
-      margin-top: 2rem;
-      padding-top: 1rem;
+      font-size: 0.75rem;
+      padding: 1.5rem;
       border-top: 1px solid var(--border);
+      margin-top: 2rem;
     }
 
-    .update-notice {
-      background: var(--light-red);
-      color: var(--dark-red);
-      text-align: center;
-      padding: 0.5rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-    .public-url-notice {
-      background: var(--light-green);
-      color: var(--dark-green);
-      text-align: center;
-      padding: 0.5rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      word-break: break-all;
-    }
-    .public-url-notice a {
-      color: var(--dark-green);
-      text-decoration: underline;
-    }
-
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       header h1 { font-size: 1.5rem; }
       .countdown-item { min-width: 65px; padding: 0.6rem 0.8rem; }
       .countdown-item .num { font-size: 1.5rem; }
-      main { padding: 1rem 0.8rem 3rem; }
       .article-grid { grid-template-columns: 1fr; }
       .panorama-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="update-notice">🔴 每日凌晨 6:00 自动更新 · 今日任务、时政、资源、素材、真题、预测全部刷新</div>
-  <div class="public-url-notice">📱 手机访问：<a href="https://lily-xds-workbench-tpzfidkz.edgeone.dev?eo_token=5ba543fc7ab849beebf085cfe70132df&eo_time=1785223367" target="_blank">https://lily-xds-workbench-tpzfidkz.edgeone.dev</a> · 每日自动重新部署</div>
+  <div class="update-notice">
+    🤖 <strong>全自动更新</strong> · 每日自动刷新内容 · 无需电脑开机 · 打开即最新
+    <span style="display:block;font-size:0.75rem;font-weight:normal;margin-top:2px;">倒计时+今日任务+时政+资源+素材+真题+预测全部每日自更新 · 2026-07-30 更新</span>
+  </div>
+  <div class="public-url-notice">📱 永久链接：<a href="https://li138422.github.io/lily-xds-workbench/" target="_blank">https://li138422.github.io/lily-xds-workbench/</a> · 无需电脑，手机打开即自动显示今天内容</div>
 
   <header>
     <h1>🌱 LILY 选调生备考工作台</h1>
     <p class="subtitle">2024届湖南选调生基层锻炼期满回城考试 · 每日一战</p>
     <div class="countdown-bar">
       <div class="countdown-item">
-        <span class="num red" id="cd-days">363</span>
+        <span class="num red" id="cd-days">361</span>
         <span class="label">天</span>
       </div>
       <div class="countdown-item">
@@ -446,7 +425,7 @@
         <span class="label">秒</span>
       </div>
     </div>
-    <p class="target-date">目标日期：<span id="target-date">2027年7月26日</span>（预计笔试时间）</p>
+    <p class="target-date">目标日期：2027年7月26日（预计笔试时间）</p>
   </header>
 
   <nav id="navbar">
@@ -456,188 +435,59 @@
     <a href="#materials">素材积累</a>
     <a href="#prediction">预测考题</a>
     <a href="#practice">真题演练</a>
+    <a href="#selection-exam">遴选考试</a>
     <a href="#panorama">乡镇工作全景</a>
     <a href="#past-exams">往年真题</a>
     <a href="#roadmap">备考路线图</a>
   </nav>
 
   <main>
-    <!-- ============ 每日任务与备考提醒 ============ -->
+    <!-- ============ 每日任务 ============ -->
     <section id="daily-plan">
       <h2 class="section-title red">📋 今日任务 & LILY 提醒</h2>
-      <div class="card">
+      <div class="card" id="daily-task-card">
         <div class="card-header">
-          <span class="card-title">Day 1 · 备考启动日</span>
+          <span class="card-title" id="task-header-title">Day X · 任务标题</span>
           <span class="badge badge-red">今日重点</span>
         </div>
-        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">从今天开始，LILY 陪你系统备考。第一天先立住方向和节奏，不求多但求稳。</p>
-        <ul class="task-list" id="today-tasks">
-          <li>
-            <input type="checkbox" class="task-check" data-task="1">
-            <span class="task-text">通读今日时政 3 篇，重点标记省委书记沈晓明7月讲话关键词（安全生产/基层减负/防汛）<span class="priority priority-high">高</span></span>
-          </li>
-          <li>
-            <input type="checkbox" class="task-check" data-task="2">
-            <span class="task-text">完成今日 3 道真题演练，手写或键入答案后保存（每题限时25分钟）<span class="priority priority-high">高</span></span>
-          </li>
-          <li>
-            <input type="checkbox" class="task-check" data-task="3">
-            <span class="task-text">浏览「预测考题」板块，了解明年可能出现的题型方向和热点话题<span class="priority priority-high">高</span></span>
-          </li>
-          <li>
-            <input type="checkbox" class="task-check" data-task="4">
-            <span class="task-text">阅读「素材积累」中乡村振兴、矛盾调解、安全生产三个模块，各记 2 个金句/案例<span class="priority priority-mid">中</span></span>
-          </li>
-          <li>
-            <input type="checkbox" class="task-check" data-task="5">
-            <span class="task-text">浏览「乡镇工作全景图」，了解乡镇工作全貌，建立系统认知<span class="priority priority-mid">中</span></span>
-          </li>
-          <li>
-            <input type="checkbox" class="task-check" data-task="6">
-            <span class="task-text">整理自己的基层工作案例库：列出 3 件最具代表性的工作（角色、举措、成效）<span class="priority priority-low">低</span></span>
-          </li>
-        </ul>
+        <p style="margin-bottom:0.8rem;color:var(--text-secondary);" id="task-intro"></p>
+        <ul class="task-list" id="today-tasks"></ul>
       </div>
 
-      <div class="card">
+      <div class="card" id="reminder-card">
         <div class="card-header">
           <span class="card-title">💡 LILY 今日提醒</span>
           <span class="badge badge-green">每日更新</span>
         </div>
-        <p>1. <strong style="color:var(--dark-red);">不要囤资料，先建立框架。</strong> 湖南近三年题型明显从"宏观论述"转向"基层实务"，答题一定要落地、有场景、有举措。</p>
-        <p style="margin-top:0.5rem;">2. <strong style="color:var(--dark-green);">从今天开始，每日必看「预测考题」板块。</strong> 结合全国基层治理新趋势和湖南实际，预判明年可能的命题方向。</p>
-        <p style="margin-top:0.5rem;">3. <strong>时政不是死记硬背。</strong> 沈晓明书记 7 月常委会强调"应消合一"机制、基层减负、和美湘村——这些都是明年考题的"题眼"。</p>
-        <p style="margin-top:0.5rem;">4. <strong>基层案例是硬通货。</strong> 你的帮扶计划、矛盾调解、防汛防火经历，最后都要变成卷面上的"具体工作事例"。</p>
+        <div id="reminder-content"></div>
       </div>
     </section>
 
     <!-- ============ 时政推送 ============ -->
     <section id="current-affairs">
       <h2 class="section-title">📰 时政推送 · 湖南重点 + 全国基层</h2>
-      <div class="article-grid">
-        <div class="article-card">
-          <div>
-            <h4>沈晓明主持召开省委常委会：以严实作风坚决守牢安全底线</h4>
-            <p class="meta">来源：湖南日报 · 2026-07-16</p>
-            <div class="tags"><span class="badge badge-red">重点</span> <span class="badge badge-green">安全生产</span></div>
-          </div>
-          <a href="https://blfj.yueyang.gov.cn/11696/content_2389372.html" target="_blank" class="btn-green">阅读原文</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <h4>沈晓明：以万全之策确保防汛万无一失（省委常委会7.9）</h4>
-            <p class="meta">来源：华声在线/腾讯新闻 · 2026-07-09</p>
-            <div class="tags"><span class="badge badge-red">热点</span> <span class="badge badge-green">防汛</span></div>
-          </div>
-          <a href="https://new.qq.com/rain/a/20260709A09LQR00" target="_blank" class="btn-green">阅读原文</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <h4>湖南省印发《"向县放权"实施方案》，破解县域发展体制障碍</h4>
-            <p class="meta">来源：湖南省发改委 · 2026-07-20</p>
-            <div class="tags"><span class="badge badge-green">基层赋能</span> <span class="badge badge-orange">放管服</span></div>
-          </div>
-          <a href="https://fgw.hunan.gov.cn/fgw/xxgk_70899/zcfg/dfxfg/202607/t20260720_34029853.html" target="_blank" class="btn-green">阅读原文</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <h4>全省地质灾害风险隐患排查和防范应对工作部署会召开</h4>
-            <p class="meta">来源：湖南省人民政府网 · 2026-07-20</p>
-            <div class="tags"><span class="badge badge-red">应急</span> <span class="badge badge-orange">地质灾害</span></div>
-          </div>
-          <a href="https://hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202607/t20260720_34029645.html" target="_blank" class="btn-green">阅读原文</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <h4>永寿县"全响应、立即办"网格化模式筑牢乡村振兴治理根基</h4>
-            <p class="meta">来源：陕西党建网 · 2026</p>
-            <div class="tags"><span class="badge badge-green">全国基层</span> <span class="badge badge-orange">网格治理</span></div>
-          </div>
-          <a href="https://www.sx-dj.gov.cn/ztzl/zdjcxczx/2028359379949211649.html" target="_blank" class="btn-green">阅读原文</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <h4>协同发力完善基层社会治理体系（数字赋能+权责清单）</h4>
-            <p class="meta">来源：金华新闻网-理论 · 2026</p>
-            <div class="tags"><span class="badge badge-green">全国基层</span> <span class="badge badge-orange">数字治理</span></div>
-          </div>
-          <a href="http://www.jhxww.net/cn/lilun/info_48.aspx?itemid=183067" target="_blank" class="btn-green">阅读原文</a>
-        </div>
-      </div>
+      <div class="article-grid" id="affairs-grid"></div>
     </section>
 
     <!-- ============ 学习资源 ============ -->
     <section id="resources">
       <h2 class="section-title">📚 学习资源 · 每日精选</h2>
-      <div class="article-grid">
-        <div class="article-card">
-          <div>
-            <h4>选调札记：我在蒲荡夏村的"扎根记"</h4>
-            <p class="meta">来源：共产党员网-先锋文汇 · 选调生驻村感悟</p>
-            <div class="tags"><span class="badge badge-green">基层感悟</span> <span class="badge badge-orange">范文</span></div>
-          </div>
-          <a href="https://tougao.12371.cn/gaojian.php?tid=6420801" target="_blank" class="btn-outline">阅读原文</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <h4>用"三心"书写驻村工作"答卷"</h4>
-            <p class="meta">来源：南京党建 · 选调生工作方法</p>
-            <div class="tags"><span class="badge badge-green">驻村工作</span> <span class="badge badge-orange">方法论</span></div>
-          </div>
-          <a href="https://www.njzdj.gov.cn/2023/0316/21874.html" target="_blank" class="btn-outline">阅读原文</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <h4>选调生日志丨常"行"好事 用"心"驻村</h4>
-            <p class="meta">来源：谯城组工 · 基层实务案例</p>
-            <div class="tags"><span class="badge badge-green">基层实务</span> <span class="badge badge-orange">法治乡村</span></div>
-          </div>
-          <a href="https://www.qcdj.gov.cn/e/action/ShowInfo.php?classid=65&id=15728" target="_blank" class="btn-outline">阅读原文</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <h4>2026年选调生考试备考指南与真题解析</h4>
-            <p class="meta">来源：book118 · 全面备考策略</p>
-            <div class="tags"><span class="badge badge-green">备考指南</span> <span class="badge badge-orange">方法论</span></div>
-          </div>
-          <a href="https://max.book118.com/html/2026/0420/6134014112012124.shtm" target="_blank" class="btn-outline">阅读原文</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <h4>坚决打赢安全生产主动战攻坚战持久战</h4>
-            <p class="meta">来源：湖南省应急管理厅 · 2026-05-13</p>
-            <div class="tags"><span class="badge badge-green">安全生产</span> <span class="badge badge-red">重点</span></div>
-          </div>
-          <a href="https://yjt.hunan.gov.cn/yjt/tszt/ywzl/aqsczbgjsnxd/202605/t20260513_33976066.html" target="_blank" class="btn-outline">阅读原文</a>
-        </div>
-
-        <div class="article-card">
-          <div>
-            <h4>数字技术凝合流动的乡土中国（清华公共管理学院）</h4>
-            <p class="meta">来源：今日头条/清华大学 · 2026</p>
-            <div class="tags"><span class="badge badge-green">数字乡村</span> <span class="badge badge-orange">前沿</span></div>
-          </div>
-          <a href="https://www.toutiao.com/article/7644131627777540617" target="_blank" class="btn-outline">阅读原文</a>
-        </div>
-      </div>
+      <div class="article-grid" id="resources-grid"></div>
     </section>
 
     <!-- ============ 素材积累 ============ -->
     <section id="materials">
       <h2 class="section-title">🧱 素材积累 · 基层工作实务</h2>
+      <div class="card" id="daily-materials-card" style="margin-bottom:1rem;">
+        <div class="card-header">
+          <span class="card-title">📌 今日重点素材 · Day <span id="material-day"></span></span>
+          <span class="badge badge-green">每日更新</span>
+        </div>
+        <div id="daily-materials"></div>
+      </div>
       <div class="card">
         <div class="material-tabs">
-          <button class="active" onclick="switchMaterial('xczx')">乡村振兴</button>
-          <button onclick="switchMaterial('fxaq')">防汛防火·安全生产</button>
+          <button class="active" onclick="switchMaterial('fxaq')">防汛防火·安全生产</button>
           <button onclick="switchMaterial('mftj')">矛盾调解·枫桥经验</button>
           <button onclick="switchMaterial('djxc')">党建·宣传·舆情</button>
           <button onclick="switchMaterial('hjzz')">人居环境·农业</button>
@@ -646,52 +496,39 @@
           <button onclick="switchMaterial('yjgl')">应急管理</button>
         </div>
 
-        <div id="xczx" class="material-content active">
-          <div class="material-item">
-            <h5>【政策锚点】乡村振兴总要求 + "和美湘村"</h5>
-            <p>产业兴旺、生态宜居、乡风文明、治理有效、生活富裕。"五个振兴"（产业、人才、文化、生态、组织）。湖南特色：建设宜居宜业"和美湘村"，深入学习运用"千万工程"经验。</p>
-          </div>
-          <div class="material-item">
-            <h5>【湖南最新】沈晓明 2026.7 省委常委会强调</h5>
-            <p>坚决扛牢粮食安全政治责任，健全高标准农田管护体系，落细落实藏粮于地、藏粮于技战略。因地制宜建设宜居宜业"和美湘村"。深入整治形式主义为基层减负赋能。</p>
-          </div>
-          <div class="material-item">
-            <h5>【金句】</h5>
-            <ul>
-              <li>"乡村振兴，关键是把基层党组织建好建强。"</li>
-              <li>"五级书记抓乡村振兴"是政治责任。</li>
-              <li>"联农带农机制"是实现稳定增收的关键抓手。</li>
-              <li>"因地制宜发展新型农村集体经济。"</li>
-            </ul>
-          </div>
-          <div class="material-item">
-            <h5>【案例】彬州市龙高镇：党建"红色引擎"驱动乡村全面振兴</h5>
-            <p>党支部+合作社+农户模式；党员产业带头人 39 名；划分 47 个网格，党员网格员化解矛盾纠纷 39 起。</p>
-          </div>
-        </div>
+        <div id="fxaq" class="material-content active">
 
-        <div id="fxaq" class="material-content">
           <div class="material-item">
-            <h5>【最新政策】沈晓明强调安全生产（2026.7.16省委常委会）</h5>
+            <h5>【最新政策】省委常委会：安全生产"应消合一"</h5>
             <ul>
               <li>清醒认识当前安全生产严峻形势，深刻汲取各类事故教训</li>
               <li>扎实开展消防领域突出风险隐患集中攻坚</li>
               <li>加快完善基层应急消防治理体系，探索乡镇"应消合一"机制</li>
-              <li>统筹抓好重点行业领域安全防范，以"零容忍"态度打非治违</li>
               <li>坚持防汛、抗旱两手抓</li>
+              <li>湘江大讲堂专题部署安全生产和应急管理能力提升</li>
             </ul>
           </div>
           <div class="material-item">
-            <h5>【工作口诀】防汛"四预"+"631"机制</h5>
-            <p>预报、预判、预警、预案、预演（湖南"五预贯通"）。"631"预报预警叫应机制：提前6小时预报暴雨落区、提前3小时预警、提前1小时叫应。基层答题可写：早部署、早排查、早整治、早演练。</p>
+            <h5>【最新政策】正确政绩观专题党课："新官理旧账"</h5>
+            <ul>
+              <li>坚持新官理旧账，一任接着一任干、一张蓝图绘到底</li>
+              <li>敢于做"吃力不讨好"但事业发展需要的事</li>
+              <li>甘愿做为后人打基础、利长远的事</li>
+              <li>坚持清存量和遏增量相结合，依法依规建章立制</li>
+              <li>不搞"一刀切"，尽力而为、量力而行</li>
+            </ul>
+          </div>
+          <div class="material-item">
+            <h5>【工作口诀】防汛"五预贯通"+"631"叫应机制</h5>
+            <p>预报、预判、预警、预案、预演。"631"：提前6小时预报暴雨落区、提前3小时预警、提前1小时叫应。答题可写：早部署、早排查、早整治、早演练。</p>
           </div>
           <div class="material-item">
             <h5>【湖南特色】地质灾害"四个一律"</h5>
-            <p>明确"四个一律"要求：全员提前转移、白天转移、应转尽转。聚焦"一切、两线、三沿、四临"重点区域（切坡建房、公路铁路沿线、沿河沿溪沿库、临崖临水临坡临沟）。</p>
+            <p>全员提前转移、白天转移、应转尽转。聚焦"一切、两线、三沿、四临"重点区域。</p>
           </div>
           <div class="material-item">
             <h5>【防火】森林防灭火要点</h5>
-            <p>宣传入户、以案释法、隐患排查、重点人群包保、应急队伍备勤、物资储备、值班值守、火情"打早打小打了"。</p>
+            <p>宣传入户、以案释法、隐患排查、重点人群包保、应急队伍备勤、火情"打早打小打了"。</p>
           </div>
         </div>
 
@@ -712,22 +549,14 @@
           </div>
           <div class="material-item">
             <h5>【案例】马鞍山博望区"叶家·连心桥"工作法</h5>
-            <p>村党支部-网格党小组-党员中心户三级联动；"连心桥调解室"汇聚老党员、乡贤、法律明白人；2026年化解矛盾70余起，化解率98%。</p>
-          </div>
-          <div class="material-item">
-            <h5>【案例】井冈山厦坪镇"乡土智慧"调解</h5>
-            <p>常态化入户听诉、镇村网格三级联动、多部门信息互通、限时办结、事后回访；矛盾纠纷综合化解率98%。</p>
+            <p>村党支部-网格党小组-党员中心户三级联动；"连心桥调解室"汇聚老党员、乡贤、法律明白人；化解矛盾70余起，化解率98%。</p>
           </div>
         </div>
 
         <div id="djxc" class="material-content">
           <div class="material-item">
             <h5>【党建】大抓基层鲜明导向</h5>
-            <p>深入推进抓党建促乡村振兴；持续深化党建引领基层治理；加强新经济组织、新社会组织、新就业群体党的建设。健全"乡镇党委—村党支部—网格党小组—党员中心户"四级架构。</p>
-          </div>
-          <div class="material-item">
-            <h5>【党建动态】沈晓明 2026.7.9 常委会</h5>
-            <p>夯实基层基础，健全上下贯通、执行有力的组织体系，深化党建引领基层治理，增强基层党组织政治功能和组织功能。注重在大战大考、一线火线考察识别干部。</p>
+            <p>深入推进抓党建促乡村振兴；持续深化党建引领基层治理。健全"乡镇党委—村党支部—网格党小组—党员中心户"四级架构。</p>
           </div>
           <div class="material-item">
             <h5>【宣传】基层宣传"三贴近"</h5>
@@ -750,7 +579,7 @@
             <p>厕所革命、生活垃圾治理、生活污水治理、村容村貌提升、长效管护机制。湖南：农村人居环境整治提升五年行动。</p>
           </div>
           <div class="material-item">
-            <h5>【方法】人居环境"清脏、治乱、增绿、提质"</h5>
+            <h5>【方法】"清脏、治乱、增绿、提质"</h5>
             <ul>
               <li>清脏：垃圾、沟渠淤泥、农业废弃物</li>
               <li>治乱：乱堆乱放、违章搭建、线缆杂乱</li>
@@ -759,12 +588,8 @@
             </ul>
           </div>
           <div class="material-item">
-            <h5>【案例】南阳西峡二郎坪镇：党建引领绘就和美乡村</h5>
-            <p>三级联动网格管理、党员责任区、群众协商共议、门前三包、美丽庭院挂牌、积分兑换。</p>
-          </div>
-          <div class="material-item">
             <h5>【农业】粮食安全</h5>
-            <p>藏粮于地、藏粮于技；严守耕地红线；调动农民种粮积极性；湖南作为水稻主产区，关注高标准农田建设、种业创新、农机社会化服务。</p>
+            <p>藏粮于地、藏粮于技；严守耕地红线；湖南作为水稻主产区，关注高标准农田建设、种业创新、农机社会化服务。</p>
           </div>
         </div>
 
@@ -772,7 +597,7 @@
           <div class="material-item">
             <h5>【基层感悟写作框架】</h5>
             <ul>
-              <li>破题：从一件具体小事切入（方言、��访、矛盾、项目）</li>
+              <li>破题：从一件具体小事切入（方言、走访、矛盾、项目）</li>
               <li>转变：从"外来人"到"自家人"，从"书本"到"泥土"</li>
               <li>方法：跟学、实干、担当、创新</li>
               <li>升华：把个人成长融入乡村振兴、基层治理大局</li>
@@ -788,10 +613,6 @@
             </ul>
           </div>
           <div class="material-item">
-            <h5>【经验】选调生成长"三心"</h5>
-            <p>不忘初心（担当品格）、坚定信心（钉钉子精神）、融入真心（为民情怀）。</p>
-          </div>
-          <div class="material-item">
             <h5>【实战方法】"六小"工作法</h5>
             <p>排查小隐患、调解小纠纷、改善小环境、解决小问题、办理小事情、满足小心愿。践行"早、快、融、实、稳、准"六字真言。</p>
           </div>
@@ -801,13 +622,12 @@
           <div class="material-item">
             <h5>【民生保障】乡镇民生工作全景</h5>
             <ul>
-              <li>低保/特困人员救助供养：动态管理、应保尽保、应退尽退</li>
-              <li>医保参保/大病救助：参保缴费、异地就医备案、医疗救助</li>
-              <li>养老保险：城乡居民养老保险参保、待遇领取资格认证</li>
+              <li>低保/特困人员救助供养：动态管理、应保尽保</li>
+              <li>医保参保/大病救助：参保缴费、异地就医备案</li>
               <li>残疾人服务：两项补贴、辅具适配、无障碍改造</li>
-              <li>留守儿童/困境儿童关爱保护：探访巡查、监护责任落实</li>
-              <li>退役军人服务：优抚安置、光荣牌悬挂、就业创业扶持</li>
-              <li>就业帮扶：扶贫车间、公益岗位、技能培训、招聘对接</li>
+              <li>留守儿童/困境儿童关爱：探访巡查、监护责任落实</li>
+              <li>退役军人服务：优抚安置、就业创业扶持</li>
+              <li>就业帮扶：扶贫车间、公益岗位、技能培训</li>
             </ul>
           </div>
           <div class="material-item">
@@ -815,7 +635,6 @@
             <ul>
               <li>"小康不小康，关键看老乡；共富不共富，关键看兜底。"</li>
               <li>"织密扎牢社会保障安全网，不让一个困难群众掉队。"</li>
-              <li>"就业是最大的民生工程、民心工程、根基工程。"</li>
             </ul>
           </div>
         </div>
@@ -827,169 +646,58 @@
               <li>防汛抗旱：预案编制、物资储备、队伍组建、应急演练、转移避险</li>
               <li>森林防灭火：火源管控、巡查巡护、扑火队伍、值班值守</li>
               <li>地质灾害防治：隐患点排查、监测预警、群测群防</li>
-              <li>消防：打通"生命通道"、九小场所排查、电动车充电管理</li>
-              <li>食品安全：农村集体聚餐备案、学校食堂检查、野生菌中毒防控</li>
-              <li>道路交通安全：农村道路隐患排查、劝导站建设</li>
+              <li>消防：打通"生命通道"、九小场所排查</li>
+              <li>食品安全：农村集体聚餐备案、学校食堂检查</li>
             </ul>
           </div>
           <div class="material-item">
-            <h5>【湖南最新】"应消合一"机制探索</h5>
-            <p>沈晓明 2026.7.16 强调：加快完善基层应急消防治理体系，积极探索乡镇（街道）"应消合一"机制，加强网格资源整合。这是湖南基层应急管理改革的新方向，极有可能成为明年考点。</p>
+            <h5>【湖南最新】"应消合一"机制探索 + 台风"红霞"防汛实战</h5>
+            <p>省委常委会+湘江大讲堂：加快完善基层应急消防治理体系，积极探索乡镇"应消合一"机制。台风"红霞"来袭，湖南启动洪水防御三级应急响应，"631"机制+"四个一律"得到实战检验。第12号省总河长令要求管好"盛水的盆"、护好"盆中的水"。这是湖南基层应急管理改革新方向，极可能成为明年考点。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 预测考题（NEW） ============ -->
+    <!-- ============ 预测考题 ============ -->
     <section id="prediction">
       <h2 class="section-title red">🔮 预测考题 · 每日方向研判</h2>
       <p style="margin-bottom:1rem;color:var(--text-secondary);">结合全国基层治理最新部署、湖南省委近期重点工作、各省选调生考试趋势，每日预判明年可能的命题方向。</p>
-
-      <div class="prediction-zone">
-        <h4>预测方向一：基层应急消防治理体系改革——"应消合一"</h4>
-        <div class="q-body">
-          <strong>预测理由：</strong>沈晓明7月16日省委常委会首次提出探索乡镇"应消合一"机制，这是湖南基层治理的重大改革方向。结合2026年全国安全生产形势严峻，此类实务操作题极可能成为2027年新题型。<br><br>
-          <strong>预测题型：</strong>实务操作题（15-20分）<br>
-          <strong>预测题目：</strong>你所在乡镇被确定为"应消合一"改革试点单位，领导安排你负责起草实施方案。请列出该方案的主要内容框架，并就如何整合现有网格资源提出具体建议。
-        </div>
-        <div class="framework">
-          <strong>答题框架提示：</strong>①机构整合：应急办+消防工作站合署办公 ②队伍整合：专职消防队+民兵应急排+网格员 ③平台整合：统一指挥调度系统 ④网格融合：将安全生产、消防、防灾减灾纳入网格员职责清单 ⑤机制创新：日常巡查-隐患上报-分级处置-闭环管理
-        </div>
-      </div>
-
-      <div class="prediction-zone">
-        <h4>预测方向二：向县放权与基层赋能——"权责匹配"</h4>
-        <div class="q-body">
-          <strong>预测理由：</strong>湖南省2026年7月印发《"向县放权"实施方案》，涉及基层治理权限重塑。"小马拉大车"一直是基层减负的核心议题，2027年考试极可能出现在此背景下的分析题或对策题。<br><br>
-          <strong>预测题型：</strong>综合分析/对策建议题（15-20分）<br>
-          <strong>预测题目：</strong>当前乡镇普遍存在"属地管理"泛化、"有责无权"等问题。结合湖南省"向县放权"实施方案，谈谈你对理顺乡镇权责关系的认识，并提出具体建议。
-        </div>
-        <div class="framework">
-          <strong>答题框架提示：</strong>①问题剖析：属地管理泛化表现、权责不对等现象、基层承接能力不足 ②放权原则：精准赋能、宜放则放、权责一致、闭环管理 ③关键举措：编制乡镇权责清单、建立"乡呼县应"机制、推动资源同步下沉 ④保障：赋予乡镇对派驻机构的人事建议权和考核评价权
-        </div>
-      </div>
-
-      <div class="prediction-zone">
-        <h4>预测方向三：数字乡村与基层治理现代化</h4>
-        <div class="q-body">
-          <strong>预测理由：</strong>2026年中央一号文件强调"实施数字乡村高质量发展行动"。全国多地推广"一网统管""村级服务平台"等数字化治理工具。此类题目考查选调生对新技术的理解和在基层场景中的应用能力，是各省选调考试的新宠。<br><br>
-          <strong>预测题型：</strong>发言稿/工作方案题（15-20分）<br>
-          <strong>预测题目：</strong>你镇拟在全镇推广网格化数字治理平台，但部分村干部和老年群众存在抵触情绪。你作为具体负责人，需要在全镇推进会上作动员发言。请撰写发言稿要点（不超过500字），重点回应基层干部的顾虑。
-        </div>
-        <div class="framework">
-          <strong>答题框架提示：</strong>①开场：基层治理现代化的必然要求 ②打消顾虑：数字平台不是"增负"而是"提效"，举例说明（一键上报、数据共享、减少重复填表） ③回应老年群体关切：保留传统服务渠道、"线上+线下"双轨并行 ④实操安排：分步推广、试点先行、培训到位 ⑤号召：以数字化"减法"换取服务群众"加法"
-        </div>
-      </div>
+      <div id="predictions-container"></div>
     </section>
 
     <!-- ============ 真题演练 ============ -->
     <section id="practice">
       <h2 class="section-title red">✍️ 真题演练 · 每日三题</h2>
       <p style="margin-bottom:1rem;color:var(--text-secondary);">题目来源：湖南往年真题变形 + 各省选调生基层实务预测题 + 当日时政结合题。完成后点击"保存答案"，答案保存在本机浏览器。</p>
-
-      <div class="question-block" data-q="1">
-        <div class="q-header">
-          <span class="q-title">第 1 题 · 帮扶计划类</span>
-          <span class="q-score">15 分</span>
-        </div>
-        <div class="q-body">
-          你是某村驻村选调生，联系户张某因妻子重病致家庭收入锐减，且对帮扶政策不了解、存在"等靠要"思想。请你以村名义为其撰写一份帮扶计划。要求：目标明确、措施具体、责任到人、时限清晰。
-        </div>
-        <textarea class="answer-area" id="answer-1" placeholder="在此输入你的答案..."></textarea>
-        <div class="answer-actions">
-          <button class="btn-green" onclick="saveAnswer(1)">保存答案</button>
-          <button class="btn-outline" onclick="toggleReference(1)">查看参考答案</button>
-          <span class="saved-badge" id="saved-1"></span>
-        </div>
-        <div class="reference-answer" id="ref-1">
-          <h5>参考答案要点</h5>
-          <p><strong>一、基本情况</strong>：张某家庭人口、收入来源、支出困难、致困原因、思想状况。</p>
-          <p><strong>二、帮扶目标</strong>：短期（3个月内）解决基本生活和医疗保障；中期（1年内）实现稳定增收；长期（2年内）增强自我发展能力，消除"等靠要"思想。</p>
-          <p><strong>三、具体措施</strong>：</p>
-          <ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
-            <li>政策兜底：协助申请低保、医疗救助、防返贫保险，落实医保报销；</li>
-            <li>产业帮扶：因地制宜发展种养业或安排公益性岗位，落实产业奖补；</li>
-            <li>就业帮扶：提供技能培训信息，对接帮扶车间或就近就业；</li>
-            <li>教育引导：入户宣讲政策、树立典型，激发内生动力；</li>
-            <li>社会帮扶：联系结对帮扶干部、社会慈善资源。</li>
-          </ul>
-          <p><strong>四、责任分工</strong>：村支书统筹、驻村干部/选调生具体跟踪、帮扶责任人定期走访。</p>
-          <p><strong>五、时间安排</strong>：按月/季度列出节点，明确回访和评估机制。</p>
-        </div>
-      </div>
-
-      <div class="question-block" data-q="2">
-        <div class="q-header">
-          <span class="q-title">第 2 题 · 防汛+群众工作类</span>
-          <span class="q-score">15 分</span>
-        </div>
-        <div class="q-body">
-          汛期来临，你镇决定对某低洼地带群众进行转移避险。部分群众嫌安置点条件差、不愿转移，村干部因多次上门劝说无果也产生畏难情绪，更有干部认为"年年防汛都没事，这次也不会有事"。请提出你的工作思路和解决措施。
-        </div>
-        <textarea class="answer-area" id="answer-2" placeholder="在此输入你的答案..."></textarea>
-        <div class="answer-actions">
-          <button class="btn-green" onclick="saveAnswer(2)">保存答案</button>
-          <button class="btn-outline" onclick="toggleReference(2)">查看参考答案</button>
-          <span class="saved-badge" id="saved-2"></span>
-        </div>
-        <div class="reference-answer" id="ref-2">
-          <h5>参考答案要点</h5>
-          <p><strong>一、稳定队伍、统一认识</strong>：立即召开镇村防汛紧急会议，通报雨情水情和上级指令，明确"人民至上、生命至上"，严明防汛纪律，消除麻痹思想和畏难情绪。</p>
-          <p><strong>二、分类施策、柔性劝离</strong>：</p>
-          <ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
-            <li>干部带头：村两委干部、党员、人大代表率先转移亲属；</li>
-            <li>亲情动员：组织亲属、邻里、乡贤共同劝说；</li>
-            <li>改善条件：协调被褥、饮用水、医疗、孩童照护等；</li>
-            <li>解决后顾之忧：安排专人看管牲畜、转移贵重物资；</li>
-            <li>对拒不转移的，依法启动强制转移预案并全程录音录像。</li>
-          </ul>
-          <p><strong>三、闭环管理</strong>：建立转移人员台账，"不漏一户、不落一人"；安置点实行专人管理；风险解除后有序组织返回并开展灾情排查。</p>
-        </div>
-      </div>
-
-      <div class="question-block" data-q="3">
-        <div class="q-header">
-          <span class="q-title">第 3 题 · 基层减负体悟类</span>
-          <span class="q-score">20 分</span>
-        </div>
-        <div class="q-body">
-          结合你的基层锻炼实际，请谈谈当前基层减负赋能存在的突出问题，以及可采取的对策、建议。要求：问题具体、分析深入、对策可行。
-        </div>
-        <textarea class="answer-area" id="answer-3" placeholder="在此输入你的答案..."></textarea>
-        <div class="answer-actions">
-          <button class="btn-green" onclick="saveAnswer(3)">保存答案</button>
-          <button class="btn-outline" onclick="toggleReference(3)">查看参考答案</button>
-          <span class="saved-badge" id="saved-3"></span>
-        </div>
-        <div class="reference-answer" id="ref-3">
-          <h5>参考答案要点</h5>
-          <p><strong>一、突出问题</strong>：</p>
-          <ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
-            <li>表格报表多：同一数据多头报送、重复填报；</li>
-            <li>会议文件多：文山会海，抓落实时间少；</li>
-            <li>督查检查多：频次高、留痕要求重；</li>
-            <li>权责不匹配："小马拉大车"，乡镇有责无权；</li>
-            <li>指尖负担重：工作群、APP、打卡任务过多；</li>
-            <li>激励保障不足：晋升通道窄、容错纠错难。</li>
-          </ul>
-          <p><strong>二、对策建议</strong>：</p>
-          <ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
-            <li>精简规范：建立报表清单、会议审批、督查检查年度计划；</li>
-            <li>数字赋能：打通数据壁垒，"一次采集、多方共享"；</li>
-            <li>权责明晰：编制乡镇权责清单，依清单履职；</li>
-            <li>松绑增效：清理无意义的工作群、打卡、留痕；</li>
-            <li>激励关怀：落实工资待遇、晋升职级、容错纠错。</li>
-          </ul>
-          <p><strong>三、结合个人体会</strong>：举1-2个亲身经历的例子，增强说服力。</p>
-        </div>
-      </div>
+      <div id="practice-container"></div>
     </section>
 
-    <!-- ============ 乡镇工作全景图（NEW） ============ -->
+    <!-- ============ 遴选考试学习 ============ -->
+    <section id="selection-exam">
+      <h2 class="section-title">🎯 遴选考试学习 · 向上成长第二赛道</h2>
+      <p style="margin-bottom:1rem;color:var(--text-secondary);">遴选是基层锻炼期满后向上发展的重要通道。案例分析、公文写作、策论文、事务处理四大题型，与回城考试实务题高度相通，可同步积累。</p>
+      <div class="card" style="margin-bottom:1rem;">
+        <div class="card-header">
+          <span class="card-title">📌 遴选考试特点与备考要点</span>
+          <span class="badge badge-green">长期积累</span>
+        </div>
+        <ul style="margin-left:1.2rem;line-height:1.8;">
+          <li><strong>案例分析</strong>：给定基层治理/民生/党建材料，要求分析问题、提出对策——与回城考试实务题相通。</li>
+          <li><strong>公文写作</strong>：讲话稿、调研报告、通知、方案、纪要等，注重格式规范和语言庄重。</li>
+          <li><strong>策论文/议论文</strong>：围绕乡村振兴、基层治理、高质量发展等主题，要求立意高远、结构清晰、对策可行。</li>
+          <li><strong>事务处理</strong>：模拟机关日常事务，考察协调沟通、应急处突、综合协调能力。</li>
+        </ul>
+      </div>
+      <h3 style="font-size:1rem;margin:1rem 0 0.8rem;padding-left:0.8rem;border-left:3px solid var(--accent-red);">每日遴选一练</h3>
+      <div id="selection-container"></div>
+      <h3 style="font-size:1rem;margin:1.5rem 0 0.8rem;padding-left:0.8rem;border-left:3px solid var(--primary-green);">遴选学习资源</h3>
+      <div class="article-grid" id="selection-resources"></div>
+    </section>
+
+    <!-- ============ 乡镇工作全景图 ============ -->
     <section id="panorama">
       <h2 class="section-title">🏛️ 乡镇工作全景图 · 基层全部条线一览</h2>
       <p style="margin-bottom:1rem;color:var(--text-secondary);">梳理乡镇所有工作条线，帮助你建立完整的基层工作认知框架。每个条线都可能成为考试素材。</p>
-
       <div class="panorama-grid">
         <div class="panorama-cat">
           <h4>🏠 党的建设</h4>
@@ -1002,7 +710,6 @@
             <li>非公企业/社会组织党建</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>🌾 农业农村</h4>
           <ul>
@@ -1014,19 +721,17 @@
             <li>农机推广/种业/农技服务</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>⚡ 应急管理</h4>
           <ul>
             <li>防汛抗旱（预案/物资/队伍/演练）</li>
             <li>森林防灭火</li>
             <li>地质灾害防治</li>
-            <li>安全生产监管（烟花爆竹/矿山/危化品）</li>
-            <li>消防安全（九小场所/"应消合一"）</li>
+            <li>安全生产监管</li>
+            <li>消防安全（"应消合一"）</li>
             <li>道路交通安全</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>🤝 综治维稳</h4>
           <ul>
@@ -1038,7 +743,6 @@
             <li>重点人群服务管理</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>💚 民生保障</h4>
           <ul>
@@ -1050,11 +754,10 @@
             <li>就业帮扶（公益岗/扶贫车间）</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>🏗️ 城乡建设</h4>
           <ul>
-            <li>农村人居环境整治（厕所革命/垃圾/污水）</li>
+            <li>农村人居环境整治</li>
             <li>住房安全（危房改造/自建房排查）</li>
             <li>农村建房审批/宅基地管理</li>
             <li>村镇规划/美丽乡村建设</li>
@@ -1062,7 +765,6 @@
             <li>供水保障/电网改造</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>📣 宣传文化</h4>
           <ul>
@@ -1074,7 +776,6 @@
             <li>微信公众号/村级广播</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>🌿 生态环保</h4>
           <ul>
@@ -1086,7 +787,6 @@
             <li>生态修复/绿化造林</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>📊 经济发展</h4>
           <ul>
@@ -1098,7 +798,6 @@
             <li>乡村旅游/民宿发展</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>🏥 教科文卫</h4>
           <ul>
@@ -1110,7 +809,6 @@
             <li>科技特派员/科普</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>⚖️ 依法行政</h4>
           <ul>
@@ -1122,7 +820,6 @@
             <li>权责清单制度</li>
           </ul>
         </div>
-
         <div class="panorama-cat">
           <h4>👥 群团人武</h4>
           <ul>
@@ -1140,45 +837,42 @@
     <!-- ============ 往年真题 ============ -->
     <section id="past-exams">
       <h2 class="section-title">📂 往年真题 · 湖南选调生基层锻炼期满回城考试</h2>
-
       <div class="card">
         <div class="card-header">
-          <span class="card-title">2023 届湖南选调生基层锻炼期满考核笔试（考生回忆版）</span>
+          <span class="card-title">2023届湖南选调生基层锻炼期满考核笔试（考生回忆版）</span>
           <span class="badge badge-red">最新风向</span>
         </div>
-        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">考试时间：150 分钟 | 特点：题目新、题型实，从宏观论述转向基层实务。</p>
+        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">考试时间：150分钟 | 特点：题目新、题型实，从宏观论述转向基层实务。</p>
         <ol style="margin-left:1.2rem;">
-          <li style="margin-bottom:0.5rem;">为联系户撰写一份帮扶计划。（15 分）</li>
-          <li style="margin-bottom:0.5rem;">结合防汛工作，存在的群众有意见、村干部有情绪、干部也有情绪，提解决措施。（15 分）</li>
-          <li style="margin-bottom:0.5rem;">写一份党群工作服务中心的暑假工作提示。（15 分）</li>
-          <li style="margin-bottom:0.5rem;">写在安全生产整治过程中的下一步工作思路。（15 分）</li>
-          <li style="margin-bottom:0.5rem;">结合新时代枫桥经验，写一个你的具体工作事例。（20 分）</li>
-          <li>你外出学习了先进的乡村振兴经验，开讨论会，要做一个发言，推动乡村振兴工作。（20 分）</li>
+          <li style="margin-bottom:0.5rem;">为联系户撰写一份帮扶计划。（15分）</li>
+          <li style="margin-bottom:0.5rem;">结合防汛工作，存在的群众有意见、村干部有情绪、干部也有情绪，提解决措施。（15分）</li>
+          <li style="margin-bottom:0.5rem;">写一份党群工作服务中心的暑假工作提示。（15分）</li>
+          <li style="margin-bottom:0.5rem;">写在安全生产整治过程中的下一步工作思路。（15分）</li>
+          <li style="margin-bottom:0.5rem;">结合新时代枫桥经验，写一个你的具体工作事例。（20分）</li>
+          <li>你外出学习了先进的乡村振兴经验，开讨论会，要做一个发言。（20分）</li>
         </ol>
       </div>
-
       <div class="card">
         <div class="card-header">
-          <span class="card-title">2022 届湖南省选调生基层锻炼期满回省直单位笔试真题</span>
+          <span class="card-title">2022届湖南省选调生基层锻炼期满回省直单位笔试真题</span>
           <span class="badge badge-orange">体悟为主</span>
         </div>
-        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">考试时间：120 分钟</p>
+        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">考试时间：120分钟</p>
         <ol style="margin-left:1.2rem;">
-          <li style="margin-bottom:0.5rem;">刘某为新来的非定向选调生，工作一段时间后对未来感到担忧迷茫，给你写了一封信，请你回信。（20 分）</li>
-          <li style="margin-bottom:0.5rem;">第一问：基层工作中最具代表性的一件工作。①写明你的角色、举措以及成效等；②不能出现单位、个人真实信息等。（60 分）<br>第二问：结合三年工作经历，谈谈基层工作的感悟和体会。（20 分）</li>
+          <li style="margin-bottom:0.5rem;">刘某为新来的非定向选调生，工作一段时间后对未来感到担忧迷茫，给你写了一封信，请你回信。（20分）</li>
+          <li style="margin-bottom:0.5rem;">基层工作中最具代表性的一件工作：①写明你的角色、举措以及成效；②不能出现真实信息。谈谈基层工作的感悟和体会。（80分）</li>
         </ol>
       </div>
-
       <div class="card">
         <div class="card-header">
-          <span class="card-title">2021 届湖南省基层锻炼期满回省直、市直单位选调生笔试真题</span>
+          <span class="card-title">2021届湖南省基层锻炼期满回省直、市直单位选调生笔试真题</span>
           <span class="badge badge-green">乡村振兴</span>
         </div>
-        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">考试时间：150 分钟</p>
+        <p style="margin-bottom:0.8rem;color:var(--text-secondary);">考试时间：150分钟</p>
         <ol style="margin-left:1.2rem;">
-          <li style="margin-bottom:0.5rem;">结合你的工作实际与基层锻炼情况，请谈谈你对全面落实乡村振兴的认识。（20 分）</li>
-          <li style="margin-bottom:0.5rem;">根据你所在基层的锻炼情况，请谈谈当前基层减负赋能存在的突出问题，以及可采取的对策、建议。（20 分）</li>
-          <li>你新到一个单位，需要向领导汇报你在基层锻炼两年期间最具有亮点、最显成绩的工作，1000 字以上。①写明你的角色、举措、成效；②不能出现单位、个人真实信息等。（60 分）</li>
+          <li style="margin-bottom:0.5rem;">结合你的工作实际与基层锻炼情况，谈谈你对全面落实乡村振兴的认识。（20分）</li>
+          <li style="margin-bottom:0.5rem;">根据你所在基层的锻炼情况，谈谈当前基层减负赋能存在的突出问题以及对策建议。（20分）</li>
+          <li>你新到一个单位，需要向领导汇报你在基层锻炼两年期间最具有亮点、最显成绩的工作，1000字以上。（60分）</li>
         </ol>
       </div>
     </section>
@@ -1189,126 +883,1143 @@
       <div class="card">
         <div class="timeline">
           <div class="timeline-item">
-            <span class="phase">第一阶段：筑基期（第 1-64 天）</span>
-            <p>熟悉题型，建立素材库。每天 3 题以"看题+列提纲"为主，重点积累乡村振兴、基层治理、党建等模块金句和案例。同步建立个人基层案例库。</p>
+            <span class="phase">第一阶段：筑基期（第1-64天）</span>
+            <p>熟悉题型，建立素材库。每天3题以"看题+列提纲"为主，重点积累乡村振兴、基层治理、党建等模块金句和案例。</p>
           </div>
           <div class="timeline-item">
-            <span class="phase">第二阶段：强化期（第 65-164 天）</span>
-            <p>完整作答，限时训练。每题控制在 25-30 分钟内完成，每周进行一次"3 题连做"模拟，形成自己的答题模板。时政与答题深度融合。</p>
+            <span class="phase">第二阶段：强化期（第65-164天）</span>
+            <p>完整作答，限时训练。每题控制在25-30分钟内完成，每周进行一次"3题连做"模拟，形成自己的答题模板。</p>
           </div>
           <div class="timeline-item">
-            <span class="phase">第三阶段：融合期（第 165-264 天）</span>
-            <p>预测导向，精准突破。把省委书记讲话、省政府重点工作、全国基层创新案例融入答案。每日关注「预测考题」板块，提前储备新题型答题思路。</p>
+            <span class="phase">第三阶段：融合期（第165-264天）</span>
+            <p>预测导向，精准突破。把省委书记讲话、省政府重点工作、全国基层创新案例融入答案。每日关注「预测考题」板块。</p>
           </div>
           <div class="timeline-item">
-            <span class="phase">第四阶段：冲刺期（第 265-334 天）</span>
-            <p>查漏补缺，重点突破。针对薄弱题型（如发言稿、工作提示、基层体悟）集中训练，打磨个人基层案例库。回看预测板块中未覆盖的方向。</p>
+            <span class="phase">第四阶段：冲刺期（第265-334天）</span>
+            <p>查漏补缺，重点突破。针对薄弱题型集中训练，打磨个人基层案例库。回看预测板块中未覆盖的方向。</p>
           </div>
           <div class="timeline-item red">
-            <span class="phase">第五阶段：决战期（第 335-363 天）</span>
+            <span class="phase">第五阶段：决战期（第335-363天）</span>
             <p>全真模拟，保持手感。按考试时间完整模拟，回顾错题和保存的答案，调整心态，确保最佳状态应考。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <p class="footer-note">LILY 工作台 · 每日凌晨 6:00 自动更新 · 今日生成时间：2026-07-28 · 所有板块每日刷新 · 答案仅保存在本机浏览器中</p>
+    <p class="footer-note">LILY 工作台 · 每日自动更新 · 打开即今天 · 答案仅保存在本机浏览器 <span id="footer-date"></span></p>
   </main>
 
-  <script>
-    // 倒计时
-    const today = new Date();
-    const target = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 363, 9, 0, 0);
-    document.getElementById('target-date').textContent = target.getFullYear() + '年' + (target.getMonth()+1) + '月' + target.getDate() + '日';
+<script>
+// ============================================================
+//  LILY 工作台 · 自更新内容引擎
+//  无需服务器，无需电脑开机，打开页面即自动显示当天内容
+//  考试日期：2027-07-26（固定）
+//  起始日期：2026-07-28
+// ============================================================
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = target - now;
-      if (diff <= 0) {
-        document.getElementById('cd-days').textContent = '0';
-        document.getElementById('cd-hours').textContent = '00';
-        document.getElementById('cd-minutes').textContent = '00';
-        document.getElementById('cd-seconds').textContent = '00';
-        return;
+const EXAM_DATE = new Date('2027-07-26T09:00:00+08:00');
+const START_DATE = new Date('2026-07-28');
+const NOW = new Date();
+const DAY_IDX = Math.max(0, Math.floor((NOW - START_DATE) / 86400000));
+const TODAY_STR = NOW.getFullYear()+'-'+String(NOW.getMonth()+1).padStart(2,'0')+'-'+String(NOW.getDate()).padStart(2,'0');
+
+// ========== 倒计时 ==========
+(function updateCountdown(){
+  const diff = EXAM_DATE - new Date();
+  if(diff<=0){ document.getElementById('cd-days').textContent='0'; return; }
+  const d=Math.floor(diff/86400000), h=Math.floor((diff%86400000)/3600000), m=Math.floor((diff%3600000)/60000), s=Math.floor((diff%60000)/1000);
+  document.getElementById('cd-days').textContent=d;
+  document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-minutes').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-seconds').textContent=String(s).padStart(2,'0');
+  setTimeout(updateCountdown,1000);
+})();
+document.getElementById('footer-date').textContent = '· 今日：'+TODAY_STR+'（第'+(DAY_IDX+1)+'天）';
+
+// ========== 内容池 ==========
+// 每日任务池 (15天轮换)——与当日预测方向、真题题型、重点素材保持一致
+const TASK_POOL = [
+  {title:'建立备考框架，梳理基层工作体系', intro:'第一天重在建立全局认知。浏览整个工作台，了解考试题型和乡镇工作全貌，找到薄弱环节，为后续专题突破打基础。', tasks:[
+    {text:'完整浏览工作台所有板块（今日任务→遴选考试→备考路线图），用时30分钟建立全局认知', pri:'high'},
+    {text:'精读「乡镇工作全景图」，标记与自己实际工作最相关的3个条线', pri:'high'},
+    {text:'完成今日3道真题演练，初次答题不需要完美，重在感受题型和答题思路', pri:'high'},
+    {text:'阅读「素材积累-乡村振兴」板块，收集3个可用于答题的案例或金句', pri:'mid'},
+    {text:'浏览「往年真题」，了解2021-2023届考试题型变化趋势', pri:'mid'},
+    {text:'建立个人备考笔记，记录今日发现的薄弱环节', pri:'low'}
+  ]},
+  {title:'深入时政，提炼政策关键词', intro:'第二天进入实战节奏。用时政"喂"素材，用真题"磨"手感。每天精读时政推送，提炼可直接用于答题的政策关键词。', tasks:[
+    {text:'精读今日时政中湖南相关文章，提炼3个可用于答题的政策关键词', pri:'high'},
+    {text:'完成今日3道真题演练，每题限时25分钟，开始计时训练', pri:'high'},
+    {text:'浏览「预测考题」板块，关注新的命题方向和答题框架', pri:'high'},
+    {text:'阅读学习资源中的基层感悟范文，学习叙事结构和语言风格', pri:'mid'},
+    {text:'复习昨日3道真题的参考答案，对比自己的作答找出差距', pri:'mid'},
+    {text:'围绕"安全生产"或"矛盾调解"主题，写下1个自己的基层案例摘要', pri:'low'}
+  ]},
+  {title:'乡村振兴与产业发展专题', intro:'乡村振兴是回城考试的"第一重点"。今天聚焦产业发展、集体经济、联农带农等高频考点，把湖南特色产业案例变成答题素材。', tasks:[
+    {text:'深度学习"产业振兴"相关政策：林下经济、联农带农、集体经济"消薄攻坚"', pri:'high'},
+    {text:'完成今日3道真题演练，重点关注产业发展方案类题型的答题结构', pri:'high'},
+    {text:'研读「预测考题」中产业发展方向，准备产业方案类答题模板', pri:'high'},
+    {text:'整理3个乡村振兴产业案例（油茶/竹产业/乡村旅游/三变改革），写入素材库', pri:'mid'},
+    {text:'阅读"学习资源"中关于驻村锻炼的选调生心得，留意其中的工作方法', pri:'mid'},
+    {text:'浏览「素材积累-人居环境·农业」板块，了解粮食安全、高标准农田建设要点', pri:'low'}
+  ]},
+  {title:'基层政务服务改革专题', intro:'"放管服"改革、数字政府、"向县放权"是近年高频考点。重点理解"用户思维"、"一窗受理"、权责清单等核心概念。', tasks:[
+    {text:'精读政务服务改革典型案例，理解"用户思维""动态优化""能压尽压"的实操含义', pri:'high'},
+    {text:'完成今日3道真题演练，重点关注基层政务优化相关的综合分析题', pri:'high'},
+    {text:'研读「预测考题」中"基层政务服务改革"方向，准备对策建议类答题模板', pri:'high'},
+    {text:'浏览「乡镇工作全景图-依法行政」板块，了解"向县放权"和权责清单制度', pri:'mid'},
+    {text:'对比自己所在乡镇的政务服务现状，思考可以改进的2-3个点', pri:'mid'},
+    {text:'回顾前3天的所有真题参考答案，总结共性答题逻辑', pri:'low'}
+  ]},
+  {title:'安全生产与应急管理专题突破', intro:'防汛、防火、地灾防治、安全生产——基层应急管理是"必考题"。重点掌握"应消合一"、"五预贯通"、"631"机制等湖南特色做法。', tasks:[
+    {text:'深度学习安全生产与应急管理核心概念，提炼"应消合一""五预贯通"等关键词', pri:'high'},
+    {text:'完成今日3道真题演练，重点关注应急管理类工作方案题的答题结构', pri:'high'},
+    {text:'浏览「预测考题」中应急管理方向，理解应急体系改革对基层的意义', pri:'high'},
+    {text:'系统阅读「素材积累-防汛防火·安全生产」和「应急管理」两个板块的全部内容', pri:'mid'},
+    {text:'围绕自己参与的防汛/防火/安全检查工作，整理1个可用于答题的实战案例', pri:'mid'},
+    {text:'学习"631"叫应机制和"四个一律"等湖南特色防汛做法，写入素材库', pri:'low'}
+  ]},
+  {title:'基层党建与矛盾调解专题', intro:'党建和矛盾调解是基层工作的"魂"和"基"。新时代"枫桥经验"、党建引领基层治理必须成为答题基本功。', tasks:[
+    {text:'深度学习新时代"枫桥经验"的核心理念和"五步工作法"实操流程', pri:'high'},
+    {text:'完成今日3道真题演练，重点关注"结合枫桥经验写具体工作事例"', pri:'high'},
+    {text:'研读「素材积累-矛盾调解·枫桥经验」全部案例，总结可复用的调解方法', pri:'high'},
+    {text:'阅读「素材积累-党建·宣传·舆情」，了解大抓基层鲜明导向的最新表述', pri:'mid'},
+    {text:'整理选调生培训新闻中提到的"党建+基层治理"典型案例', pri:'mid'},
+    {text:'练习写一段"舆情应对"的思路，假设出现一起群众反映强烈的事件', pri:'low'}
+  ]},
+  {title:'民生保障与特殊群体关爱', intro:'民生保障是考试中的"温情分"。留守儿童、养老服务、就业帮扶——材料可以硬，但关怀要软，答题要有温度。', tasks:[
+    {text:'深度学习留守儿童、养老服务、社会救助的政策体系和工作方法', pri:'high'},
+    {text:'完成今日3道真题演练，重点关注民生关爱类方案题', pri:'high'},
+    {text:'浏览「乡镇工作全景图-民生保障」板块，建立民生保障工作的全局认知', pri:'mid'},
+    {text:'阅读学习资源中关于"爱心传承""暑期支教"的案例报道', pri:'mid'},
+    {text:'对照民政相关政策，梳理低保、特困供养的申报流程', pri:'low'},
+    {text:'整理3条可用于"民生保障"答题的金句和案例', pri:'low'}
+  ]},
+  {title:'生态环保与"三长制"协同', intro:'绿水青山就是金山银山。林长制、河长制、田长制"三长协同"是基层生态治理的新趋势，也是考试"政策高地"。', tasks:[
+    {text:'深度学习"三长制"协同治理逻辑，理解山水林田湖草沙系统治理理念', pri:'high'},
+    {text:'完成今日3道真题演练，重点关注生态+产业融合发展的综合分析题', pri:'high'},
+    {text:'研读「素材积累-人居环境·农业」中关于农村环境整治的内容', pri:'high'},
+    {text:'了解河长制、林长制、田长制的职责边界与协同关系', pri:'mid'},
+    {text:'浏览湖南生态环保最新政策动向，思考"双碳"目标在基层的落地路径', pri:'mid'},
+    {text:'围绕自己参与过的环保/人居环境整治工作，整理1个案例', pri:'low'}
+  ]},
+  {title:'产业发展与集体经济专题', intro:'发展壮大村集体经济是基层工作的永恒主题。"消薄攻坚""联农带农""一村一品"——必须成为你的"答题武器库"。', tasks:[
+    {text:'系统学习"联农带农机制"的政策内涵和实操路径', pri:'high'},
+    {text:'完成今日3道真题演练，重点关注产业发展方案类题型', pri:'high'},
+    {text:'研究「预测考题」中产业发展方向，准备"合作社+农户+企业"的利益联结答题模板', pri:'high'},
+    {text:'整理5个可复用的产业发展案例（特色种养/乡村旅游/电商/农产品加工）', pri:'mid'},
+    {text:'浏览「乡镇工作全景图-经济发展」板块，了解招商引资和营商环境优化', pri:'mid'},
+    {text:'思考自己所在乡镇的产业优势和短板，尝试写一段"一村一品"规划思路', pri:'low'}
+  ]},
+  {title:'基层减负与作风建设专题', intro:'形式主义、官僚主义是基层的"顽疾"，也是选调生考试的"硬骨头"题。需要有分析、有对策、有温度。', tasks:[
+    {text:'深度学习"为基层减负赋能"的最新政策表述和典型案例', pri:'high'},
+    {text:'完成今日3道真题演练，重点关注"基层减负"相关的对策建议题', pri:'high'},
+    {text:'研究"向县放权"方案对基层减负的意义，理解"减负+赋能"的辩证关系', pri:'high'},
+    {text:'结合自己在基层看到的形式主义现象，思考可落地的改进建议', pri:'mid'},
+    {text:'整理3条关于"作风建设""担当作为"的金句素材', pri:'mid'},
+    {text:'浏览「素材积累-基层感悟·方法」中"六小"工作法，思考减负增效的实操路径', pri:'low'}
+  ]},
+  {title:'基层体悟写作专项训练', intro:'回城考试中最能拉开分差的就是基层体悟/工作事例类写作。今天集中火力攻克这道高分大关。', tasks:[
+    {text:'精读「素材积累-基层感悟·方法」中的写作框架和范文', pri:'high'},
+    {text:'完成今日3道真题演练，第3道重点练习基层体悟类写作（限时40分钟，800字以上）', pri:'high'},
+    {text:'回顾自己2年的基层工作，筛选1件最有代表性的事件，写出完整的故事大纲', pri:'high'},
+    {text:'研究2022届"给选调生回信"和2023届"工作事例"两种题型的差异和答题策略', pri:'mid'},
+    {text:'学习基层感悟范文的叙事技巧，重点看"场景切入"和"细节描写"', pri:'mid'},
+    {text:'练习写一段"从一个具体场景切入"的基层体悟开头（50字内）', pri:'low'}
+  ]},
+  {title:'数字乡村与基层治理创新', intro:'数字乡村、智慧治理、网格化管理——新质生产力在基层的落地应用，是考试中能让人眼前一亮的加分项。', tasks:[
+    {text:'深度学习"数字乡村"和"互联网+政务服务"在基层的最新实践', pri:'high'},
+    {text:'完成今日3道真题演练，注意将数字化手段融入答题', pri:'high'},
+    {text:'了解"一网统管"和网格化管理的数字化升级路径', pri:'high'},
+    {text:'研究各省数字乡村试点案例，整理3个可引用的数据', pri:'mid'},
+    {text:'浏览「预测考题」中数字赋能方向，准备相关答题素材', pri:'mid'},
+    {text:'思考自己所在乡镇的信息化现状，写出2个可改进的方向', pri:'low'}
+  ]},
+  {title:'全面复习+模拟实战', intro:'每周一次的全面回顾日。停下脚步、回头看看，比一直往前跑更重要。今天做一次完整模拟。', tasks:[
+    {text:'进行一次完整的"3题连做"模拟（75分钟），严格计时，不查阅资料', pri:'high'},
+    {text:'回顾本周所有真题的参考答案，标注自己重复犯的错误', pri:'high'},
+    {text:'检查「素材积累」各板块，确认已掌握的案例和金句数量', pri:'high'},
+    {text:'重读本周的「预测考题」，检查自己是否覆盖了所有预测方向', pri:'mid'},
+    {text:'整理本周新收集的基层案例，更新个人案例库', pri:'mid'},
+    {text:'设定下周学习重点：根据本周表现，确定下个7天的攻坚方向', pri:'mid'}
+  ]},
+  {title:'政策文件精读+答题方法总结', intro:'深度学习往往会拉开差距。今天暂时放慢节奏，仔细咀嚼湖南最新的几个重磅政策文件，把政策语言转化为答题语言。', tasks:[
+    {text:'精读"向县放权"、基层减负、乡村振兴等重点政策文件，用思维导图梳理核心要点', pri:'high'},
+    {text:'完成今日3道真题演练，尝试在答题中引用最新的政策文件名称和核心表述', pri:'high'},
+    {text:'总结自己前2周答题的共性不足（审题/结构/素材/时间？），制定针对性改进计划', pri:'high'},
+    {text:'浏览「素材积累」中最近添加的内容，确保没有遗漏重要考点', pri:'mid'},
+    {text:'阅读全国基层治理创新案例，思考哪些经验可以迁移到湖南情境', pri:'mid'},
+    {text:'整理一份"答题常用金句30条"，按主题分类', pri:'low'}
+  ]},
+  {title:'舆情应对与危机处理专题', intro:'基层治理中舆情应对和危机处理是"实战型"考点。考试不只是考你知道什么，更考你会不会"做事"。', tasks:[
+    {text:'深度学习舆情应对"黄金4小时"原则和全流程管理方法', pri:'high'},
+    {text:'完成今日3道真题演练，重点关注突发事件应对类综合分析题', pri:'high'},
+    {text:'假设你所在的乡镇发生一起安全事故引起群众恐慌，写出简要的应对方案框架', pri:'high'},
+    {text:'浏览「素材积累-党建·宣传·舆情」板块的舆情处理内容', pri:'mid'},
+    {text:'收集3个基层突发事件应对的真实案例，分析成功或失败的关键因素', pri:'mid'},
+    {text:'练习"新闻发布会要点"的撰写（150字内），训练精炼表达能力', pri:'low'}
+  ]},
+];
+
+// 时政推送池 (30+条，每日选6条)
+const AFFAIRS_POOL = [
+  {title:'湖南发布2026年第2号总林长令：林业产业产值"十五五"末突破7400亿元', src:'华声在线', tags:[{t:'重点',c:'badge-red'},{t:'林长制',c:'badge-green'}], url:'https://www.cnr.cn/hunan/yw/20260730/t20260730_527736622.shtml'},
+  {title:'娄底：办事更高效 幸福更"有感"——政务服务"用户思维"改革实践', src:'湖南日报', tags:[{t:'放管服',c:'badge-green'},{t:'基层政务',c:'badge-orange'}], url:'https://www.hnloudi.gov.cn/loudi/0602/202607/64405db8ac984cc39c181b92de60d3d4.shtml'},
+  {title:'天心区委书记周志军：三十而立再出发 扛牢"四区建设"时代担当', src:'湖南日报', tags:[{t:'基层治理',c:'badge-green'},{t:'融城发展',c:'badge-orange'}], url:'https://new.qq.com/rain/a/20260729A04XB100'},
+  {title:'苏仙区"爱心传承"活动收官：40名大学生志愿者关爱农村留守儿童', src:'红网时刻', tags:[{t:'民生',c:'badge-green'},{t:'留守儿童',c:'badge-orange'}], url:'https://new.qq.com/rain/a/20260729A05P8B00'},
+  {title:'沈晓明主持召开省委常委会：以严实作风坚决守牢安全底线', src:'湖南日报', tags:[{t:'持续关注',c:'badge-red'},{t:'安全生产',c:'badge-green'}], url:'https://tjj.hunan.gov.cn/tjgz/hnywg/202607/t20260727_34033729.html'},
+  {title:'湖南省印发《"向县放权"实施方案》，破解县域发展体制障碍', src:'湖南省发改委', tags:[{t:'持续关注',c:'badge-red'},{t:'放权赋能',c:'badge-orange'}], url:'https://new.qq.com/rain/a/20260721A04VUU00'},
+  {title:'沈晓明：夯实基层基础，健全上下贯通执行有力的组织体系', src:'湖南日报', tags:[{t:'党建',c:'badge-green'},{t:'基层基础',c:'badge-orange'}], url:'https://tjj.hunan.gov.cn/hntj/tjgz/hnywg/202607/t20260722_34031440.html'},
+  {title:'湖南省部署2026年防汛抗旱工作：坚持"五预贯通"提升应急能力', src:'湖南省应急厅', tags:[{t:'防汛',c:'badge-red'},{t:'应急管理',c:'badge-orange'}], url:'https://www.cnr.cn/hunan/yw/20260727/t20260727_527731674.shtml'},
+  {title:'岳阳市：深化"放管服"改革，打造"办事不求人"营商环境品牌', src:'新湖南', tags:[{t:'营商环境',c:'badge-green'},{t:'政务服务',c:'badge-orange'}], url:'https://www.yueyang.gov.cn/yyssjj/73001/content_2371318.html'},
+  {title:'湖南省乡村振兴局：因地制宜发展新型农村集体经济"一村一策"', src:'湖南省乡村振兴局', tags:[{t:'集体经济',c:'badge-green'},{t:'乡村振兴',c:'badge-red'}], url:'https://hunan.gov.cn/hnszf/hnyw/szdt/202601/t20260123_33900002.html'},
+  {title:'湖南省教育厅：2026年暑期农村留守儿童关爱服务"五个一"行动方案', src:'湖南省教育厅', tags:[{t:'留守儿童',c:'badge-green'},{t:'民生',c:'badge-orange'}], url:'https://www.agri.cn/zx/xxlb/hn_24267/202607/t20260708_8851800.htm'},
+  {title:'湖南省农业农村厅：推进高标准农田建设"百日攻坚"行动', src:'湖南省农业农村厅', tags:[{t:'粮食安全',c:'badge-red'},{t:'农田建设',c:'badge-green'}], url:'https://www.toutiao.com/article/7633274181475435060/'},
+  {title:'湖南省民政厅：健全分层分类社会救助体系，兜牢民生底线', src:'湖南省民政厅', tags:[{t:'民生保障',c:'badge-green'},{t:'社会救助',c:'badge-orange'}], url:'https://www.hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202607/t20260703_34018901.html'},
+  {title:'生态环境部：全国农村生活污水治理率达到45%，"十四五"末力争60%', src:'生态环境部', tags:[{t:'生态环保',c:'badge-green'},{t:'农村治理',c:'badge-orange'}], url:'https://opinion.voc.com.cn/news/202607/33330870.html'},
+  {title:'中央一号文件落实情况：各省推进"和美乡村"建设见成效', src:'农业农村部', tags:[{t:'和美乡村',c:'badge-green'},{t:'中央政策',c:'badge-red'}], url:'https://www.toutiao.com/article/7660917567753634310/'},
+  {title:'沈晓明讲授正确政绩观专题党课：纠治"新官不理旧账"，敢于做吃力不讨好但事业发展需要的事', src:'湖南日报', tags:[{t:'持续关注',c:'badge-red'},{t:'政绩观',c:'badge-green'}], url:'https://tjj.hunan.gov.cn/hntj/tjgz/hnywg/202607/t20260727_34033716.html'},
+  {title:'第4期"湘江大讲堂"举行：沈晓明出席，专题部署安全生产和应急管理能力提升', src:'湖南日报', tags:[{t:'安全生产',c:'badge-red'},{t:'应急管理',c:'badge-green'}], url:'https://new.qq.com/rain/a/20260727A0BP9200'},
+  {title:'湖南发布第12号省总河长令：管好"盛水的盆"护好"盆中的水"', src:'湖南省政府网', tags:[{t:'河长制',c:'badge-green'},{t:'生态保护',c:'badge-orange'}], url:'https://new.qq.com/rain/a/20260722A0CRD600'},
+  {title:'台风"红霞"来袭：湖南将洪水防御应急响应提升至三级，全力保障人民安全', src:'湖南日报', tags:[{t:'防汛',c:'badge-red'},{t:'应急',c:'badge-orange'}], url:'https://www.cnr.cn/hunan/yw/20260727/t20260727_527731674.shtml'},
+  {title:'沈晓明在株洲醴陵调研：优化基层医疗服务，推动乡村医生队伍稳定发展', src:'湖南日报', tags:[{t:'基层医疗',c:'badge-green'},{t:'民生',c:'badge-orange'}], url:'https://new.qq.com/rain/a/20260721A09JU200'},
+  {title:'花垣县"三变"改革激活乡村振兴：资源变资产、资金变股金、农民变股东', src:'湖南省政府网', tags:[{t:'集体经济',c:'badge-green'},{t:'乡村振兴',c:'badge-red'}], url:'https://www.hunantoday.cn/news/xhn/202607/33100860.html'},
+  {title:'湖南省推进常态化帮扶工作会议：沈晓明强调长久守住不发生规模性返贫底线', src:'湖南省政府网', tags:[{t:'防返贫',c:'badge-red'},{t:'帮扶',c:'badge-green'}], url:'https://www.hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202607/t20260703_34018901.html'},
+  {title:'衡阳县联龙村入选省级和美乡村重点村：党建引领+三产融合+全民共建', src:'中国乡村振兴网', tags:[{t:'和美乡村',c:'badge-green'},{t:'党建',c:'badge-red'}], url:'http://www.zgxczxzz.com/index.php?m=Archives&c=IndexArchives&a=index&a_id=56088'},
+  {title:'湖南省农业农村厅：2026年培育乡村产业振兴"头雁"1200名', src:'湖南省政府网', tags:[{t:'人才振兴',c:'badge-green'},{t:'产业',c:'badge-orange'}], url:'https://agri.hunan.gov.cn/agri/xxgk/tzgg/202607/t20260707_34021152.html'},
+  {title:'宁乡江花村"1+3+N"振兴模式：集体年收入超170万，电商年销200万', src:'长沙晚报', tags:[{t:'集体经济',c:'badge-green'},{t:'电商',c:'badge-orange'}], url:'https://www.thepaper.cn/newsDetail_forward_33521580'},
+  {title:'君山区濠河村特色养殖：40个品种宠物龟年产值400万，"新农人"返乡创业', src:'湖南省政府网', tags:[{t:'产业',c:'badge-green'},{t:'返乡创业',c:'badge-orange'}], url:'https://hunan.gov.cn/hnszf/hnyw/szdt/202607/t20260713_34024796.html'},
+  {title:'湖南"七下八上"防汛关键期：省水利厅要求防汛抗旱两手抓', src:'红网', tags:[{t:'防汛',c:'badge-red'},{t:'抗旱',c:'badge-green'}], url:'https://www.toutiao.com/article/7660795979218338330'},
+  {title:'人民论坛：拧紧"总开关"，政绩观不走偏——以正确政绩观推动高质量发展', src:'人民日报', tags:[{t:'政绩观',c:'badge-red'},{t:'理论',c:'badge-green'}], url:'https://new.qq.com/rain/a/20260730A02QZ600'},
+  {title:'第五轮"三支一扶"计划启动：每年选派3.64万名高校毕业生到基层服务', src:'人民日报', tags:[{t:'基层人才',c:'badge-green'},{t:'政策',c:'badge-red'}], url:'https://new.qq.com/rain/a/20260716A0756I00'},
+  {title:'眉山彭山区选调生"接地气"活动：精准培训+双向定岗+闭环帮带', src:'人民网', tags:[{t:'选调生',c:'badge-green'},{t:'培训',c:'badge-orange'}], url:'https://www.163.com/dy/article/L0UFA1HB0530QRMB.html'},
+  {title:'湖南省委常委会：以万全之策确保防汛万无一失，深化党建引领基层治理', src:'华声在线', tags:[{t:'防汛',c:'badge-red'},{t:'党建',c:'badge-green'}], url:'https://new.qq.com/rain/a/20260724A0C77V00'},
+  {title:'湖南省2026年河长制工作要点：从"有名有实"迈向"有能有效"', src:'湖南省水利厅', tags:[{t:'河长制',c:'badge-green'},{t:'生态保护',c:'badge-orange'}], url:'https://www.cnr.cn/hunan/gstjhunan/20260723/t20260723_527724754.shtml'},
+];
+
+// 学习资源池 (20条，每日选3条)
+const RESOURCE_POOL = [
+  {title:'崇明选调生"驻村答卷"：从"荒地"到"一垄地"的振兴路', src:'腾讯新闻', tags:[{t:'基层感悟',c:'badge-green'},{t:'必读范文',c:'badge-red'}], url:'https://new.qq.com/rain/a/20260703A04IL900'},
+  {title:'通江县2026年到村任职选调生专题培训班开班', src:'通江县人民政府', tags:[{t:'选调培训',c:'badge-green'},{t:'基层实务',c:'badge-orange'}], url:'https://www.tjxzf.gov.cn/xwzx/tjyw/14070768.html'},
+  {title:'大兴区选调生到村任职暨公务员下沉基层工作对接会', src:'北京党建', tags:[{t:'选调动态',c:'badge-green'},{t:'七个一',c:'badge-orange'}], url:'https://www.bjdj.gov.cn/article/3000211233.html'},
+  {title:'眉山彭山区选调生"接地气"系列活动：精准培训+双向定岗', src:'网易', tags:[{t:'选调培养',c:'badge-green'},{t:'实践锻炼',c:'badge-orange'}], url:'https://www.163.com/dy/article/L0UGJJ6P05346936.html'},
+  {title:'息烽县乡村振兴驻村干部选调生培训：红色研学+产业观摩', src:'息烽县政府', tags:[{t:'培训模式',c:'badge-green'},{t:'产业观摩',c:'badge-orange'}], url:'https://www.xifeng.gov.cn/xwdt/jjxf/202607/t20260710_90604807.html'},
+  {title:'2026年选调生考试备考指南：政策-常识映射体系', src:'book118', tags:[{t:'备考方法',c:'badge-green'},{t:'方法论',c:'badge-orange'}], url:'https://max.book118.com/html/2026/0420/6134014112012124.shtm'},
+  {title:'浙江"千万工程"20年经验：从人居环境到乡村振兴的系统方法论', src:'人民日报', tags:[{t:'千万工程',c:'badge-red'},{t:'系统方法',c:'badge-green'}], url:'https://www.rmlt.com.cn/2026/0421/749502.shtml'},
+  {title:'花垣县"三变"改革：闲置资产活起来，农民腰包鼓起来——乡村振兴湖南样板', src:'湖南省政府网', tags:[{t:'三变改革',c:'badge-red'},{t:'集体经济',c:'badge-green'}], url:'https://www.hunantoday.cn/news/xhn/202607/33100860.html'},
+  {title:'联龙村和美乡村建设纪实：党建领航+三产融合+全民共建的湖南实践', src:'中国乡村振兴网', tags:[{t:'和美乡村',c:'badge-green'},{t:'案例',c:'badge-red'}], url:'http://www.zgxczxzz.com/index.php?m=Archives&c=IndexArchives&a=index&a_id=56088'},
+  {title:'宁乡江花村"1+3+N"振兴模式：种养+电商+乡贤，集体收入超170万', src:'长沙晚报', tags:[{t:'案例',c:'badge-green'},{t:'电商助农',c:'badge-red'}], url:'https://www.thepaper.cn/newsDetail_forward_33521580'},
+  {title:'湖南省委常委会：以严实作风守牢安全底线，探索"应消合一"机制', src:'湖南日报', tags:[{t:'安全生产',c:'badge-red'},{t:'应消合一',c:'badge-green'}], url:'https://tjj.hunan.gov.cn/tjgz/hnywg/202607/t20260727_34033729.html'},
+  {title:'眉山彭山选调生"接地气"：精准培训+双向定岗+实践锻炼+闭环帮带', src:'人民网', tags:[{t:'选调培养',c:'badge-green'},{t:'四个一',c:'badge-orange'}], url:'https://www.163.com/dy/article/L0UFA1HB0530QRMB.html'},
+  {title:'人民日报评论：拧紧"总开关"，政绩观不走偏', src:'人民日报', tags:[{t:'政绩观',c:'badge-red'},{t:'理论',c:'badge-green'}], url:'https://new.qq.com/rain/a/20260730A02QZ600'},
+  {title:'湖南省委党校教授解读：基层治理现代化的"湖南路径"', src:'湖南日报', tags:[{t:'理论',c:'badge-green'},{t:'湖南特色',c:'badge-red'}], url:'https://www.cnr.cn/hunan/gstjhunan/20260723/t20260723_527724754.shtml'},
+  {title:'基层减负"十不得"清单发布：文件、会议、督察考核全面"瘦身"', src:'中央办公厅', tags:[{t:'减负',c:'badge-red'},{t:'政策',c:'badge-green'}], url:'https://new.qq.com/rain/a/20260327A060QX00'},
+  {title:'新时代基层干部应具备的七种能力（政治/调研/科学决策/改革攻坚/应急处突/群众工作/抓落实）', src:'求是', tags:[{t:'能力建设',c:'badge-green'},{t:'必考',c:'badge-red'}], url:'https://tjj.hunan.gov.cn/hntj/tjgz/hnywg/202607/t20260727_34033716.html'},
+  {title:'选调生"三同"锻炼法：同吃同住同劳动，真蹲实驻见真章', src:'中国组织人事报', tags:[{t:'锻炼方法',c:'badge-green'},{t:'实践',c:'badge-orange'}], url:'https://news.hunnu.edu.cn/info/1009/99474.htm'},
+  {title:'2026年中央一号文件解读：从"脱贫攻坚"到"乡村振兴"的政策衔接', src:'国务院发展研究中心', tags:[{t:'政策解读',c:'badge-red'},{t:'一号文件',c:'badge-green'}], url:'https://www.ce.cn/xwzx/gnsz/gdxw/202607/t20260728_3112143.shtml'},
+  {title:'"两委"换届选举工作指南：流程、纪律、风险防控', src:'民政部', tags:[{t:'换届',c:'badge-green'},{t:'实务',c:'badge-orange'}], url:'https://hunan.gov.cn/hnszf/hnyw/zwdt/202606/t20260606_33994942.html'},
+  {title:'选调生必备：基层调研报告写作指南（从选题到成文全流程）', src:'秘书工作', tags:[{t:'调研',c:'badge-green'},{t:'写作',c:'badge-orange'}], url:'http://www.xds.work/article/441.html'},
+];
+
+// 预测考题池 (10套，每套3个方向)
+const PREDICTION_POOL = [
+  [
+    {title:'林长制+产业富民——"绿水青山变金山银山"', reason:'湖南2026年第2号总林长令明确从"护绿"转向"兴绿富民"，目标产值7400亿。油茶、竹产业、林下经济、森林康养——直接关联乡村振兴+产业+生态三大考点。', type:'工作方案/综合分析（15-20分）', question:'你镇拥有丰富的竹林资源但利用不足，群众增收渠道有限。结合省总林长令精神，拟定一份竹产业发展工作方案，重点说明如何通过"立体复合种养"模式实现"一亩多收"。', framework:'①摸底调研：竹林面积、现有利用、群众意愿 ②规划定位：对接省级政策、确定主打方向 ③"一亩多收"模式：林下种养（竹荪/中药材/禽类）、竹林康养 ④利益联结：村集体+合作社+农户 ⑤配套：技术培训、品牌打造'},
+    {title:'基层政务服务改革——"用户思维"与数字赋能', reason:'娄底政务服务改革上湖南日报头版，"用户思维""动态优化""能压尽压"——结合"向县放权"方案，基层"放管服"是高频考点。', type:'综合分析/对策建议（15-20分）', question:'当前乡镇政务服务存在"事项下放但承接不足""线上线下两张皮""群众跑多次"等问题。结合娄底改革经验，谈谈你对优化基层政务服务的建议。', framework:'①问题剖析：承接能力不足、数据壁垒、标准不统一 ②"用户思维"：从群众视角优化流程、动态反馈机制 ③数字赋能：打通数据壁垒、一窗受理 ④闭环管理：办件复核、流程反弹整改 ⑤长效机制：高频事项动态扩充'},
+    {title:'选调生基层培训实务——"七个一"与实践锻炼', reason:'大兴区选调生"七个一"锻炼清单、通江县培训聚焦"党建+矛盾调处+产业培育"——这些培训内容几乎就是考试大纲翻版。', type:'基层体悟/工作事例（20-30分）', question:'结合你的基层锻炼经历，选取一件最具代表性的工作（如矛盾化解、产业推进、防汛应急），详细说明你的角色、举措及成效，并谈谈感悟。', framework:'①选材：选有冲突、有难度、有成效的事例 ②结构：背景30%→举措40%（分3-4条）→成效15%→感悟15% ③关键：角色明确、举措落地、感悟升华'}
+  ],
+  [
+    {title:'防汛应急+基层治理——"631叫应"与群防群治', reason:'湖南防汛"631"机制、地质灾害"四个一律"是湖南特色做法。基层应急能力建设是近年中央关注重点。', type:'工作方案/综合分析（15分）', question:'你镇地处山区，汛期地质灾害风险高、群众转移难。请结合湖南"631"机制和"四个一律"要求，拟定一份防汛应急工作方案。', framework:'①风险排查：切坡建房、"四临"重点区域 ②预警机制：6小时预报→3小时预警→1小时叫应 ③转移避险：白天转移、应转尽转、安置点准备 ④队伍建设：应急小分队、演练、物资储备 ⑤长效机制：群测群防、宣传教育'},
+    {title:'基层减负赋能——从"文山会海"到"实干兴镇"', reason:'中央持续推动为基层减负赋能，湖南"向县放权"是破解体制障碍的关键一招。减负+赋能的辩证关系是经典综合分析题。', type:'综合分析题（20分）', question:'当前基层普遍反映"上面千条线、下面一根针"，你认为基层负担重的根源在哪里？如何真正实现减负赋能？', framework:'①根源分析：权责不匹配、考核"痕迹主义"、条块分割 ②向县放权：权限下放+资源下沉+能力提升 ③制度创新：权责清单、容错纠错机制 ④技术减负：数据共享、报表整合 ⑤基层声音：建立"反向评价"机制'},
+    {title:'粮食安全+耕地保护——"藏粮于地"在乡镇的落地', reason:'粮食安全是"国之大者"。高标准农田管护、撂荒地整治、调动农民种粮积极性——这些乡镇实务在2023届考试中已有体现。', type:'对策建议题（15-20分）', question:'你所在乡镇存在耕地撂荒、高标准农田"建而不管"的问题。请提出系统性的解决对策。', framework:'①现状分析：撂荒原因（劳动力/效益/设施）、管护漏洞 ②"藏粮于地"：高标准农田建后管护机制 ③"藏粮于技"：良种良法推广、农机社会化服务 ④调动积极性：种粮补贴精准发放、适度规模经营 ⑤"田长制"：耕地保护网格化管理'}
+  ],
+  [
+    {title:'正确政绩观+"新官理旧账"——选调生的担当与作为', reason:'沈晓明围绕"纠治新官不理旧账"讲授专题党课，强调"敢于做吃力不讨好但事业发展需要的事""功成不必在我、功成必定有我"。正确政绩观是当前湖南全省学习教育的核心主题，极可能成为考试命题方向。', type:'基层体悟/综合分析（20分）', question:'沈晓明书记强调"要敢于做吃力不讨好但事业发展需要的事，甘愿做为后人打基础、利长远的事"。结合你在基层锻炼的经历，谈谈你对"新官理旧账"和正确政绩观的理解，并举例说明选调生如何在基层工作中践行正确政绩观。', framework:'①理解"新官理旧账"：法定职责所系、政治担当体现 ②正确政绩观核心：功成不必在我、功成必定有我 ③结合经历：选一件你"接力完成"或"打基础"的工作 ④感悟升华：一张蓝图绘到底、一任接着一任干 ⑤关键：不回避矛盾、不计较个人得失、不做超越发展阶段的事'},
+    {title:'防汛应急+台风应对——基层"实战大考"', reason:'台风"红霞"来袭，湖南将洪水防御应急响应提升至三级。省委常委会强调"以万全之策确保防汛万无一失"。当前正值"七下八上"防汛关键期，基层防汛应急是必考方向。', type:'工作方案/综合分析（15分）', question:'台风"红霞"来袭，你镇面临暴雨洪涝风险，部分山洪危险区群众需转移，但部分老人不愿离开。请结合湖南"631"叫应机制和"四个一律"要求，说明你的应急处置步骤。', framework:'①预警响应：6小时预报→3小时预警→1小时叫应，启动三级响应 ②隐患排查：山洪危险区、切坡建房、中小水库、堤防 ③动员转移：村干部+子女+村医做工作，"四个一律"应转尽转 ④安置保障：集中安置点食宿医疗 ⑤后续处置：灾情统计、防疫消杀、水毁修复 ⑥总结：举一反三完善预案'},
+    {title:'和美乡村建设——从"千万工程"到"和美湘村"', reason:'衡阳联龙村入选省级和美乡村重点村，以"党建领航+三产融合+全民共建"为路径。湖南正深入学习"千万工程"经验，因地制宜建设"和美湘村"。', type:'工作方案/综合分析（15-20分）', question:'你镇计划打造"和美湘村"示范村，但存在"有资源无产业、有整治无长效、有干部干无群众看"的问题。结合联龙村经验和"千万工程"理念，请拟定一份和美乡村建设方案。', framework:'①规划先行：分类推进、一村一策 ②党建引领：党员联户、网格治理 ③产业支撑：三产融合、盘活资源（参考花垣"三变"改革） ④环境提质：厕所革命+污水治理+绿化美化 ⑤群众参与：共谋共建共管共评共享 ⑥长效机制：不搞运动式、久久为功'}
+  ],
+  [
+    {title:'数字经济+乡村振兴——电商助农新路径', reason:'直播带货、农村电商、数字乡村是"新质生产力"在乡村的典型应用，考试中能体现时代感。', type:'对策建议题（15分）', question:'你镇农产品品质好但销售渠道单一、品牌认知度低。请结合数字乡村建设，提出拓宽农产品销售渠道的对策。', framework:'①现状诊断：产品特色、现有渠道、品牌短板 ②电商基础设施：物流站点、冷链仓储、宽带覆盖 ③人才培育：电商培训、返乡青年带动 ④品牌打造：地理标志、统一包装、溯源体系 ⑤多元渠道：直播+社区团购+政企对接'},
+    {title:'青年干部成长——从"三门"到"三能"', reason:'选调生成长是考试中"软实力"型题目。2022届的回信题、2021届的工作汇报题本质上都在考察选调生的成长和体悟。', type:'基层体悟题（20-30分）', question:'从大学校门到机关门再到百姓家门，你是如何完成从"三门干部"到"三能干部"（能说、能写、能干）的转变的？请结合具体事例阐述。', framework:'①"三门"到基层的冲击：方言不通、群众不信任、书本知识失灵 ②关键转折：一件让你"开窍"的事 ③能力提升：说→群众语言 写→公文/简报/方案 干→抓落实 ④核心感悟：基层是最好的老师、群众是最好的教科书'},
+    {title:'基层治理"最后一公里"——网格化与精细化', reason:'网格化管理是基层治理的基础性制度安排，从"上面千条线"到"基层一张网"的转变正在深化。', type:'综合分析题（15分）', question:'当前网格化管理在乡镇存在"有格无人""有网无治"的问题。请分析原因并提出改进建议。', framework:'①问题表现：网格员兼职过多、信息采集而不利用、部门数据不互通 ②原因：权责不匹配、考核导向偏差、技术支撑不足 ③对策：专职+兼职结合、信息平台整合、考核从"痕迹"转向"实效" ④案例：浙江"基层治理四平台"经验 ⑤趋势：从"管理"到"服务"转型'}
+  ],
+  [
+    {title:'基层党建——"两个功能"增强与品牌打造', reason:'增强党组织政治功能和组织功能是基层党建的核心命题。党建品牌打造（如"红色引擎""党员中心户"）常见于选调生培训。', type:'综合分析题（20分）', question:'当前一些农村基层党组织存在"弱化、虚化、边缘化"的问题。请分析原因并提出增强基层党组织"两个功能"的对策。', framework:'①问题表现：组织生活不规范、党员作用发挥不足、群众认可度不高 ②原因：带头人能力不足、党员老龄化、保障不到位 ③政治功能：理论武装+政策宣讲+政治引领 ④组织功能：四级架构+党员联户+积分管理 ⑤品牌打造：一村一品党建品牌'},
+    {title:'文化旅游+乡村振兴——农文旅融合发展', reason:'乡村旅游、民宿经济、研学旅行是乡村"新业态"，既能带动产业又能改善环境。各省选调生考试已多次涉及。', type:'工作方案题（15-20分）', question:'你镇拥有古村落、非遗文化和生态资源，但旅游开发"有资源无产品、有游客无消费"。请拟定一份乡村旅游发展方案。', framework:'①资源盘点：自然/文化/产业资源分类评估 ②产品设计：研学线路、农事体验、非遗工坊、乡村民宿 ③基础设施：停车场、游步道、标识系统、厕所 ④运营模式：村集体+专业运营公司+农户 ⑤营销推广：新媒体+节庆活动+旅行社合作'},
+    {title:'安全生产——乡镇的"底线工程"', reason:'安全生产是"一票否决"的底线工作。沈晓明连续强调安全生产，2023届考了"安全生产整治工作思路"。', type:'对策建议题（15分）', question:'你镇有烟花爆竹作坊和矿山企业，存在安全隐患整改不到位的问题。请提出系统性的安全生产整治方案。', framework:'①隐患排查：分类分级、建立台账、限期整改 ②监管执法："零容忍"打非治违、联合执法 ③责任体系：党政同责、一岗双责、企业主体责任 ④技防提升：智慧监控、自动化改造 ⑤长效机制：定期演练、举报奖励、"回头看"'}
+  ],
+  [
+    {title:'生态环境保护——河长制/林长制/田长制"三长协同"', reason:'"三长制"是基层生态环境治理的制度创新。河长制保护水资源、林长制守护绿水青山、田长制守住耕地红线——三者在基层如何协同是新的考点。', type:'综合分析题（20分）', question:'你镇正在推进河长制、林长制、田长制"三长合一"工作机制，但在实践中存在职责交叉、力量分散的问题。请谈谈你对"三长协同"的理解和建议。', framework:'①"三长制"各自职责：河长→水 林长→林 田长→耕地 ②协同必要性：山水林田湖草沙系统治理 ③协同路径：一肩挑+信息共享+联合巡查+综合执法 ④湖南经验：应消合一可借鉴 ⑤保障：考核激励、群众参与'},
+    {title:'村集体经济"消薄攻坚"——从"空壳村"到"百万村"', reason:'发展壮大村集体经济是乡村振兴的重要抓手。中央要求"消薄攻坚"，湖南推行"一村一策"。这是典型的产业发展+政策落地综合题。', type:'工作方案题（15-20分）', question:'你镇有3个集体经济薄弱村（年收入不到5万元）。请拟定一份"消薄攻坚"行动方案，重点说明如何因地制宜选择发展路径。', framework:'①摸清家底：资源/资产/资金/人才四本账 ②路径选择：资源发包型/物业租赁型/产业带动型/服务创收型/入股分红型 ③一村一策：3个村的差异化方案 ④要素保障：资金整合、土地流转、人才回引 ⑤考核激励：与村干部报酬挂钩'},
+    {title:'应对突发事件——基层干部的"急难险重"', reason:'突发事件应对是检验基层治理能力的"试金石"。舆情危机、自然灾害、群体事件——每种都需要不同的应对策略。', type:'案例分析题（20分）', question:'某日，你镇一化工厂发生泄漏，附近村民出现身体不适，微信群流传"毒气泄漏""政府隐瞒"等不实消息。作为值班领导，请说明你的处置步骤。', framework:'①第一时间：赶赴现场、疏散群众、启动预案（30分钟内） ②信息上报：向县级应急/环保/卫健部门报告 ③舆情应对：官方通报、滚动发布、辟谣 ④善后处置：医疗救治、环境监测、心理疏导 ⑤反思总结：举一反三、完善预案'}
+  ],
+  [
+    {title:'"向县放权"+基层承接——体制机制创新', reason:'湖南"向县放权"方案是体制机制创新的重要举措，涉及权限下放、资源下沉、承接能力等，是政策理解+对策建议的绝佳考题素材。', type:'综合分析题（20分）', question:'湖南省"向县放权"方案实施后，一些乡镇反映"放权了但接不住"。请分析原因并提出确保基层接得住、用得好的建议。', framework:'①放权内容：审批权/执法权/规划权/人事权 ②接不住的原因：人员不足、专业不够、培训缺位、配套没跟上 ③对策：编制下沉+业务培训+"扶上马送一程"过渡期 ④考核监督：放权效果评估 ⑤案例：浙江"最多跑一次"经验'},
+    {title:'驻村帮扶——从"输血"到"造血"', reason:'防止返贫动态监测和帮扶是巩固脱贫成果的关键。从"驻村"到"助村"，帮扶工作的理念和方法正在升级。', type:'基层体悟题（20分）', question:'你在基层锻炼期间参与了防止返贫动态监测帮扶工作。请结合具体事例，谈谈你对"从输血到造血"帮扶理念转变的理解和实践。', framework:'①监测机制：三类对象（脱贫不稳定/边缘易致贫/突发严重困难） ②"输血"：兜底保障、临时救助 ③"造血"案例：你参与的具体帮扶（产业/就业/教育） ④关键转变：从"给钱给物"到"赋能赋智" ⑤感悟：帮扶的核心是激发内生动力'},
+    {title:'村"两委"换届——基层组织建设的关键节点', reason:'村两委换届是基层政治生活的大事，涉及组织程序、群众工作、风险防控。2026年是换届年，考试极可能涉及。', type:'工作方案/情况报告题（15分）', question:'你镇即将启动村"两委"换届选举工作。请拟定一份换届选举工作方案，重点关注选优配强带头人和风险防控。', framework:'①前期准备：摸底研判、任期审计、宣传发动 ②选人标准："双好双强"（政治素质好、道德品行好、带富能力强、协调能力强） ③程序规范："两推一选"流程 ④风险防控：信访举报、宗族势力干扰、疫情防控 ⑤后续工作：新老班子交接、履职培训'}
+  ],
+  [
+    {title:'基层干部心理健康与能力提升', reason:'选调生从"校门"到"农门"，面临的心理落差和能力恐慌是真实存在的。2022届的回信题就是一个典型案例。', type:'基层体悟/综合分析（20分）', question:'当前一些基层年轻干部存在"本领恐慌"和"心理倦怠"的问题。请分析原因并提出激发基层年轻干部干事创业积极性的建议。', framework:'①问题表现：专业不对口、晋升"天花板"、工作生活难平衡 ②原因：培训不足、激励不够、容错机制不健全 ③能力提升：导师帮带制、轮岗锻炼、专业培训 ④心理关怀：谈心谈话、心理辅导、文化活动 ⑤制度激励：职务职级并行、优秀年轻干部提拔使用'},
+    {title:'移风易俗——乡村精神文明建设', reason:'高价彩礼、大操大办、封建迷信——移风易俗是乡村治理的"软性难题"，需要"德治+法治+自治"三治融合。', type:'对策建议题（15分）', question:'你镇农村存在高价彩礼、大操大办红白喜事等陈规陋习。请提出推进移风易俗的对策建议。', framework:'①现状调查：突出问题、群众态度、阻力来源 ②制度约束：村规民约、红白理事会、党员干部带头 ③宣传引导：典型选树、文化浸润、媒体宣传 ④服务替代：集体婚礼、公益性公墓、文化礼堂 ⑤"德治+法治+自治"：三治融合的系统路径'},
+    {title:'新质生产力在基层——科技创新赋能乡村振兴', reason:'新质生产力是2026年的热词。科技特派员、智慧农业、数字治理——如何让"高大上"的概念在基层落地是关键。', type:'综合分析题（15-20分）', question:'请谈谈你对"新质生产力"的理解，并结合基层实际，阐述如何在乡村振兴中培育和发展新质生产力。', framework:'①概念理解：创新驱动、高科技、高效能、高质量 ②基层实践：科技特派员制度、智慧农业（无人机/传感器）、电商直播 ③人才关键："田秀才""土专家"培育 ④制度保障：产学研合作、科技成果转化 ⑤案例：福建南平科特派、浙江数字乡村'}
+  ],
+  [
+    {title:'农村养老服务——"银发浪潮"下的基层应对', reason:'人口老龄化加速，农村养老问题日益突出。养老服务体系建设是民生保障的新重点。', type:'对策建议题（15分）', question:'你镇老龄化率达到28%，留守老人"吃饭难、看病难、精神孤独"问题突出。请提出农村养老服务的系统性对策。', framework:'①现状底数：老年人口分布、需求类型、现有服务 ②服务模式：日间照料中心+互助养老+上门服务 ③医养结合：乡镇卫生院+养老机构签约合作 ④精神关爱：老年大学、文化活动、志愿服务 ⑤投入保障：政府+集体+社会+家庭多元投入'},
+    {title:'"千万工程"+湖南实践——"和美湘村"怎么建', reason:'"千万工程"经验全国推广，湖南提出建设"和美湘村"。从浙江经验到湖南实践，需要因地制宜的转化。', type:'综合分析题（20分）', question:'浙江省"千万工程"经验正在全国推广。请结合湖南实际，谈谈如何借鉴"千万工程"经验推进"和美湘村"建设。', framework:'①"千万工程"核心理念：久久为功、系统治理、群众主体 ②湖南特色：山区丘陵地形、湘西湘南差异、文化多元 ③建设路径：规划先行+分类推进+产业支撑+文化铸魂 ④群众参与：共谋共建共管共评共享 ⑤久久为功：不搞"运动式"整治'},
+    {title:'基层信访工作——"送上门的群众工作"', reason:'信访是"送上门来的群众工作"，考验的是基层干部的群众工作能力和政策水平。法治化是信访改革的方向。', type:'案例分析题（15-20分）', question:'你镇一位老人因征地补偿问题多次上访，近日情绪激动扬言要去省里。作为包案干部，请说明你的处置思路。', framework:'①主动接触：上门家访、倾听诉求、建立信任 ②调查核实：查阅档案、走访知情人、核实补偿标准 ③分类处理：合理诉求→推动解决 不合理→政策解释 涉法涉诉→引导法律途径 ④多元化解：人民调解+行政调解+司法调解 ⑤长效机制：领导包案、定期回访'}
+  ],
+  [
+    {title:'综合行政执法改革——基层"看得见管不着"怎么破', reason:'乡镇综合行政执法改革是打通基层治理"最后一公里"的关键。从"看得见管不着"到"看得见管得着"，是体制机制的重大调整。', type:'综合分析题（20分）', question:'当前乡镇综合行政执法面临"权责不清、力量不足、专业不够"的问题。请结合实际，谈谈如何深化乡镇综合行政执法改革。', framework:'①背景：执法重心下移、整合执法力量 ②问题："九龙治水"变"无人管水"、执法资格问题 ③对策：一张清单明权责+一支队伍管执法+一套机制保运行 ④能力建设：持证上岗、实战培训、案例指导 ⑤监督：执法全过程记录、法制审核'},
+    {title:'青年人才回引——乡村振兴的"第一资源"', reason:'人才是乡村振兴的第一资源。大学生返乡创业、能人回村任职、乡土人才培育——各地都在探索人才回引的路径。', type:'对策建议题（15分）', question:'你镇青年大量外出务工，出现"空心村"现象。请提出吸引青年人才回流的系统性对策。', framework:'①现状画像：在外人员底数、从事行业、回流意愿 ②产业引人：创业扶持、产业园区、电商培训 ③政策留人：住房保障、子女教育、医疗配套 ④平台聚人：青年之家、返乡创业园、导师帮带 ⑤情感召人：乡情联络、典型宣传、荣誉激励'},
+    {title:'基层治理"三治融合"——自治、法治、德治', reason:'"三治融合"是基层治理的顶层设计。自治增活力、法治强保障、德治扬正气——三者如何各得其所又相互促进是绝佳考点。', type:'综合分析题（20分）', question:'请结合基层实际，谈谈你对"自治、法治、德治"三治融合的理解，并举例说明如何在乡镇工作中实现三治融合。', framework:'①概念：自治→自我管理 法治→规则约束 德治→道德教化 ②关系：自治是基础、法治是保障、德治是支撑 ③实践案例：村民议事会（自治）+法律顾问（法治）+道德评议会（德治） ④机制创新："一约四会"（村规民约+红白理事会等） ⑤关键：党的领导贯穿始终'}
+  ],
+];
+
+// 真题演练池 (10套，每套3题)
+const PRACTICE_POOL = [
+  [
+    {title:`第1题 · 产业发展方案类`, score:'15分', body:`你所在的乡镇拥有丰富的油茶林资源，但长期处于粗放经营状态，群众种植积极性不高、产品附加值低。结合湖南省2026年第2号总林长令精神，请你撰写一份油茶产业发展工作方案。要求：目标明确、措施具体、有利益联结机制。`, refTitle:'参考答案要点', ref:`<p><strong>一、工作目标</strong>：1年内完成低产林改造500亩，3年内油茶产业综合产值翻番，带动200户农户增收。</p>
+<p><strong>二、具体措施</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>摸底建档：对现有油茶林逐一登记（面积、树龄、产量、权属），建立数据库</li>
+<li>低改提质：引进优良品种、实施高接换冠、测土配方施肥、修枝整形</li>
+<li>技术支撑：对接省林科院/岳麓山实验室，建立专家工作站，定期培训林农</li>
+<li>加工延伸：引进或扶持茶油加工企业，开发精深加工产品</li>
+<li>品牌打造：注册地理标志、统一包装、线上线下销售</li>
+<li>林下经济：油茶林下种植中药材、养殖土鸡，实现"一亩多收"</li></ul>
+<p><strong>三、利益联结</strong>：村集体+合作社+农户三方合作，保底收购+二次分红。</p>
+<p><strong>四、保障措施</strong>：成立工作专班、整合涉农资金、纳入年度考核、建立月调度机制。</p>`},
+    {title:`第2题 · 民生关爱类`, score:'15分', body:`你镇农村留守儿童较多，暑期存在安全隐患大、心理关爱缺失等问题。请你撰写一份暑期留守儿童关爱保护工作方案，涵盖安全隐患排查、心理关爱、学业辅导、活动组织等方面。`, refTitle:'参考答案要点', ref:`<p><strong>一、摸底建档</strong>：逐村逐户排查留守儿童底数，建立"一童一档"，实行红黄绿三色管理。</p>
+<p><strong>二、安全防护</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>防溺水：重点水域设立警示牌、救生圈，村级巡查队每日巡查</li>
+<li>防交通事故：校园周边道路隐患排查、劝导站建设</li>
+<li>防意外伤害：入户检查用电用气安全、发放安全告知书</li></ul>
+<p><strong>三、关爱服务</strong>：心理团辅+大学生支教+亲情视频+趣味课堂。</p>
+<p><strong>四、责任落实</strong>：村支书第一责任人、驻村选调生具体跟踪、民政专干定期探访（每月不少于1次）。</p>
+<p><strong>五、社会参与</strong>：发动乡贤、爱心企业、社会组织参与，形成"政府主导+社会协同"格局。</p>`},
+    {title:`第3题 · 基层体悟类`, score:'20分', body:`你在基层锻炼期间参与了某项重点工作（如防汛、矛盾调解、产业项目等），请选取其中一件，详细描述你的角色、具体举措和成效，并谈谈你对基层工作方法的感悟。要求：不能出现真实单位、个人信息，800字以上。`, refTitle:'参考答案要点', ref:`<p><strong>一、选材建议</strong>：选有冲突、有难度、有成效的事例。有"转折"才有故事性。</p>
+<p><strong>二、结构框架</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>背景引入（15%）：交代时间、地点、角色定位，一句话点出核心矛盾</li>
+<li>具体举措（45%）：分3-4条，每条有具体动作</li>
+<li>成效呈现（15%）：用数据说话、用群众反馈说话</li>
+<li>感悟升华（25%）：从一件事到一类事、从"术"到"道"</li></ul>
+<p><strong>三、关键提醒</strong>：角色要明确、举措要落地、感悟要有深度、不要写成流水账。</p>
+<p><strong>四、参考开头</strong>："2024年X月，我被安排负责XX工作。初到岗位时，面对XX困难，我……"</p>`}
+  ],
+  [
+    {title:`第1题 · 政策理解类`, score:'15分', body:`湖南省"向县放权"实施方案提出破解县域发展体制障碍。你所在的乡镇承接了部分下放权限后，存在"放权了但接不住"的问题。请分析原因并提出改进建议。`, refTitle:'参考答案要点', ref:`<p><strong>一、原因分析</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>人员不足：下放事项增多但编制未增加，一人多岗</li>
+<li>专业不够：缺乏审批/执法/规划等专业人才</li>
+<li>培训缺位：放权前未组织系统培训</li>
+<li>配套没跟上：系统、经费、设备未同步下放</li></ul>
+<p><strong>二、改进建议</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>编制下沉：对于高频下放事项，配套增加编制或购买服务</li>
+<li>业务培训：开展"跟班学习+专题培训+案例教学"三位一体培训</li>
+<li>"扶上马送一程"：设置1年过渡期，原部门派人驻点指导</li>
+<li>技术赋能：开发线上审批系统，对接上级平台</li>
+<li>考核评估：建立承接能力评估机制，动态调整下放清单</li></ul>`},
+    {title:`第2题 · 应急处突类`, score:'15分', body:`你镇正值汛期，连续降雨导致一处山体出现滑坡征兆，威胁山下20户村民安全。但部分老人不愿意撤离。作为值班干部，请说明你的处置步骤。`, refTitle:'参考答案要点', ref:`<p><strong>一、第一时间</strong>（30分钟内）：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>赶赴现场：实地查看滑坡征兆（裂缝、渗水、异响）</li>
+<li>启动预案：报告镇主要领导，通知应急、自然资源部门</li>
+<li>预警升级：设置警戒线、安排专人监测</li></ul>
+<p><strong>二、动员转移</strong>（2小时内）：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>说服老人：请村干部/子女/村医共同做工作，讲清利害</li>
+<li>帮助转移：对行动不便的安排车辆、担架</li>
+<li>安置保障：准备集中安置点（学校/村部），确保食宿</li></ul>
+<p><strong>三、后续处置</strong>：持续监测、灾害评估、心理安抚、总结经验。</p>`},
+    {title:`第3题 · 舆情应对类`, score:'20分', body:`你镇一村民在网上发帖称"村干部截留扶贫资金，贫困户没拿到钱"，引发大量转发。经核实，该村民反映情况不实，系村务公开不及时导致的误解。请说明你的应对思路。`, refTitle:'参考答案要点', ref:`<p><strong>一、快速响应</strong>（黄金4小时）：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>核实情况：立即组织纪检、财政、扶贫部门核查资金拨付记录</li>
+<li>初步回应：在官方公众号发布简短声明，"已关注并启动核查"</li></ul>
+<p><strong>二、全面核查</strong>（24小时内）：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>账目核对：逐笔核实扶贫资金发放台账</li>
+<li>入户走访：到发帖村民和周边群众家中了解情况及诉求</li></ul>
+<p><strong>三、权威发布</strong>：公布核查结果、附上资金发放明细（隐去个人信息），解释误解原因。</p>
+<p><strong>四、举一反三</strong>：全面排查村务公开情况、建立村务公开"清单制"、畅通群众反映渠道。</p>`}
+  ],
+  [
+    {title:`第1题 · 正确政绩观类`, score:'20分', body:`沈晓明书记在专题党课上强调"要敢于做吃力不讨好但事业发展需要的事，甘愿做为后人打基础、利长远的事，坚持功成不必在我、功成必定有我"。结合你在基层锻炼的经历，谈谈你对正确政绩观的理解，并举例说明如何在基层工作中践行。要求：观点鲜明、有具体事例、800字以上。`, refTitle:'参考答案要点', ref:`<p><strong>一、理解正确政绩观</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"功成不必在我"：不追求短期政绩、不搞形象工程</li>
+<li>"功成必定有我"：主动担当、接续奋斗</li>
+<li>"新官理旧账"：法定职责所系、政治担当体现</li></ul>
+<p><strong>二、结合经历</strong>：选一件你参与"接力完成"或"打基础"的工作。如：接手前任未完成的产业项目、化解历史遗留矛盾、推进需长期见效的基础设施建设。</p>
+<p><strong>三、感悟升华</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>一张蓝图绘到底、一任接着一任干</li>
+<li>不回避矛盾、不计较个人得失</li>
+<li>尽力而为、量力而行，不做超越发展阶段的事</li></ul>
+<p><strong>四、金句</strong>："基层不是镀金场，而是练兵地""做难而正确的事，才是真正的担当"</p>`},
+    {title:`第2题 · 防汛应急类`, score:'15分', body:`台风"红霞"来袭，你镇遭遇连续暴雨，一处山洪危险区有15户群众需要转移，但3位老人因担心家中财物不愿离开。同时，一处小二型水库出现渗漏险情。作为值班领导，请说明你的应急处置步骤。`, refTitle:'参考答案要点', ref:`<p><strong>一、启动响应</strong>（30分钟内）：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>落实"631"机制：6小时预报→3小时预警→1小时叫应</li>
+<li>启动防汛应急响应，报告镇主要领导</li>
+<li>通知应急、自然资源、水利部门</li></ul>
+<p><strong>二、转移群众</strong>（2小时内）：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"四个一律"：全员提前转移、白天转移、应转尽转、一户不落</li>
+<li>说服老人：请村干部/子女/村医共同做工作，讲清利害</li>
+<li>帮助转移：安排车辆，行动不便的用担架</li>
+<li>安置保障：集中安置点（学校/村部），确保食宿医疗</li></ul>
+<p><strong>三、水库险情处置</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>组织抢险队伍封堵加固渗漏段</li>
+<li>设置警戒线，24小时巡查监测</li>
+<li>必要时提前泄洪，通知下游</li></ul>
+<p><strong>四、后续</strong>：灾情统计、防疫消杀、水毁修复、总结经验。</p>`},
+    {title:`第3题 · 产业发展类`, score:'15分', body:`花垣县通过"三变"改革（资源变资产、资金变股金、农民变股东）激活了乡村振兴一池春水。你镇有200亩闲置山林、一处废弃校舍和一批传统竹编手艺人，村集体经济薄弱。请借鉴"三变"改革经验，拟定一份发展村集体经济的方案。`, refTitle:'参考答案要点', ref:`<p><strong>一、清产核资</strong>：摸清200亩山林、废弃校舍、竹编手艺人等资源底数，建立"三资"台账。</p>
+<p><strong>二、"三变"路径</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li><strong>资源变资产</strong>：200亩山林通过"三资"平台公开招标流转，发展林下经济（竹荪/中药材/禽类）</li>
+<li><strong>资金变股金</strong>：整合涉农资金、产业贷款，入股合作社参与分红</li>
+<li><strong>农民变股东</strong>：竹编手艺人以技艺入股，土地、劳力、资金多要素入股</li></ul>
+<p><strong>三、产业方向</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>废弃校舍改造为竹编工坊+研学基地</li>
+<li>开发竹编文创产品，电商销售</li>
+<li>"种植—加工—研学—旅游"生态循环产业链</li></ul>
+<p><strong>四、利益联结</strong>：村集体+合作社+农户三方合作，保底收购+二次分红，农户有租金、薪金、股金多重收入。</p>
+<p><strong>五、保障</strong>：村账镇管、阳光公开、纳入考核。</p>`}
+  ],
+  [
+    {title:`第1题 · 安全整治类`, score:'15分', body:`你镇某村存在多栋经营性自建房未经消防验收就投入使用，且存在电线老化、消防通道堵塞等安全隐患。请拟定一份消防安全整治工作方案。`, refTitle:'参考答案要点', ref:`<p><strong>一、全面排查</strong>：逐栋摸排、一栋一档、隐患清单。</p>
+<p><strong>二、分类整治</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>立即停用：存在严重安全隐患的D级危房</li>
+<li>限期整改：一般安全隐患，明确整改标准和时限</li>
+<li>补办手续：符合条件但未办证的，指导办理</li></ul>
+<p><strong>三、长效机制</strong>：新建自建房审批纳入消防前置、定期巡检制度。</p>
+<p><strong>四、群众工作</strong>：做好解释安抚、提供临时过渡方案。</p>`},
+    {title:`第2题 · 基层治理类`, score:'15分', body:`你镇推行网格化管理已一年，但群众对网格员的知晓率和满意度不高。请分析原因并提出改进建议。`, refTitle:'参考答案要点', ref:`<p><strong>一、原因</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>网格员"隐身"：群众不知道谁是网格员、能干什么</li>
+<li>回应不及时：群众反映的问题石沉大海</li>
+<li>服务不精准：走形式、走过场，没有解决实际问题</li></ul>
+<p><strong>二、改进</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"亮身份"：公示牌+联系卡+微信群，让群众找得到人</li>
+<li>"闭环办"：接诉即办、限时反馈、销号管理</li>
+<li>"精准服"：根据网格特点定制服务（老人多→助老、留守儿童多→关爱）</li>
+<li>"群众评"：让群众打分评价网格员工作</li></ul>`},
+    {title:`第3题 · 综合分析类`, score:'20分', body:`近年来，"数字乡村"建设加速推进，但在一些地方出现了"数字形式主义"——APP打卡、线上填表、微信留痕成为基层新负担。请谈谈你对这一现象的看法，并提出防止"数字形式主义"的建议。`, refTitle:'参考答案要点', ref:`<p><strong>一、现象分析</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>本质：形式主义在数字时代的变身</li>
+<li>危害：增加基层负担、浪费财政资源、损害干群关系</li>
+<li>根源：考核导向偏差、技术崇拜、不接地气</li></ul>
+<p><strong>二、建议</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>回归初心：数字化的目的是方便群众、提高效率，不是增加留痕</li>
+<li>整合平台：一个入口、数据共享，不让基层重复填表</li>
+<li>优化考核：从"看痕迹"转向"看实效"</li>
+<li>基层反馈：建立"反向评价"机制，让基层给上级打分</li></ul>`}
+  ],
+  [
+    {title:`第1题 · 环境整治类`, score:'15分', body:`你镇启动农村人居环境整治"百日攻坚"行动已过一月，但部分村存在"政府干、群众看"的现象。请拟定推动群众积极参与的对策。`, refTitle:'参考答案要点', ref:`<p><strong>一、激发内生动力</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>积分制：参与整治积分兑换生活用品</li>
+<li>"美丽庭院"评比：挂牌表彰、发放奖金</li>
+<li>红黑榜：成效好的上红榜、差的上黑榜</li></ul>
+<p><strong>二、降低参与门槛</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"门前三包"责任制：包卫生、包秩序、包绿化</li>
+<li>集中整治日：每月固定一天全村参与</li>
+<li>志愿服务：组建巾帼志愿服务队、青年突击队</li></ul>
+<p><strong>三、凝聚共识</strong>：召开院坝会/屋场会讲清利害、组织群众参观示范村。</p>`},
+    {title:`第2题 · 矛盾调解类`, score:'15分', body:`你村两户邻居因宅基地界线问题争执多年，多次调解未果，最近更是因一方修建围墙引发了肢体冲突。请说明你将如何妥善化解这起矛盾。`, refTitle:'参考答案要点', ref:`<p><strong>一、降温灭火</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>立即到场制止冲突，必要时请派出所协助</li>
+<li>分别谈话，让双方冷静下来</li></ul>
+<p><strong>二、查清事实</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>调取宅基地证、土地承包合同等历史档案</li>
+<li>走访老村干部、老邻居了解原始界线</li>
+<li>请国土部门实地勘测</li></ul>
+<p><strong>三、多元调解</strong>：请乡贤/家族长辈/"法律明白人"参与，法理情结合。</p>
+<p><strong>四、形成协议</strong>：书面协议+双方签字+司法确认，确保不反弹。</p>`},
+    {title:`第3题 · 展望规划类`, score:'20分', body:`你即将结束2年基层锻炼回城。在临走前，镇党委书记请你给全镇年轻干部做一个"珍惜基层时光、锤炼过硬本领"的主题发言。请撰写发言稿提纲。`, refTitle:'写作要点', ref:`<p><strong>一、开场</strong>：感恩基层的培养、感谢领导和同事的支持。</p>
+<p><strong>二、分享三个"最"</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>最有成就感的一件事</li>
+<li>最受触动的一个瞬间</li>
+<li>最深刻的一个教训</li></ul>
+<p><strong>三、三条感悟</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>基层是最好的"练兵场"——从"三门干部"到"三能干部"</li>
+<li>群众是最好的"老师"——从书本到泥土</li>
+<li>实干是最好的"通行证"——吃亏是福、出力长力</li></ul>
+<p><strong>四、寄语</strong>：珍惜基层每一天、把论文写在祖国大地上。</p>`}
+  ],
+  [
+    {title:`第1题 · 集体经济类`, score:'15分', body:`你镇某村集体经济"空壳"，虽然有200亩集体山林和一处闲置校舍，但一直没有开发利用。请拟定一份发展村集体经济的方案。`, refTitle:'参考答案要点', ref:`<p><strong>一、资源盘点</strong>：200亩山林（可发展林下经济/流转）、闲置校舍（可出租/改造成加工车间）、劳动力现状。</p>
+<p><strong>二、发展路径</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>资源发包：将200亩山林通过"三资"平台公开招标流转</li>
+<li>物业租赁：将闲置校舍改造为小型加工车间出租</li>
+<li>产业带动：利用流转费入股合作社，参与利润分红</li></ul>
+<p><strong>三、推进步骤</strong>：清产核资→村民代表会议→公开招标→签订合同→监督履约。</p>
+<p><strong>四、保障</strong>：村账镇管、阳光公开、纳入考核。</p>`},
+    {title:`第2题 · 群众工作类`, score:'15分', body:`你镇计划建设一座垃圾中转站，选址确定后遭到周边群众的强烈反对，"建在哪都行，别建在我家门口"。请说明你将如何处理这一"邻避效应"。`, refTitle:'参考答案要点', ref:`<p><strong>一、理解诉求</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>召开群众座谈会，充分听取意见</li>
+<li>了解群众担心的具体问题（臭味/噪音/房价）</li></ul>
+<p><strong>二、信息公开</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>公布环评报告，用数据说话</li>
+<li>公开建设标准（全封闭、负压除臭等技术措施）</li>
+<li>组织群众代表参观已建成的同类站点</li></ul>
+<p><strong>三、利益补偿</strong>：优先安排周边群众就业、改善周边基础设施、适当经济补偿。</p>
+<p><strong>四、全程监督</strong>：邀请群众代表参与建设监督。</p>`},
+    {title:`第3题 · 综合分析类`, score:'20分', body:`有人说"基层工作就是'上面千条线、下面一根针'，被动应付就行"。也有人说"基层是最好的课堂，可以大有作为"。请结合你的基层锻炼经历，谈谈你对这两种看法的认识。`, refTitle:'参考答案要点', ref:`<p><strong>一、辩证看待两种看法</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>前者描述了基层的"忙"：多头考核、任务繁重，"被动应付"是一种消极心态</li>
+<li>后者揭示了基层的"能"：接地气、长才干，"大有作为"是积极心态</li></ul>
+<p><strong>二、核心论点</strong>：基层既是"穿针引线"的辛苦活，也是"磨炼心性"的成长课。关键在心态。</p>
+<p><strong>三、结合经历</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>讲述1-2个你从"被动应付"到"主动作为"转变的真实事例</li>
+<li>总结"针"的智慧：穿针需要精准（找准关键）、引线需要耐心（持之以恒）</li></ul>`}
+  ],
+  [
+    {title:`第1题 · 公文写作类`, score:'15分', body:`你镇将于下月开展"安全生产月"活动。请代镇安委办撰写一份活动方案，包括活动主题、时间安排、主要内容和责任分工。`, refTitle:'参考答案要点', ref:`<p><strong>一、活动主题</strong>：消除事故隐患，筑牢安全防线</p>
+<p><strong>二、时间安排</strong>：2026年8月1日—8月31日</p>
+<p><strong>三、主要内容</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>宣传发动周：召开动员会、悬挂横幅、发放宣传单、村级广播</li>
+<li>排查整治周：企业自查+部门联查+专家诊查</li>
+<li>应急演练周：组织消防、防汛、地灾等专项演练</li>
+<li>总结提升周：回头看、评优表彰、建立长效机制</li></ul>
+<p><strong>四、责任分工</strong>：安委办牵头、各部门按"三管三必须"落实、各村（社区）属地管理。</p>`},
+    {title:`第2题 · 政策落地类`, score:'15分', body:`湖南省要求各地推进"一窗受理、集成服务"改革，你镇便民服务中心目前仍是"多窗办理、群众跑多次"。请拟定改革实施方案。`, refTitle:'参考答案要点', ref:`<p><strong>一、硬件改造</strong>：改"多窗"为"综合窗口"，设置自助服务区、等候休息区。</p>
+<p><strong>二、人员整合</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>综合窗口人员"全科"培训，实现"一窗通办"</li>
+<li>后台审批人员分类办理、限时办结</li></ul>
+<p><strong>三、流程再造</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>梳理事项清单，精简申请材料</li>
+<li>"容缺受理"：非关键材料可后补</li>
+<li>"一次告知"：一次性告知所需全部材料</li></ul>
+<p><strong>四、延伸服务</strong>：村级代办点+上门服务（老弱病残）+线上预约。</p>`},
+    {title:`第3题 · 工作感悟类`, score:'20分', body:`回顾你在基层锻炼的这段时间，请总结出你认为最重要的3条基层工作方法，并结合具体事例加以说明。800字以上。`, refTitle:'写作要点', ref:`<p><strong>建议提炼方向</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>方法一：调查研究——"没有调查就没有发言权"。举例：为摸清某问题实情，你做了哪些调研？</li>
+<li>方法二：发动群众——"群众中蕴藏着无穷的智慧"。举例：如何让群众从"旁观者"变为"参与者"？</li>
+<li>方法三：系统思维——"头痛医头不如标本兼治"。举例：面对复杂问题时，你如何跳出单一部门视角？</li></ul>
+<p><strong>结构</strong>：每条方法 = 观点句（1-2句）+ 具体事例（100-150字）+ 方法论升华（1-2句）。</p>`}
+  ],
+  [
+    {title:`第1题 · 防返贫类`, score:'15分', body:`你镇在防返贫动态监测中发现某脱贫户因家庭成员突发大病存在返贫风险。请拟定一份防止该户返贫的帮扶方案。`, refTitle:'参考答案要点', ref:`<p><strong>一、紧急救助</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>申请临时救助/急难救助金，解决燃眉之急</li>
+<li>协助办理大病保险理赔和医疗救助</li></ul>
+<p><strong>二、综合帮扶</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>纳入监测对象：录入防返贫系统，明确帮扶责任人</li>
+<li>产业帮扶：帮助发展庭院经济或安排到扶贫车间就业</li>
+<li>教育帮扶：如家中有就学子女，申请教育资助</li></ul>
+<p><strong>三、持续跟踪</strong>：每月走访至少1次，直到风险稳定消除。</p>`},
+    {title:`第2题 · 宣传文化类`, score:'15分', body:`你镇新时代文明实践站建成已半年，但活动开展少、群众参与度低。请拟定激活新时代文明实践站的方案。`, refTitle:'参考答案要点', ref:`<p><strong>一、阵地活起来</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"一站多用"：整合农家书屋、文化广场、儿童之家</li>
+<li>延长开放时间：错时服务（晚上+周末）</li></ul>
+<p><strong>二、活动多起来</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"点单+派单"：群众点单→实践站派单→志愿者接单</li>
+<li>品牌活动：理论宣讲（板凳课堂）、文化惠民（送戏下乡）、关爱服务（四点半课堂）</li></ul>
+<p><strong>三、队伍强起来</strong>：挖掘乡土人才（老党员、退休教师、文艺骨干、大学生志愿者）。</p>`},
+    {title:`第3题 · 综合分析类`, score:'20分', body:`请谈谈你对"乡村振兴，既要塑形，也要铸魂"的理解，并结合湖南实际和你的基层经历加以阐述。`, refTitle:'参考答案要点', ref:`<p><strong>一、理解</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"塑形"：基础设施建设、产业发展、人居环境——硬件改善</li>
+<li>"铸魂"：乡风文明、文化传承、精神富有——软件提升</li>
+<li>二者缺一不可：没有"形"的乡村是"穷山恶水"，没有"魂"的乡村是"文化沙漠"</li></ul>
+<p><strong>二、湖南实践</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"和美湘村"：既美在环境，更美在人文</li>
+<li>移风易俗：抵制高价彩礼、推进殡葬改革</li>
+<li>文化传承：非遗保护、红色文化、乡贤文化</li></ul>
+<p><strong>三、结合经历</strong>：你在基层看到的"塑形"和"铸魂"的真实案例。</p>`}
+  ],
+  [
+    {title:`第1题 · 营商环境类`, score:'15分', body:`你镇有一家返乡创业企业反映"办证难、融资难、招工难"。请拟定一份服务返乡创业企业的帮扶方案。`, refTitle:'参考答案要点', ref:`<p><strong>一、办证服务</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"帮代办"：指定专人全程代办审批手续</li>
+<li>"容缺受理"：非关键材料可后补，先发证后补齐</li></ul>
+<p><strong>二、融资支持</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>对接创业担保贷款、乡村振兴贷等政策性金融产品</li>
+<li>搭建银企对接平台</li></ul>
+<p><strong>三、招工服务</strong>：发布用工信息、组织专场招聘、开展技能培训。</p>
+<p><strong>四、长效机制</strong>：建立"企业服务专员"制度、定期走访、问题台账销号管理。</p>`},
+    {title:`第2题 · 养老助老类`, score:'15分', body:`你镇老年人口占比高，但养老服务设施几乎空白。请拟定一份农村养老服务体系建设的初步方案。`, refTitle:'参考答案要点', ref:`<p><strong>一、设施建设</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>镇级：改扩建敬老院，增加护理型床位</li>
+<li>村级：利用闲置校舍/村部建设日间照料中心</li>
+<li>自然村：设立养老服务点</li></ul>
+<p><strong>二、服务供给</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>助餐：建设"长者食堂"或邻里互助就餐</li>
+<li>助医：家庭医生签约、定期上门巡诊</li>
+<li>助乐：组织文化娱乐活动</li></ul>
+<p><strong>三、互助养老</strong>：低龄老人服务高龄老人、"时间银行"积分制度。</p>`},
+    {title:`第3题 · 规划发展类`, score:'20分', body:`请以"我所经历的基层治理之变"为题，选取你在基层锻炼期间观察到的1-2个基层治理领域的变化（如从"管理"到"服务"、从"人治"到"法治"、从"粗放"到"精细"），写一篇文章阐述你的观察和思考。`, refTitle:'写作提示', ref:`<p><strong>一、选角度</strong>：从基层治理的具体领域切入（如政务服务、矛盾调解、环境整治），不要泛泛而谈。</p>
+<p><strong>二、观察</strong>：描述你亲历的前后对比</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"变"之前是什么样？（具体场景、问题）</li>
+<li>"变"之后是什么样？（改进成效）</li>
+<li>"变"的背后原因是什么？（政策推动/群众需求/技术进步）</li></ul>
+<p><strong>三、思考</strong>：基层治理"变"的本质——从管控到赋能、从单向到互动、从碎片到系统。</p>`}
+  ],
+  [
+    {title:`第1题 · 防汛专题类`, score:'15分', body:`你镇连续暴雨导致河水暴涨，沿岸农田受淹，一处堤坝出现渗漏险情。请拟定一份防汛抢险工作方案。`, refTitle:'参考答案要点', ref:`<p><strong>一、紧急处置</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>立即组织抢险队伍对渗漏段进行封堵加固</li>
+<li>转移下游危险区群众至安置点</li>
+<li>设置警戒线、安排专人24小时巡查</li></ul>
+<p><strong>二、灾情统计</strong>：逐村逐户统计农田受灾面积、房屋受损、人员转移情况。</p>
+<p><strong>三、后勤保障</strong>：确保安置点食宿供应、医疗保障、防疫消杀。</p>
+<p><strong>四、灾后重建</strong>：保险理赔、生产恢复、水毁工程修复。</p>`},
+    {title:`第2题 · 暑期安全类`, score:'15分', body:`暑假将至，你镇水库、河流较多，往年发生过学生溺水事件。请拟定一份暑期防溺水工作方案。`, refTitle:'参考答案要点', ref:`<p><strong>一、宣传教育</strong>：进校园、进村组、进家庭，发放《致家长的一封信》，签订安全责任书。</p>
+<p><strong>二、硬件防护</strong>：重点水域设警示牌、救生圈、救生绳、隔离护栏。</p>
+<p><strong>三、人员巡查</strong>：组建村级义务巡查队，重点时段（午后、傍晚）加密巡查。</p>
+<p><strong>四、替代活动</strong>：开放村部图书室、组织暑期兴趣班，让学生"有地方去、有事情做"。</p>
+<p><strong>五、应急准备</strong>：建立应急救援队伍、配齐救援装备。</p>`},
+    {title:`第3题 · 时事评论类`, score:'20分', body:`请你以"一瓶茶油看乡村振兴"为题，从湖南油茶产业发展切入，谈谈你对"产业振兴是乡村振兴重中之重"的理解。要求：以小见大、观点鲜明、800字以上。`, refTitle:'写作提示', ref:`<p><strong>一、以小见大</strong>：从一瓶茶油（具体产品）→ 油茶产业（产业链）→ 乡村振兴（全局），层层递进。</p>
+<p><strong>二、结构</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>开篇：一瓶茶油背后的故事（林农的汗水、技术的支撑、政策的引导）</li>
+<li>展开：茶油产业的"五个振兴"（产业→油茶基地 人才→技术培训 文化→油茶文化节 生态→绿水青山 组织→专业合作社）</li>
+<li>升华：从一瓶茶油看到乡村振兴的"湖南路径"——立足资源禀赋、坚持因地制宜、推进三产融合</li></ul>
+<p><strong>三、金句储备</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"小茶油撬动大产业，大产业撑起乡村振兴的脊梁。"</li>
+<li>"让绿水青山真正成为老百姓的幸福靠山。"</li></ul>`}
+  ],
+  [
+    {title:`第1题 · 基层体悟类`, score:'20分', body:`请以"在基层读懂中国"为题，结合你参与过的一项具体工作（如走访帮扶、矛盾调解、防汛救灾、产业推进等），写一篇感悟文章。要求：有真实场景、有具体举措、有思想升华，800字以上。`, refTitle:'写作提示', ref:`<p><strong>一、破题</strong>："在基层读懂中国"意味着从具体的人和事中理解国情、民情、社情。避免空泛抒情。</p>
+<p><strong>二、结构建议</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>开头（10%）：用一个具体场景切入，如"第一次入户走访时，李大娘拉着我的手说……"</li>
+<li>主体（60%）：详述1-2件具体工作，突出"我"的角色、遇到的困难、解决的办法</li>
+<li>升华（30%）：从个人经历谈到对基层治理、群众工作、青年干部成长的理解</li></ul>
+<p><strong>三、关键提醒</strong>：细节真实、情感真挚、思考有深度。不要写成工作总结或先进事迹材料。</p>`},
+    {title:`第2题 · 工作方法感悟类`, score:'20分', body:`习近平总书记强调，年轻干部要提高"七种能力"。结合你在基层锻炼的经历，谈谈你认为最重要的两种能力是什么，并结合具体事例说明你是如何提升的。`, refTitle:'参考答案要点', ref:`<p><strong>一、明确两种能力</strong>：建议从群众工作能力、应急处突能力、抓落实能力、调查研究能力中选择最贴合自身经历的两种。</p>
+<p><strong>二、结合具体事例</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>群众工作能力：如何通过方言学习、入户走访、解决实际困难赢得群众信任</li>
+<li>应急处突能力：如何在防汛、防火、突发事件中快速反应、稳妥处置</li>
+<li>抓落实能力：如何推动一项政策从"纸上"落到"地上"</li></ul>
+<p><strong>三、能力提升路径</strong>：向书本学、向实践学、向群众学、向同事学。</p>
+<p><strong>四、升华</strong>：七种能力不是孤立存在，在基层工作中相互支撑、共同提升。</p>`},
+    {title:`第3题 · 书信感悟类`, score:'20分', body:`你的一名大学同学即将成为选调生，但对此充满忐忑，写信向你请教"基层锻炼这两年到底值不值"。请你给他（她）写一封回信。`, refTitle:'写作提示', ref:`<p><strong>一、语气定位</strong>：亲切、真诚、有说服力，像学长学姐给学弟学妹写信，既有鼓励也有提醒。</p>
+<p><strong>二、内容框架</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>回应忐忑：承认基层会有苦、累、迷茫，但这些都是成长的必经阶段</li>
+<li>分享收获：用1-2个自己的真实故事说明基层带来的成长</li>
+<li>给出建议：心态上（沉得下心）、方法上（扎得下根）、目标上（看得长远）</li>
+<li>结尾鼓励：用一句有力的话收束</li></ul>
+<p><strong>三、避免</strong>：说教味太重、空话套话、回避困难。</p>`}
+  ],
+  [
+    {title:`第1题 · 村情民情感悟类`, score:'20分', body:`驻村一段时间后，你对"村情"和"民情"有了更深的理解。请结合你所在村（社区）的实际，谈谈你对"吃透村情、读懂民意"的认识，并说明这对做好基层工作有何意义。`, refTitle:'参考答案要点', ref:`<p><strong>一、村情包括什么</strong>：自然条件、资源禀赋、产业基础、基础设施、基层组织、矛盾纠纷、特殊群体等。</p>
+<p><strong>二、民情的核心</strong>：群众最关心什么、最期盼什么、最不满意什么、最担心什么。</p>
+<p><strong>三、如何吃透</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"脚板+键盘"：既要入户走访，也要建立台账</li>
+<li>"会上+会下"：既要参加村两委会议，也要在田间地头、农家院坝听真话</li>
+<li>"干部+群众"：既要听村干部介绍，也要直接听群众说</li></ul>
+<p><strong>四、意义</strong>：吃透村情才能科学决策，读懂民意才能精准服务，二者是做好群众工作的前提。</p>`},
+    {title:`第2题 · 失误与成长类`, score:'20分', body:`在基层工作中，谁都可能遇到失误或挫折。请结合你的一次具体经历（可以是一次工作失误、一次群众误解、一次推进受阻等），谈谈你是如何面对和成长的。`, refTitle:'写作提示', ref:`<p><strong>一、选题</strong>：选一次真实的、有教训的经历，不要选"假挫折真表扬"的故事。</p>
+<p><strong>二、结构</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>背景：交代事件经过</li>
+<li>失误：坦诚说明问题所在</li>
+<li>应对：如何补救、如何反思</li>
+<li>成长：这次经历教会了你什么</li></ul>
+<p><strong>三、升华</strong>：失误是成长的必修课，关键是"吃一堑、长一智"，建立避免再犯的机制。</p>`},
+    {title:`第3题 · 离别感言类`, score:'20分', body:`两年基层锻炼即将结束，镇党委书记邀请你在座谈会上做一个简短发言。请围绕"感恩、收获、告别、祝福"四个关键词，写一篇发言稿。`, refTitle:'写作提示', ref:`<p><strong>一、发言稿结构</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>开场：表达感谢（组织、领导、同事、群众）</li>
+<li>感恩：基层给予的成长平台</li>
+<li>收获：能力、情感、方法三个层面的收获</li>
+<li>告别：不舍与珍惜</li>
+<li>祝福：对乡镇、对同事、对年轻干部的祝福</li></ul>
+<p><strong>二、语言风格</strong>：口语化、有温度，适合座谈会场景。可以引用一句基层金句收尾。</p>
+<p><strong>三、注意</strong>：时间控制在5-8分钟，约800-1000字。</p>`}
+  ]
+
+];
+
+// 遴选考试每日一练池 (12套，每套1题)
+const SELECTION_POOL = [
+  {title:`案例分析 · 基层治理`, score:'25分', body:`某镇推行网格化管理已两年，但群众满意度不高，反映"网格员找不到、问题没人管、办了没反馈"。请分析原因并提出改进建议。`, refTitle:'参考答案要点', ref:`<p><strong>一、原因分析</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>身份"隐身"：网格员信息未公开，群众不知道找谁</li>
+<li>权责不清：网格员多为兼职，事务繁杂，无力深耕网格</li>
+<li>闭环缺失：问题上报后流转不畅，缺乏反馈机制</li>
+<li>考核偏差：重痕迹轻实效，网格员疲于填表留痕</li></ul>
+<p><strong>二、改进建议</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>"亮身份"：公示网格员信息、职责、联系方式</li>
+<li>"明权责"：制定网格事项清单，专职与兼职相结合</li>
+<li>"闭环办"：建立"发现-上报-分拨-处置-反馈"全流程</li>
+<li>"群众评"：将群众满意度纳入网格员考核</li></ul>`},
+  {title:`公文写作 · 调研报告`, score:'25分', body:`为推动乡村产业发展，你随镇领导到辖区几个村调研集体经济情况。调研结束后，领导让你起草一份调研报告。请列出报告提纲，并写出正文第一部分（现状与问题）。`, refTitle:'参考答案要点', ref:`<p><strong>一、报告提纲</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>一、调研背景与目的</li>
+<li>二、基本情况（调研村数量、人口、资源、收入等）</li>
+<li>三、主要做法与成效</li>
+<li>四、存在的问题及原因分析</li>
+<li>五、对策建议</li></ul>
+<p><strong>二、现状与问题正文要点</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>总体判断：村集体经济"薄弱面大、发展不均、造血不足"</li>
+<li>具体问题：资源盘活不够、产业同质化、人才支撑弱、利益联结松</li>
+<li>原因分析：思想认识、要素保障、体制机制、市场能力等方面</li></ul>`},
+  {title:`策论文 · 乡村振兴`, score:'30分', body:`请以"发展壮大新型农村集体经济 夯实乡村振兴物质基础"为题，写一篇策论文。要求：观点明确、结构完整、对策可行，1000字左右。`, refTitle:'写作提示', ref:`<p><strong>一、立意</strong>：集体经济是乡村振兴的重要支撑，要从"输血"转向"造血"，从"单打独斗"转向"抱团发展"。</p>
+<p><strong>二、结构</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>开头：点明集体经济的战略意义</li>
+<li>问题段：资源沉睡、人才外流、机制不活、市场风险</li>
+<li>对策段：清产核资摸清家底、因地制宜选准产业、联农带农完善利益联结、人才回引强化支撑、规范管理防范风险</li>
+<li>结尾：升华到共同富裕、农业农村现代化</li></ul>`},
+  {title:`事务处理 · 群众来访`, score:'20分', body:`周五下午，一名群众到镇政府信访，情绪激动地反映自家房屋因邻村修路施工出现裂缝，要求政府立即解决并赔偿。领导安排你负责接待处理。请说明你的工作思路和步骤。`, refTitle:'参考答案要点', ref:`<p><strong>一、稳定情绪</strong>：请群众到接待室，倒杯水，耐心倾听，避免激化。</p>
+<p><strong>二、登记受理</strong>：记录群众姓名、联系方式、住址、诉求、相关证据，出具受理回执。</p>
+<p><strong>三、调查核实</strong>：组织自然资源、交通、施工方等实地查看，委托专业机构鉴定房屋裂缝原因。</p>
+<p><strong>四、分类处理</strong>：如确因施工造成，协调赔偿修复；如不存在因果关系，做好解释疏导。</p>
+<p><strong>五、跟踪回访</strong>：限时办结，及时反馈，防止重复访、越级访。</p>`},
+  {title:`案例分析 · 基层党建`, score:'25分', body:`某村党组织软弱涣散，组织生活不正常，党员作用发挥不明显，群众有事不找支部。上级要求限期整顿。请分析原因并提出整顿措施。`, refTitle:'参考答案要点', ref:`<p><strong>一、原因分析</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>带头人能力不足或不在状态</li>
+<li>党员队伍老化、流动党员管理松散</li>
+<li>组织生活流于形式，缺乏吸引力</li>
+<li>服务群众意识淡薄，群众认可度低</li></ul>
+<p><strong>二、整顿措施</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>选优配强：调整村党支部书记，选派第一书记</li>
+<li>规范组织生活：落实"三会一课"、主题党日</li>
+<li>建强队伍：发展年轻党员，加强流动党员管理</li>
+<li>服务群众：建立党员联户、承诺践诺、志愿服务机制</li>
+<li>严格考核：整顿成效与评先评优、项目资金挂钩</li></ul>`},
+  {title:`公文写作 · 会议通知`, score:'15分', body:`镇里定于下周三上午9点召开全镇农村人居环境整治"百日攻坚"动员会，会期半天，地点在镇政府三楼会议室。请你拟写一份会议通知。`, refTitle:'参考答案要点', ref:`<p><strong>格式要点</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>标题：XX镇人民政府关于召开农村人居环境整治"百日攻坚"动员会的通知</li>
+<li>主送单位：各村（社区）、镇属各部门</li>
+<li>正文：会议目的、时间、地点、参会人员、会议议程、相关要求</li>
+<li>落款：单位名称、日期</li></ul>
+<p><strong>正文示例</strong>：为深入贯彻落实上级关于农村人居环境整治工作部署，加快推进"和美湘村"建设，经研究，决定召开全镇农村人居环境整治"百日攻坚"动员会。现将有关事项通知如下……</p>`},
+  {title:`策论文 · 基层治理`, score:'30分', body:`请以"坚持和发展新时代'枫桥经验' 提升基层社会治理效能"为题，写一篇策论文。要求：观点鲜明、论证充分、对策具体，1000字左右。`, refTitle:'写作提示', ref:`<p><strong>一、立意</strong>：新时代"枫桥经验"的核心是"矛盾不上交、平安不出事、服务不缺位"，要将其转化为基层治理效能。</p>
+<p><strong>二、结构</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>开头：阐述"枫桥经验"的时代价值</li>
+<li>问题段：矛盾纠纷多元复杂、基层力量不足、协同机制不畅</li>
+<li>对策段：完善排查预警机制、建强调解队伍、推进多元化解、强化科技赋能、健全考核激励</li>
+<li>结尾：建设更高水平平安中国</li></ul>`},
+  {title:`事务处理 · 突发舆情`, score:'20分', body:`某村村民在短视频平台发布视频，称"镇政府征地补偿款被挪用"，引发网友关注和转发。领导要求你立即处置。请说明你的工作步骤。`, refTitle:'参考答案要点', ref:`<p><strong>一、快速反应</strong>：第一时间报告领导，启动舆情应对预案，关注舆情动态。</p>
+<p><strong>二、核查真相</strong>：调取征地补偿款发放台账、银行流水、公示材料，必要时审计介入。</p>
+<p><strong>三、分级处置</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>如属实：立即纠正，追究责任，公开通报</li>
+<li>如不属实：及时发布权威信息，澄清事实，消除误解</li></ul>
+<p><strong>四、依法引导</strong>：对造谣传谣行为，固定证据，依法处理。</p>
+<p><strong>五、举一反三</strong>：完善村务公开、补偿款发放公示制度，畅通群众监督渠道。</p>`},
+  {title:`案例分析 · 民生保障`, score:'25分', body:`某镇农村留守老人"吃饭难、看病难、精神孤独"问题突出，但镇财政紧张、专业人才缺乏。请分析困境成因并提出可持续的解决思路。`, refTitle:'参考答案要点', ref:`<p><strong>一、成因分析</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>人口老龄化加剧，家庭养老功能弱化</li>
+<li>养老服务设施不足，医养结合不紧密</li>
+<li>财政投入有限，社会资本参与不足</li>
+<li>专业人才缺乏，服务供给质量不高</li></ul>
+<p><strong>二、解决思路</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>盘活资源：利用闲置校舍、村部建设日间照料中心</li>
+<li>互助养老：推广"时间银行"，低龄老人服务高龄老人</li>
+<li>医养结合：推动乡镇卫生院与养老机构签约服务</li>
+<li>多元投入：政府补贴+集体投入+社会捐赠+家庭尽责</li></ul>`},
+  {title:`公文写作 · 工作简报`, score:'15分', body:`你镇近期开展了安全生产大排查大整治行动，取得了阶段性成效。请代镇安委办拟写一份工作简报。`, refTitle:'参考答案要点', ref:`<p><strong>简报结构</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>标题：XX镇安全生产大排查大整治行动工作简报</li>
+<li>导语：行动背景、时间、范围、总体情况</li>
+<li>主要做法：动员部署、全面排查、专项整治、宣传培训</li>
+<li>工作成效：排查企业数、发现隐患数、整改完成数、典型案例</li>
+<li>下一步打算：持续整改、回头看、建章立制</li></ul>
+<p><strong>注意</strong>：语言简练、数据准确、重点突出。</p>`},
+  {title:`策论文 · 作风建设`, score:'30分', body:`请以"力戒形式主义官僚主义 切实为基层减负赋能"为题，写一篇策论文。要求：立场鲜明、分析透彻、对策可行，1000字左右。`, refTitle:'写作提示', ref:`<p><strong>一、立意</strong>：形式主义、官僚主义是基层负担的重要根源，减负的目的是让干部有更多时间和精力抓落实、办实事。</p>
+<p><strong>二、结构</strong>：</p>
+<ul style="margin-left:1.2rem;margin-bottom:0.5rem;">
+<li>开头：点明作风建设的重要性和紧迫性</li>
+<li>问题段：文山会海、过度留痕、层层加码、督查检查过多</li>
+<li>对策段：精简文件会议、统筹督查考核、优化数字政务、完善容错纠错、建立反向评价</li>
+<li>结尾：以优良作风凝聚干事创业合力</li></ul>`},
+  {title:`事务处理 · 协调矛盾`, score:'20分', body:`你镇两个村因一条灌溉渠的使用权发生纠纷，多次协商未果，近期矛盾升级，村民准备集体上访。领导安排你协调处理。请说明你的工作思路。`, refTitle:'参考答案要点', ref:`<p><strong>一、稳控局面</strong>：立即赶赴现场，安抚双方情绪，防止事态扩大和越级上访。</p>
+<p><strong>二、调查核实</strong>：查阅历史资料、走访老村干部和群众、现场查看水渠现状，弄清权属和使用历史。</p>
+<p><strong>三、协商调解</strong>：组织两村代表、水利部门、司法所等进行调解，提出公平合理的用水方案。</p>
+<p><strong>四、达成协议</strong>：签订书面协议，明确用水时间、维护责任、违约处理，必要时进行司法确认。</p>
+<p><strong>五、长效管理</strong>：建立渠系管护机制，定期巡查，防止矛盾反弹。</p>`}
+];
+
+// 遴选学习资源池 (12条，每日选3条)
+const SELECTION_RESOURCE_POOL = [
+  {title:'遴选案例分析题高分技巧：从"材料阅读"到"精准作答"的四步法', src:'公选王遴选网', tags:[{t:'案例分析',c:'badge-red'},{t:'答题方法',c:'badge-green'}], url:'http://gx.gongxuanwang.com/articleDetail/152360'},
+  {title:'遴选公文写作全攻略：通知、报告、请示、函的格式与范例', src:'北辰遴选', tags:[{t:'公文写作',c:'badge-green'},{t:'格式规范',c:'badge-orange'}], url:'https://www.edulxw.cn/news/index/detail.html?id=21281'},
+  {title:'策论文写作从"对策堆砌"到"逻辑闭环"：标题、立意、论证全突破', src:'遴选上岸经验', tags:[{t:'策论文',c:'badge-red'},{t:'写作方法',c:'badge-green'}], url:'https://www.toutiao.com/article/7655226023738376756'},
+  {title:'遴选笔试备考规划：在职人员如何利用碎片时间高效复习', src:'山东遴选经验', tags:[{t:'备考规划',c:'badge-green'},{t:'时间管理',c:'badge-orange'}], url:'https://www.ztlxw.cn/article/2065716196714532866.html'},
+  {title:'遴选上岸经验：题型突破+资料选择+答题套路全解析', src:'头条备考', tags:[{t:'上岸经验',c:'badge-green'},{t:'实战技巧',c:'badge-orange'}], url:'https://www.toutiao.com/article/7653740266288972323'},
+  {title:'从乡镇到省直：一名遴选上岸干部的经验分享与备考心得', src:'北辰遴选', tags:[{t:'经验分享',c:'badge-green'},{t:'励志',c:'badge-orange'}], url:'https://edulxw.cn/detail.html?cat_id=224&id=231904'},
+  {title:'遴选政策理论备考：精读政府工作报告与中央一号文件的方法', src:'求是网', tags:[{t:'政策理论',c:'badge-green'},{t:'高频考点',c:'badge-red'}], url:'http://qstheory.cn/20250308/a5d070baa5b8498d9f23cd5ab3239dc0/c.html'},
+  {title:'事务处理题答题思路：情境模拟+角色定位+程序规范', src:'公选王', tags:[{t:'事务处理',c:'badge-green'},{t:'答题思路',c:'badge-orange'}], url:'https://lx.gongxuanwang.com/cktx/clfw/73285.html'},
+  {title:'遴选大作文（策论文）万能框架：标题点题+背景分析+对策展开', src:'遴选经验', tags:[{t:'策论文',c:'badge-red'},{t:'万能框架',c:'badge-green'}], url:'https://www.ztlxw.cn/article/2067459923992662018.html'},
+  {title:'湖南遴选备考：结合本省政策热点与基层实务的答题策略', src:'湖南省发改委', tags:[{t:'湖南遴选',c:'badge-red'},{t:'本土化',c:'badge-green'}], url:'https://fgw.hunan.gov.cn/fgw/xxgk_70899/zcfg/dfxfg/202607/t20260720_34029853.html'},
+  {title:'公文写作常见错误：标题、称谓、落款细节决定成败', src:'公选王', tags:[{t:'公文写作',c:'badge-green'},{t:'避坑指南',c:'badge-red'}], url:'https://m.gongxuanwang.com/article/29282'},
+  {title:'遴选备考：如何在繁忙工作中保证每天2小时有效学习', src:'中彤遴选', tags:[{t:'备考规划',c:'badge-green'},{t:'时间管理',c:'badge-orange'}], url:'https://www.ztlxw.cn/article/2065716760294772737.html'}
+];
+
+// 每日提醒池 (15条)
+const REMINDER_POOL = [
+  '<p>1. <strong style="color:var(--dark-red);">湖南总林长令是今天的"题眼"。</strong>2026年第2号总林长令聚焦林业产业高质量发展，林长制从"护绿"转向"兴绿富民"——这个转变极可能成为考试素材。</p><p style="margin-top:0.5rem;">2. <strong style="color:var(--dark-green);">娄底政务服务改革值得关注。</strong>"用户思维""动态优化""能压尽压"——可以直接搬到答题中，作为基层"放管服"改革的典型案例。</p><p style="margin-top:0.5rem;">3. <strong>选调生培训新闻是"免费的模拟题"。</strong>通江、息烽、大兴等地的选调生培训内容（基层党建、矛盾调处、产业培育）几乎就是考试大纲。</p><p style="margin-top:0.5rem;">4. <strong>基层感悟类写作多看范文。</strong>今天推荐崇明选调生的"驻村答卷"——从"荒地"到"一垄地"的叙事结构非常值得借鉴。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">时政就是你的"弹药库"。</strong>今天精读的每一条新闻，都可能成为3个月后答题中的案例支撑。边读边想"这能用在哪个题型里"。</p><p style="margin-top:0.5rem;">2. <strong style="color:var(--dark-green);">"向县放权"是体制创新的大文章。</strong>湖南省方案明确"应放尽放、能接尽接"，这背后的放权逻辑和承接困境，是综合分析题的经典素材。</p><p style="margin-top:0.5rem;">3. <strong>如果今天只能做一件事，做真题。</strong>只看不练是备考最大的坑。哪怕只做1道题，也比看3篇范文有效。</p><p style="margin-top:0.5rem;">4. <strong>写答案时想象你在考场。</strong>限时、不看资料、手写/打字——越接近考场环境的练习效果越好。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">产业发展方案类题目有"万能框架"。</strong>摸底调研→规划定位→具体措施→利益联结→保障机制。今天练习时可以套用这个框架试试。</p><p style="margin-top:0.5rem;">2. <strong>油茶/竹产业/乡村旅游——湖南特色产业三件套。</strong>一道产业发展题，选这三个方向之一作答，既有"湖南味"又容易出彩。</p><p style="margin-top:0.5rem;">3. <strong>不要只读"预测考题"的预测理由。</strong>更要仔细看"答题框架提示"——那是可以直接套用的答题模板。</p><p style="margin-top:0.5rem;">4. <strong>素材积累的每个板块至少通读一遍。</strong>8个板块就是你答题的"8个武器库"，缺一不可。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">"用户思维"不是挂在嘴上的口号。</strong>今天做真题时，每道题目从"群众视角"想一想：群众最关心什么？我的方案对群众有什么好处？</p><p style="margin-top:0.5rem;">2. <strong>娄底"动态优化"经验可以直接引用。</strong>"高频事项动态扩充、办件抽样复核、流程反弹通报整改"——这些专业表述是加分项。</p><p style="margin-top:0.5rem;">3. <strong>对策建议题的"3W1H"法则。</strong>why（为什么有问题）、what（要做什么）、who（谁来做）、how（怎么落地）。</p><p style="margin-top:0.5rem;">4. <strong>复习一下"乡镇工作全景图"中依法行政板块。</strong>放管服、综合执法、权责清单——都是政务改革题的"弹药"。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">安全生产是"一票否决"的底线，更是考试的"必得分"。</strong>沈晓明连续强调安全生产，2023届就考了"安全生产整治工作思路"。</p><p style="margin-top:0.5rem;">2. <strong>"应消合一"是湖南基层应急管理改革的新方向。</strong>如果考到应急管理，把这个概念写进去，阅卷老师就知道你懂湖南政策。</p><p style="margin-top:0.5rem;">3. <strong>防汛"631"机制是湖南特色。</strong>6小时预报→3小时预警→1小时叫应——答应急方案题时烂熟于心的四个数字。</p><p style="margin-top:0.5rem;">4. <strong>应急管理答题公式</strong>：预案+队伍+物资+演练+预警+处置+善后。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">"枫桥经验"不是背概念，是写方法。</strong>要说清楚"怎么排查的""怎么调解的""怎么防止反弹的"——不要停留在"坚持枫桥经验"这种空话层面。</p><p style="margin-top:0.5rem;">2. <strong>矛盾调解的分寸感很重要。</strong>法理情三者不是平均分配——土地纠纷偏"法"、邻里纠纷偏"情"、信访积案三者都要。</p><p style="margin-top:0.5rem;">3. <strong>写工作事例时的"三层递进"。</strong>第一层：矛盾纠纷是什么→第二层：你做了什么→第三层：结果和感悟。每层都要有具体内容。</p><p style="margin-top:0.5rem;">4. <strong>搜集至少3个矛盾调解的真实案例。</strong>考试时从"案例库"中调用比现场编造靠谱得多。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">留守儿童不是"问题清单"，是"关爱考题"。</strong>答题时既要体现制度刚性（安全责任），又要展现人文关怀（心理关爱）。</p><p style="margin-top:0.5rem;">2. <strong>"一童一档"+"三色管理"是专业表述。</strong>这些术语让你的答案看起来"懂行"，建议背下来。</p><p style="margin-top:0.5rem;">3. <strong>民生保障类题的"横纵坐标"。</strong>横坐标是服务种类（低保/医保/养老/助残/儿童），纵坐标是服务深度（有没有→好不好→满不满意）。</p><p style="margin-top:0.5rem;">4. <strong>浏览时政中的苏仙区"爱心传承"模式。</strong>大学生志愿者+关爱留守儿童+"爱心传承"品牌——可以改编成答题中的具体做法。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">"新官理旧账"是今天的"题眼"。</strong>沈晓明专题党课强调"敢于做吃力不讨好但事业发展需要的事"，正确政绩观是当前全省学习教育的核心——极可能成为考试命题方向。</p><p style="margin-top:0.5rem;">2. <strong style="color:var(--dark-green);">台风"红霞"防汛是实战素材。</strong>7月25-26日湖南启动三级应急响应，"631"机制+"四个一律"再次得到实战检验。防汛应急类题目中引用这个最新案例，让你的答案更有"现场感"。</p><p style="margin-top:0.5rem;">3. <strong>花垣县"三变"改革值得深读。</strong>资源变资产、资金变股金、农民变股东——这是发展村集体经济的湖南样板，产业发展方案题可以直接借鉴。</p><p style="margin-top:0.5rem;">4. <strong>"和美湘村"不只是概念。</strong>衡阳联龙村的"党建领航+三产融合+全民共建"路径，是"千万工程"湖南实践的典型——答题时引用真实案例比空谈概念有力得多。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">"消薄攻坚"就是发展村集体经济的中国式表述。</strong>答这道题时，路径选择比资金投入更重要——要体现"因地制宜"的思维。</p><p style="margin-top:0.5rem;">2. <strong>"联农带农机制"≠"分钱"。</strong>好的利益联结是：农户有活干→有技术学→有分红拿→有品牌靠。四层递进。</p><p style="margin-top:0.5rem;">3. <strong>产业发展方案的"灵魂"是利益联结机制。</strong>很多人的方案写完措施就完了，忘了说"群众怎么受益"——这是扣分点。</p><p style="margin-top:0.5rem;">4. <strong>浏览"乡镇工作全景图-经济发展"板块。</strong>招商引资、项目建设、市场主体培育——广义的经济发展素材储备。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">"基层减负"不是吐槽，是答题。</strong>要说清楚：负担重的根源（权责不匹配/考核过细/条块分割）→可行的解决方案（清单管理/数据共享/反向评价）。</p><p style="margin-top:0.5rem;">2. <strong>"向县放权"的辩证关系</strong>：放权不是"甩锅"，减负不是"减责"，赋能才是目的。</p><p style="margin-top:0.5rem;">3. <strong>选调生要展现"担当"而非"抱怨"。</strong>答减负类题目时，先肯定成绩再指出问题，不要只见"负"不见"能"。</p><p style="margin-top:0.5rem;">4. <strong>"六小"工作法——小而美的基层治理智慧。</strong>排查小隐患、调解小纠纷、改善小环境——这种"以小见大"的表述非常出彩。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">基层体悟写作的第一要义：真诚。</strong>阅卷老师见过太多套路化的"成长感悟"，一个真实的细节胜过十句漂亮话。</p><p style="margin-top:0.5rem;">2. <strong>"从一件事到一类事"是升华的关键。</strong>不要写成"我做了什么"的流水账，要提炼出"我从中学到了什么方法论"。</p><p style="margin-top:0.5rem;">3. <strong>不要回避"矛盾"和"失败"。</strong>顺风顺水的故事没有张力。你遇到困难→想方设法解决→事后反思——这条"弧线"才好看。</p><p style="margin-top:0.5rem;">4. <strong>开头30字定生死。</strong>不要"在组织的关心下我来到了XX村"，试试"那天晚上11点，张大爷的电话把我从睡梦中叫醒……"</p>',
+  '<p>1. <strong style="color:var(--dark-red);">"数字乡村"答题要避免两个极端。</strong>一味夸大好高骛远（5G全覆盖）、完全不提丧失时代感——找到"接地气的数字化"平衡点。</p><p style="margin-top:0.5rem;">2. <strong>网格化管理≠APP打卡。</strong>网格化的核心是"精细化服务"，技术只是手段。答题时多强调"服务"而非"管理"。</p><p style="margin-top:0.5rem;">3. <strong>"互联网+政务服务"的"三通"目标。</strong>网络通、数据通、业务通——任何一个都够写一整段对策。</p><p style="margin-top:0.5rem;">4. <strong>浏览"素材积累"板块中与数字化相关的内容。</strong>把"数字乡村"与"智慧农业""电商助农""智慧应急"串联起来。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">每周回顾比每天猛冲更重要。</strong>备考是马拉松，不是百米冲刺。停下来看看走过的路，比一直低头跑更有价值。</p><p style="margin-top:0.5rem;">2. <strong>检查你的"答题武器库"。</strong>金句、案例、框架——这周积攒了多少？下周准备攻克哪个薄弱题型？</p><p style="margin-top:0.5rem;">3. <strong>做一次诚实自评。</strong>不看参考答案，你能写出几个完整的答题框架？乡村振兴？矛盾调解？安全生产？防汛应急？——数一数。</p><p style="margin-top:0.5rem;">4. <strong>奖励自己。</strong>坚持一周每天做真题已经很不容易了。喝杯奶茶、看个电影，调整好状态再出发。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">政策文件要"读懂"而非"读多"。</strong>一份《向县放权实施方案》吃透，胜过浏览10份文件。关键是你能否用自己的话讲清楚。</p><p style="margin-top:0.5rem;">2. <strong>建立"政策→考题"的映射思维。</strong>每读一份文件，问自己：这个政策可以从什么角度出题？会出什么题型？</p><p style="margin-top:0.5rem;">3. <strong>答题"金句"不是越多越好。</strong>一句精准的政策引用比三句套话值钱。沈晓明的原话、文件的准确表述——这些才是真正的加分项。</p><p style="margin-top:0.5rem;">4. <strong>总结一个"最常用30句金句"清单。</strong>按主题分类（党建/乡村振兴/民生/安全/生态），答题时信手拈来。</p>',
+  '<p>1. <strong style="color:var(--dark-red);">舆情应对的"快、准、诚"三字诀。</strong>快：第一时间发声 准：信息要核实无误 诚：有错就认、有误解就解释。</p><p style="margin-top:0.5rem;">2. <strong>"黄金4小时"原则不仅适用于舆情。</strong>突发事件应对中的信息发布、群众安抚、物资调配——都有"时间窗口"的概念。</p><p style="margin-top:0.5rem;">3. <strong>答应急题时的"情、理、法"顺序。</strong>先说"人命关天"（情），再说"依法依规"（法），最后说"举一反三"（理）。</p><p style="margin-top:0.5rem;">4. <strong>准备一个"突发事件应对模板"。</strong>把常见的流程（报告→处置→善后→总结）烂熟于心，考试时直接套用。</p>',
+];
+
+// 素材积累每日重点池 (15天轮换，每天4条，每条含详细实务+金句感悟)
+const MATERIAL_HIGHLIGHTS = [
+  [
+    {cat:'乡村振兴', title:'和美湘村建设的落地路径', content:'坚持规划先行、分类推进、产业支撑、文化铸魂。具体做到“三清三整三提升”：清垃圾、清沟渠、清残垣，整乱堆、整乱建、整线缆，提升基础设施、公共服务、乡风文明。把“千万工程”经验转化为湖南实践，不搞运动式整治，重在建立群众参与、长效管护机制。金句感悟：“乡村建设不是涂脂抹粉，而是强筋壮骨；既要塑形，更要铸魂。”'},
+    {cat:'粮食安全', title:'藏粮于地与高标准农田管护', content:'严守耕地红线，落实田长制网格化管理，对撂荒地实行“一地一策”复耕。高标准农田建成后关键是管护，建立“县统筹、镇监管、村管护、户受益”机制，明确设施维修、渠道清淤、机耕道养护责任主体，配套管护经费和考核办法。金句感悟：“耕地是粮食生产的命根子，建好更要管好，让粮田真正变成良田。”'},
+    {cat:'基层党建', title:'把战斗堡垒建到群众家门口', content:'健全乡镇党委—村党支部—网格党小组—党员中心户四级架构。推行无职党员设岗定责、党员联户、承诺践诺，把组织优势转化为治理效能。重点在乡村振兴、防汛救灾、矛盾化解中发挥党员先锋模范作用，让群众有事找党员、找支部。金句感悟：“乡村振兴，关键是把基层党组织建好建强；支部强，一强百强。”'},
+    {cat:'产业发展', title:'联农带农的利益联结机制', content:'村集体+合作社+农户，通过订单收购、保底分红、股份合作、劳务带动等方式，把农民嵌入产业链。具体做法：统一品种标准、统一技术指导、统一品牌销售，保底收购让农户不愁卖，二次分红让农户共享增值。金句感悟：“产业振兴不是老板发财、群众旁观，要让农民有活干、有技术学、有分红拿、有品牌靠。”'}
+  ],
+  [
+    {cat:'向县放权', title:'破解“接不住”的体制改革', content:'应放尽放、能接尽接，同步推进权限下放、资源下沉、能力提升。建立“一张清单明权责、一套流程管运行、一个窗口优服务、一支队伍强执法”的承接体系；对高频事项开展“跟班学习+专题培训+案例教学”，设置过渡期“扶上马送一程”，确保基层接得住、用得好。金句感悟：“放权不是甩锅，赋能才是目的；减负不是减责，增效才是根本。”'},
+    {cat:'政务服务', title:'以“用户思维”优化群众办事体验', content:'从群众视角重塑流程，推进高频事项“一件事一次办”。具体做法：动态扩充事项清单，办件抽样复核，流程反弹通报整改；对老弱病残提供上门办、帮代办、延时办；建立“好差评”闭环机制，把群众满意度作为考核硬指标。金句感悟：“政务服务的好坏，群众脸上的笑容是最真实的评分表。”'},
+    {cat:'基层减负', title:'“六小工作法”推动减负增效', content:'排查小隐患、调解小纠纷、改善小环境、解决小问题、办理小事情、满足小心愿。坚持“早、快、融、实、稳、准”六字诀：早发现、快处置、融进去、办实事、稳情绪、准施策。把功夫下在平时，把矛盾化解在萌芽。金句感悟：“基层治理最怕‘大而空’，抓住‘小切口’才能解决‘大问题’。”'},
+    {cat:'营商环境', title:'服务企业就是服务发展', content:'建立“企业服务专员”制度，实行定期走访、问题台账、销号管理。对企业反映的办证难、融资难、招工难，分别采取帮代办、银企对接、专场招聘等措施；落实“容缺受理”“一次性告知”，让数据多跑路、企业少跑腿。金句感悟：“营商环境没有最好，只有更好；干部多操心，企业才能少费心。”'}
+  ],
+  [
+    {cat:'正确政绩观', title:'"新官理旧账"是担当更是法定职责', content:'沈晓明专题党课强调：坚持新官理旧账，做前任留下的、符合实际的、还没做完的事，一任接着一任干、一张蓝图绘到底。敢于做"吃力不讨好"但事业发展需要的事，甘愿做为后人打基础、利长远的事。坚持清存量和遏增量相结合，依法依规、建章立制，构建防治新官不理旧账全链条制度体系。金句感悟："功成不必在我、功成必定有我；理旧账也是政绩，担当才有作为。"'},
+    {cat:'防汛应急', title:'台风"红霞"与"七下八上"防汛实战', content:'台风"红霞"来袭，湖南启动洪水防御三级应急响应。省水利厅要求"有隐患早处置、有风险早转移、有困难早提出、有伤亡早报告"。紧盯湖区堤防、中小水库特别是病险水库、山洪危险区。坚持防汛抗旱两手抓，科学拦蓄尾洪，提前储备抗旱水源。金句感悟："宁可十防九空，不可失防万一；以万全之策确保万无一失。"'},
+    {cat:'河长制', title:'第12号省总河长令：管好"盆"护好"水"', content:'湖南发布第12号省总河长令。管好"盛水的盆"：严格管控河湖岸线，严禁非法侵占水域、围垦湖泊、非法采砂。护好"盆中的水"：统筹推进水资源保护、水污染防治、水环境治理、水生态修复。构建"发现—交办—核查—整改—销号"全链条闭环管理，河湖长履职与考核挂钩。金句感悟："河湖长不是挂名，而是责任；巡河不是走形式，而是解问题。"'},
+    {cat:'集体经济', title:'花垣"三变"改革：资源变资产、资金变股金、农民变股东', content:'花垣县十八洞片区联动6个苗寨抱团发展，成立乡村发展公司。排碧村老烟站蝶变为2100平方米服装厂，年销售额120万；苗绣基地年产值1200万。花垣镇四村联合社将1700万产业贷款转为股金发展黄牛养殖，累计收益3000万。农民通过土地、劳力、技艺、资金多要素入股，获得租金、薪金、股金多重收益。金句感悟："三变改革变的是机制，活的是资源，富的是百姓。"'}
+  ],
+  [
+    {cat:'留守儿童', title:'“一童一档”织密关爱保护网', content:'逐村逐户摸排留守儿童底数，建立“一童一档”，实行红黄绿三色管理。暑假期间重点防范溺水、交通事故、意外伤害；组织大学生支教、心理团辅、亲情视频、四点半课堂；落实村支书第一责任人、民政专干定期探访制度。金句感悟：“留守儿童不缺关注，缺的是长效、精准、有温度的陪伴。”'},
+    {cat:'养老服务', title:'农村养老的“身边、床边、周边”服务', content:'建设镇级敬老院、村级日间照料中心、自然村养老服务点。推广互助养老和“时间银行”，低龄老人服务高龄老人；推进家庭医生签约、上门巡诊；办好“长者食堂”或邻里互助就餐，让老人“吃得上热饭、找得到人帮、养得了老心”。金句感悟：“养老不是简单的吃饱穿暖，而是让老人有尊严、有归属感地老去。”'},
+    {cat:'社会救助', title:'分层分类兜牢民生底线', content:'健全低保、特困供养、医疗救助、临时救助、教育救助、住房救助、就业救助等分层分类体系。对突发困难户实行“先行救助、后补手续”，确保“应保尽保、应救尽救”；加强动态管理，防止“漏保”和“错保”。金句感悟：“小康不小康，关键看老乡；共富不共富，关键看兜底。”'},
+    {cat:'残疾人服务', title:'精准帮扶让关爱无“碍”', content:'落实残疾人“两项补贴”，做好辅具适配、无障碍改造、就业创业扶持。建立“一户一策”帮扶台账，对重度残疾人定期上门走访，对生活能自理的残疾人开展技能培训和就业对接，帮助他们实现自我价值。金句感悟：“残疾人事业是一项春天的事业，多一份关爱，社会就多一份温暖。”'}
+  ],
+  [
+    {cat:'矛盾调解', title:'新时代“枫桥经验”的基层实践', content:'小事不出村、大事不出镇、矛盾不上交。落实排查发现、分析研判、分流交办、调处化解、反馈回访五步工作法。调解时坚持“法理情”结合：土地纠纷讲“法”、邻里纠纷讲“情”、信访积案三者并用；用好乡贤、法律明白人、五老人员等力量。金句感悟：“基层矛盾化解不在法庭，而在田间地头、农家院坝，靠的是真心和办法。”'},
+    {cat:'信访工作', title:'把信访办成“送上门来的群众工作”', content:'主动上门接触、耐心倾听诉求、调查核实情况、分类精准处理。合理诉求依法依规解决到位；不合理诉求解释疏导到位；生活困难帮扶救助到位；涉法涉诉问题引导通过法律途径解决。建立领导包案、定期回访机制，防止反弹。金句感悟：“信访背后是信任，处理好了是民心，处理不好是隐患。”'},
+    {cat:'网格治理', title:'让网格员成为群众的“贴心人”', content:'推进网格员“亮身份、闭环办、精准服、群众评”。公示网格员信息和联系方式，建立“群众点单、网格接单、部门办单、群众评单”闭环；根据网格特点定制服务：老人多就助老，留守儿童多就关爱，企业多就服务。金句感悟：“网格不大，却是服务群众的前沿阵地；事情不小，件件连着民心。”'},
+    {cat:'平安建设', title:'构建共建共治共享的平安格局', content:'整合派出所、司法所、综治中心、网格员力量，常态化开展扫黑除恶、禁毒、反电诈、反邪教宣传。落实重点人群服务管理，建立矛盾纠纷和风险隐患“日排查、周研判、月通报”机制，把风险化解在萌芽状态。金句感悟：“平安是老百姓解决温饱后的第一需求，也是发展的基本前提。”'}
+  ],
+  [
+    {cat:'党建引领', title:'增强“两个功能”锻造坚强堡垒', content:'增强党组织政治功能和组织功能。政治功能重在把方向、管大局、保落实，确保上级决策部署在基层落地生根；组织功能重在织密组织体系、建强党员队伍、服务中心工作。推行党员积分管理、承诺践诺、挂牌上岗，让党旗在一线高高飘扬。金句感悟：“基层党组织是党的全部工作和战斗力的基础，基础不牢、地动山摇。”'},
+    {cat:'党员教育', title:'让党的声音飞入寻常百姓家', content:'用群众语言讲政策、用身边事讲道理，把理论课堂搬到文化广场、农家院坝、田间地头。推行“板凳课堂”“屋场会”“村村响”广播等接地气形式，让党的创新理论从“书面语”变成“家常话”，从“大讲堂”走进“小院落”。金句感悟：“宣传思想工作，做的是人的工作，讲的是群众听得懂、愿意听的话。”'},
+    {cat:'作风建设', title:'以严实作风赢得群众信任', content:'深入整治形式主义、官僚主义，严格控制文件会议、督查检查考核、报表材料。建立容错纠错机制，为担当者担当、为负责者负责；推行一线工作法，干部在一线发现问题、解决问题、锤炼作风。金句感悟：“作风问题本质上是党同人民群众的关系问题，群众看干部，关键看作风。”'},
+    {cat:'廉洁自律', title:'扣好基层工作的“第一粒扣子”', content:'严守纪律规矩，在项目资金、惠民补贴、村级工程建设中坚持公开透明、民主决策。落实“四议两公开”，村级重大事项由党组织提议、村“两委”商议、党员大会审议、村民代表会议决议，结果公开、实施过程公开。金句感悟：“清廉是福、贪欲是祸；小节不守，大节难保。”'}
+  ],
+  [
+    {cat:'产业发展', title:'因地制宜做好“土特产”文章', content:'立足资源禀赋，发展“一村一品”。油茶、茶叶、中药材、竹产业、小水果、乡村旅游——选择最适合本地土壤、气候、文化的产业。注重品种培优、品质提升、品牌打造和标准化生产，延伸精深加工链条，提高产品附加值。金句感悟：“产业选准了，群众致富就有方向；品牌叫响了，农产品就能卖出好价钱。”'},
+    {cat:'集体经济', title:'“消薄攻坚”的五种路径', content:'资源发包型、物业租赁型、产业带动型、服务创收型、入股分红型。对薄弱村先清产核资、摸清家底，再“一村一策”确定发展路径；重点盘活闲置校舍、山林、水面等集体资产，与村干部报酬挂钩，激发内生动力。金句感悟：“集体经济强，支部有力量；集体有钱办事，群众才会跟紧。”'},
+    {cat:'返乡创业', title:'让“归雁”成为乡村振兴生力军', content:'建立返乡创业人才库，提供创业担保贷款、场地租金减免、技能培训等支持。搭建创业孵化平台，引导返乡青年发展农产品电商、乡村民宿、农事体验等新业态；定期召开乡贤座谈会，以乡情乡愁为纽带吸引人才回流。金句感悟：“人才回流一人，带动致富一方；乡村振兴，关键在人。”'},
+    {cat:'农旅融合', title:'把“风景”变成“产业”', content:'依托古村落、非遗文化、生态资源，发展研学旅行、民宿经济、农事体验。做好资源盘点、产品设计、基础设施、运营模式、营销推广五篇文章；注重保护传统村落风貌，避免过度商业化，实现“以文塑旅、以旅兴农”。金句感悟：“绿水青山就是金山银山，好风景也能长出好产业。”'}
+  ],
+  [
+    {cat:'生态环保', title:'“三长协同”守护绿水青山', content:'河长制保水、林长制护林、田长制守耕地，推动“三长合一”。建立信息共享、联合巡查、综合执法机制，聚焦水源地保护、黑臭水体治理、秸秆禁烧、农业面源污染防治；把生态优势转化为经济优势、发展优势。金句感悟：“山水林田湖草沙是生命共同体，治理一方水土，造福一方百姓。”'},
+    {cat:'人居环境', title:'从“清脏治乱”到“增绿提质”', content:'推进“清脏、治乱、增绿、提质”四步法。清垃圾、清沟渠、清残垣，治乱堆、治乱建、治线缆，增庭院绿化、道路绿化、隙地绿化，提污水管网、垃圾分类、公共服务。建立“门前三包”、积分制、红黑榜等长效管护机制。金句感悟：“人居环境整治，政府主导是起点，群众自觉才是终点。”'},
+    {cat:'农业面源污染', title:'守护“舌尖上的安全”', content:'推进化肥农药减量增效，推广测土配方施肥、绿色防控技术；加强畜禽养殖废弃物资源化利用，建设沼气池、有机肥厂；规范农膜回收利用，减少白色污染；强化农产品质量安全监管，落实追溯制度。金句感悟：“食品安全是产出来的，也是管出来的，源头治理才能治本。”'},
+    {cat:'碳达峰中和', title:'基层绿色低碳转型的着力点', content:'推进秸秆禁烧、植树造林、绿色能源、低碳农业。具体做法：推广太阳能路灯、节能灶具，发展林下经济、生态农业，引导群众绿色出行、垃圾分类。把“双碳”目标转化为群众看得见、摸得着的绿色福利。金句感悟：“绿色低碳不是约束，而是高质量发展的底色和新机遇。”'}
+  ],
+  [
+    {cat:'矛盾调解', title:'土地纠纷化解的“法理情”智慧', content:'农村土地纠纷最复杂、最敏感。处理时先查历史档案、实地勘测、走访知情人，把事实搞清楚；再依据《土地管理法》《农村土地承包法》讲清法律边界；最后邀请乡贤、族老参与，讲亲情、讲邻里、讲长远，促成和解。金句感悟：“土地是农民的命根子，调解土地纠纷，调的是地，理的是心。”'},
+    {cat:'邻里纠纷', title:'“退一步海阔天空”的调解艺术', content:'农村邻里纠纷多因宅基地、排水、通行、牲畜等小事引发，但容易积怨成仇。调解时先分别谈话降温，再找共同熟人或长辈说和，最后到现场协商、划线立界、签订协议。关键是让双方都有“面子”、都有台阶下。金句感悟：“邻里纠纷无小事，调解一次和一家，和谐一村一大片。”'},
+    {cat:'家庭纠纷', title:'以“和”为贵的柔性化解', content:'家庭矛盾涉及婚姻、赡养、财产分割等，处理不当可能激化。坚持“调解优先、诉讼兜底”，发挥妇联、村调解委员会、心理辅导员作用；对家暴、虐待等违法行为及时干预，依法保护妇女儿童权益。金句感悟：“家和万事兴，调解家庭矛盾，既是化解纠纷，更是守护幸福。”'},
+    {cat:'劳资纠纷', title:'维护农民工“血汗钱”', content:'开展根治欠薪专项行动，对辖区企业、项目工地定期排查。发现欠薪线索，及时介入协调，引导通过劳动仲裁、法律援助等途径维权；对恶意欠薪行为，联合人社、公安、司法部门依法处理。金句感悟：“农民工的工资连着一家的生计，拖欠工资，欠的是民心。”'}
+  ],
+  [
+    {cat:'人才振兴', title:'培育乡村振兴“带头人”队伍', content:'实施“能人返乡、贤人回乡、达人兴乡”行动，培育党员致富带头人、乡村企业家、新型职业农民、乡土工匠。建立导师帮带、外出学习、实践锻炼机制，打造一支“懂农业、爱农村、爱农民”的人才队伍。金句感悟：“乡村振兴，人才是关键；选好一个人，带动一个村。”'},
+    {cat:'科技特派员', title:'让“科技种子”在田间生根发芽', content:'推广科技特派员制度，把农业技术送到田间地头。围绕良种良法、病虫害防治、智慧农业、农产品加工等开展培训；建立“专家+合作社+农户”服务模式，解决生产技术难题，提升农业科技含量。金句感悟：“农业现代化，根本出路在科技；给土地插上科技的翅膀，农民才能飞得更高。”'},
+    {cat:'乡村教师医生', title:'稳住基层“一老一小”守护者', content:'加强乡村教师、医生队伍建设，落实待遇保障、职称倾斜、周转房等政策。推动城乡学校结对帮扶、医共体建设，让农村孩子上好学、农村群众看好病；留住人才，才能留住乡村希望。金句感悟：“乡村振兴，教育医疗是底色；留住了老师医生，就留住了乡村的未来。”'},
+    {cat:'本土人才', title:'挖掘“田秀才”“土专家”', content:'重视本土实用人才，如种养能手、非遗传承人、乡村工匠、电商达人。建立乡土人才库，给予政策扶持、荣誉激励、平台展示；让他们成为产业发展的“领头雁”、技艺传承的“守艺人”。金句感悟：“高手在民间，泥土里也能长出大专家；尊重本土人才，就是尊重基层创造力。”'}
+  ],
+  [
+    {cat:'应急管理', title:'构建“全灾种、大应急”格局', content:'整合防汛抗旱、森林防灭火、地质灾害、安全生产、消防等力量，建立统一指挥、专常兼备、反应灵敏的基层应急体系。编制“一本通”应急预案，储备必要物资，定期开展演练，确保灾害来临时群众转移有序、救援有力。金句感悟：“应急准备做得实，灾害面前心不慌；平时多流汗，战时少流血。”'},
+    {cat:'食品安全', title:'守好农村集体聚餐安全关', content:'落实农村集体聚餐备案制度，对厨师健康、食材采购、加工场所、留样管理进行检查。重点监管学校食堂、敬老院食堂、小餐饮；开展食品安全宣传，提高群众自我保护意识，防止群体性食物中毒。金句感悟：“民以食为天，食以安为先；食品安全是最大的民生。”'},
+    {cat:'道路交通安全', title:'守护群众出行“平安路”', content:'整治农用车非法载人、酒驾醉驾、无牌无证、超限超载等违法行为；在急弯陡坡、临水临崖路段增设警示标志、防护栏；发挥“两站两员”作用，开展交通劝导，特别重视学生上下学、节假日等重点时段。金句感悟：“道路千万条，安全第一条；一次事故毁掉一个家庭，安全必须常抓不懈。”'},
+    {cat:'防灾减灾', title:'提升群众自救互救能力', content:'推进防灾减灾知识进学校、进企业、进农村、进家庭。组织开展地震避险、火灾逃生、防汛转移等应急演练；建立灾害信息员队伍，确保预警信息第一时间传递到户到人。金句感悟：“防灾减灾，人人有责；多一份准备，少一份损失。”'}
+  ],
+  [
+    {cat:'数字乡村', title:'让数据多跑路、群众少跑腿', content:'推进“互联网+政务服务”向村级延伸，实现高频事项网上办、掌上办、就近办。整合各类政务APP和数据平台，防止“数字形式主义”；发展农村电商、智慧农业、远程医疗、在线教育，让数字红利惠及更多农民。金句感悟：“数字化不是目的，服务才是；技术再先进，群众的获得感才是最终评判标准。”'},
+    {cat:'智慧农业', title:'为传统农业装上“智慧大脑”', content:'推广物联网、无人机、传感器、大数据在农业生产中的应用。建设智慧农业示范基地，实现墒情监测、病虫害预警、水肥一体化精准管理；通过电商平台、直播带货拓宽销售渠道，让农产品“种得好”也“卖得好”。金句感悟：“智慧农业不是高大上，而是让种地更精准、更高效、更赚钱。”'},
+    {cat:'基层治理数字化', title:'从“一网通办”到“一网统管”', content:'整合网格、信访、应急、城管等数据资源，建立基层治理综合信息平台。实现事件上报、分拨处置、反馈评价全流程线上运行；推动“网络通、数据通、业务通”，提升治理精细化、智能化水平。金句感悟：“数字赋能基层治理，关键不在建系统，而在用数据解决真问题。”'},
+    {cat:'电商助农', title:'“小屏幕”打开“大市场”', content:'建设镇村电商服务站点，培育本土直播带货人才，发展农产品电商、社区团购、政企对接等多元渠道。完善冷链物流、仓储保鲜、分级包装等基础设施，让优质农产品从田间直达餐桌。金句感悟：“一根网线连接城乡，一部手机卖遍全国；电商让农民的汗水变成实实在在的收入。”'}
+  ],
+  [
+    {cat:'作风建设', title:'力戒形式主义、官僚主义', content:'从精简文件会议、统筹督查检查考核、整治“指尖上的形式主义”入手，切实为基层减负。建立“反向评价”机制，让基层给上级部门打分；推行“一线工作法”，干部在一线发现问题、解决问题、锤炼作风。金句感悟：“减负不是减责任，而是让干部从繁文缛节中解脱出来，把更多精力用在为群众办实事上。”'},
+    {cat:'担当作为', title:'为实干者撑腰、为担当者鼓劲', content:'建立容错纠错机制，明确容错情形和程序，对在改革创新、应急处突、服务群众中出现的失误，依规依纪依法容错。同时严肃查处不担当、不作为、乱作为，树立重实干、重实绩的鲜明导向。金句感悟：“干部干部，干字当头；为担当者担当，才能让更多人敢担当。”'},
+    {cat:'群众工作', title:'“身入”更要“心入”群众', content:'坚持问需于民、问计于民、问效于民。多坐群众的小板凳、多进群众的农家门，用方言土语拉近距离，用真心实意赢得信任。把群众的“急难愁盼”作为工作的出发点和落脚点。金句感悟：“脚下沾有多少泥土，心中就沉淀多少真情；离群众越近，群众就离你越亲。”'},
+    {cat:'调查研究', title:'用脚步丈量民情、用真情倾听民声', content:'调研前先定题、调研中多走访、调研后出实招。综合运用座谈访谈、入户走访、问卷调查、蹲点调研等方法，既看“盆景”也看“后山”，既听干部汇报也听群众牢骚；形成问题清单、对策清单、责任清单。金句感悟：“没有调查就没有发言权，更没有决策权；调研越深入，决策越精准。”'}
+  ],
+  [
+    {cat:'乡风文明', title:'以文明乡风铸乡村振兴之魂', content:'深化移风易俗，治理高价彩礼、大操大办、厚葬薄养、封建迷信等陈规陋习。发挥村规民约、红白理事会、道德评议会、村民议事会作用；开展“文明家庭”“美丽庭院”“好媳妇好婆婆”评选，让文明新风蔚然成风。金句感悟：“乡村振兴，既要塑形，也要铸魂；文明乡风是最美的乡村风景。”'},
+    {cat:'文化传承', title:'守护乡村“根”与“魂”', content:'加强古村落、古建筑、古树名木保护，传承非遗技艺、民俗节庆、红色文化。建设村史馆、文化广场、农家书屋，开展送戏下乡、全民阅读、文化惠民活动，让乡村留住记忆、留住乡愁。金句感悟：“文化是一个地方最深沉的力量，守护文化就是守护乡村的未来。”'},
+    {cat:'新时代文明实践', title:'让文明实践“活”起来、“火”起来', content:'整合农家书屋、文化广场、儿童之家等资源，实行“一站多用”。推行“群众点单、实践站派单、志愿者接单”模式，开展理论宣讲、文化惠民、关爱服务、移风易俗等品牌活动；挖掘老党员、退休教师、文艺骨干等乡土人才。金句感悟：“文明实践不是搭台子、挂牌子，而是真正服务群众、凝聚人心。”'},
+    {cat:'红色文化', title:'把红色基因转化为发展动能', content:'保护和利用革命遗址、烈士陵园、红色故事，建设红色教育基地。结合党史学习教育，组织党员干部和群众瞻仰学习；发展红色旅游、红色研学，让红色文化与乡村振兴深度融合。金句感悟：“红色政权来之不易，红色基因代代相传；用好红色资源，才能走好新时代长征路。”'}
+  ],
+  [
+    {cat:'群众工作', title:'把群众“关键小事”当成“心头大事”', content:'聚焦群众最关心的就业、教育、医疗、住房、养老等问题，建立“民生实事清单”，实行项目化推进、清单化管理。对困难群众主动发现、主动帮扶，做到“不漏一户、不落一人”。金句感悟：“民生无小事，枝叶总关情；群众的小事，就是干部的大事。”'},
+    {cat:'基层民主', title:'让群众成为乡村治理“主人翁”', content:'完善村民会议、村民代表会议、村务监督委员会制度，落实“四议两公开”。涉及群众切身利益的重大事项，广泛征求群众意见，接受群众监督；推广积分制、清单制，激发群众参与治理的积极性。金句感悟：“众人的事情由众人商量，基层治理才能顺民心、聚民力。”'},
+    {cat:'特殊群体', title:'用温情守护“一老一小一困”', content:'加强对留守老人、留守儿童、困境儿童、残疾人、低保特困人员的关爱服务。建立定期探访制度，开展节日慰问、心理关爱、生活帮扶；动员社会组织、志愿者、乡贤参与，形成多元关爱格局。金句感悟：“基层治理的温度，往往体现在对最弱势群体的态度上。”'},
+    {cat:'志愿服务', title:'让志愿红点亮乡村文明', content:'组建党员志愿服务队、巾帼志愿服务队、青年突击队、乡贤志愿服务队，围绕环境整治、助老扶幼、矛盾调解、应急救灾等开展服务。建立志愿服务积分兑换、星级评定等激励机制，让志愿服务常态化、可持续。金句感悟：“赠人玫瑰，手有余香；志愿服务不是一阵子，而是一辈子。”'}
+  ]
+];
+
+// ========== 渲染引擎 ==========
+function pick(arr, idx, count) {
+  const start = (idx * count) % arr.length;
+  const result = [];
+  for (let i = 0; i < count; i++) {
+    result.push(arr[(start + i) % arr.length]);
+  }
+  return result;
+}
+
+function pickOne(arr, idx) {
+  return arr[idx % arr.length];
+}
+
+// 渲染每日任务
+(function renderDailyTasks() {
+  const t = pickOne(TASK_POOL, DAY_IDX);
+  document.getElementById('task-header-title').textContent = 'Day ' + (DAY_IDX + 1) + ' · ' + t.title;
+  document.getElementById('task-intro').textContent = t.intro;
+  const ul = document.getElementById('today-tasks');
+  t.tasks.forEach((task, i) => {
+    const li = document.createElement('li');
+    const priClass = 'priority-' + task.pri;
+    const priText = {high:'高', mid:'中', low:'低'}[task.pri];
+    li.innerHTML = '<input type="checkbox" class="task-check" data-task="' + (i+1) + '">' +
+      '<span class="task-text">' + task.text + '<span class="priority ' + priClass + '">' + priText + '</span></span>';
+    ul.appendChild(li);
+  });
+  // 渲染提醒
+  document.getElementById('reminder-content').innerHTML = pickOne(REMINDER_POOL, DAY_IDX);
+})();
+
+// 渲染时政推送
+(function renderAffairs() {
+  const acts = pick(AFFAIRS_POOL, DAY_IDX, 6);
+  const grid = document.getElementById('affairs-grid');
+  acts.forEach(a => {
+    const card = document.createElement('div');
+    card.className = 'article-card';
+    const tagsHTML = a.tags.map(t => '<span class="badge ' + t.c + '">' + t.t + '</span>').join(' ');
+    card.innerHTML = '<div><h4>' + a.title + '</h4><p class="meta">来源：' + a.src + '</p><div class="tags">' + tagsHTML + '</div></div>' +
+      '<a href="' + a.url + '" target="_blank" class="btn-green">阅读原文</a>';
+    grid.appendChild(card);
+  });
+})();
+
+// 渲染学习资源
+(function renderResources() {
+  const res = pick(RESOURCE_POOL, DAY_IDX, 6);
+  const grid = document.getElementById('resources-grid');
+  res.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'article-card';
+    const tagsHTML = r.tags.map(t => '<span class="badge ' + t.c + '">' + t.t + '</span>').join(' ');
+    card.innerHTML = '<div><h4>' + r.title + '</h4><p class="meta">来源：' + r.src + '</p><div class="tags">' + tagsHTML + '</div></div>' +
+      '<a href="' + r.url + '" target="_blank" class="btn-outline">阅读原文</a>';
+    grid.appendChild(card);
+  });
+})();
+
+// 渲染预测考题
+(function renderPredictions() {
+  const predSet = pickOne(PREDICTION_POOL, DAY_IDX);
+  const container = document.getElementById('predictions-container');
+  predSet.forEach(p => {
+    const zone = document.createElement('div');
+    zone.className = 'prediction-zone';
+    zone.innerHTML = '<h4>预测方向：' + p.title + '</h4>' +
+      '<div class="q-body"><strong>预测理由：</strong>' + p.reason + '<br><br>' +
+      '<strong>预测题型：</strong>' + p.type + '<br>' +
+      '<strong>预测题目：</strong>' + p.question + '</div>' +
+      '<div class="framework"><strong>答题框架提示：</strong>' + p.framework + '</div>';
+    container.appendChild(zone);
+  });
+})();
+
+// 渲染真题演练
+(function renderPractice() {
+  const qSet = pickOne(PRACTICE_POOL, DAY_IDX);
+  const container = document.getElementById('practice-container');
+  qSet.forEach((q, i) => {
+    const block = document.createElement('div');
+    block.className = 'question-block';
+    block.setAttribute('data-q', i + 1);
+    block.innerHTML = '<div class="q-header"><span class="q-title">' + q.title + '</span><span class="q-score">' + q.score + '</span></div>' +
+      '<div class="q-body">' + q.body + '</div>' +
+      '<textarea class="answer-area" id="answer-' + (i+1) + '" placeholder="在此输入你的答案..."></textarea>' +
+      '<div class="answer-actions">' +
+        '<button class="btn-green" onclick="saveAnswer(' + (i+1) + ')">保存答案</button>' +
+        '<button class="btn-outline" onclick="toggleReference(' + (i+1) + ')">查看参考答案</button>' +
+        '<span class="saved-badge" id="saved-' + (i+1) + '"></span>' +
+      '</div>' +
+      '<div class="reference-answer" id="ref-' + (i+1) + '"><h5>' + q.refTitle + '</h5>' + q.ref + '</div>';
+    container.appendChild(block);
+  });
+})();
+
+// 渲染遴选考试每日一练
+(function renderSelection() {
+  const q = pickOne(SELECTION_POOL, DAY_IDX);
+  const container = document.getElementById('selection-container');
+  const block = document.createElement('div');
+  block.className = 'question-block';
+  block.setAttribute('data-q', 'selection');
+  block.innerHTML = '<div class="q-header"><span class="q-title">' + q.title + '</span><span class="q-score">' + q.score + '</span></div>' +
+    '<div class="q-body">' + q.body + '</div>' +
+    '<textarea class="answer-area" id="answer-selection" placeholder="在此输入你的遴选答题练习..."></textarea>' +
+    '<div class="answer-actions">' +
+      '<button class="btn-green" onclick="saveSelectionAnswer()">保存答案</button>' +
+      '<button class="btn-outline" onclick="toggleSelectionReference()">查看参考答案</button>' +
+      '<span class="saved-badge" id="saved-selection"></span>' +
+    '</div>' +
+    '<div class="reference-answer" id="ref-selection"><h5>' + q.refTitle + '</h5>' + q.ref + '</div>';
+  container.appendChild(block);
+
+  const res = pick(SELECTION_RESOURCE_POOL, DAY_IDX, 3);
+  const grid = document.getElementById('selection-resources');
+  res.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'article-card';
+    const tagsHTML = r.tags.map(t => '<span class="badge ' + t.c + '">' + t.t + '</span>').join(' ');
+    card.innerHTML = '<div><h4>' + r.title + '</h4><p class="meta">来源：' + r.src + '</p><div class="tags">' + tagsHTML + '</div></div>' +
+      '<a href="' + r.url + '" target="_blank" class="btn-outline">阅读原文</a>';
+    grid.appendChild(card);
+  });
+})();
+
+function saveSelectionAnswer() {
+  const val = document.getElementById('answer-selection').value;
+  localStorage.setItem(dateKey + '-answer-selection', val);
+  document.getElementById('saved-selection').textContent = '\u2713 已保存 ' + new Date().toLocaleTimeString();
+}
+function toggleSelectionReference() {
+  const ref = document.getElementById('ref-selection');
+  ref.classList.toggle('show');
+  event.target.textContent = ref.classList.contains('show') ? '隐藏参考答案' : '查看参考答案';
+}
+
+// 渲染今日重点素材
+(function renderDailyMaterials() {
+  const items = pickOne(MATERIAL_HIGHLIGHTS, DAY_IDX);
+  const container = document.getElementById('daily-materials');
+  document.getElementById('material-day').textContent = DAY_IDX + 1;
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'material-item';
+    div.innerHTML = '<h5>【' + item.cat + '】' + item.title + '</h5><p>' + item.content + '</p>';
+    container.appendChild(div);
+  });
+})();
+
+// ========== 导航高亮 ==========
+const navLinks = document.querySelectorAll('nav a');
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 100;
+    if (scrollY >= top) current = sec.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+});
+
+// ========== 素材标签切换 ==========
+function switchMaterial(id) {
+  document.querySelectorAll('.material-content').forEach(el => el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.material-tabs button').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// ========== 本地存储答题 ==========
+const dateKey = 'lily-v2-' + TODAY_STR;
+function loadAnswers() {
+  const selSaved = localStorage.getItem(dateKey + '-answer-selection');
+  if (selSaved) {
+    const selArea = document.getElementById('answer-selection');
+    if (selArea) selArea.value = selSaved;
+    const selBadge = document.getElementById('saved-selection');
+    if (selBadge) selBadge.textContent = '\u2713 已保存';
+  }
+
+  for (let i = 1; i <= 3; i++) {
+    const saved = localStorage.getItem(dateKey + '-answer-' + i);
+    if (saved) {
+      document.getElementById('answer-' + i).value = saved;
+      document.getElementById('saved-' + i).textContent = '\u2713 已保存';
+    }
+  }
+  const tasks = JSON.parse(localStorage.getItem(dateKey + '-tasks') || '[]');
+  tasks.forEach(taskId => {
+    const cb = document.querySelector('.task-check[data-task="' + taskId + '"]');
+    if (cb) {
+      cb.checked = true;
+      cb.nextElementSibling.classList.add('done');
+    }
+  });
+}
+function saveAnswer(n) {
+  const val = document.getElementById('answer-' + n).value;
+  localStorage.setItem(dateKey + '-answer-' + n, val);
+  document.getElementById('saved-' + n).textContent = '\u2713 已保存 ' + new Date().toLocaleTimeString();
+}
+function toggleReference(n) {
+  const ref = document.getElementById('ref-' + n);
+  ref.classList.toggle('show');
+  event.target.textContent = ref.classList.contains('show') ? '隐藏参考答案' : '查看参考答案';
+}
+function setupTasks() {
+  document.querySelectorAll('.task-check').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const taskId = cb.getAttribute('data-task');
+      let tasks = JSON.parse(localStorage.getItem(dateKey + '-tasks') || '[]');
+      if (cb.checked) {
+        if (!tasks.includes(taskId)) tasks.push(taskId);
+        cb.nextElementSibling.classList.add('done');
+      } else {
+        tasks = tasks.filter(id => id !== taskId);
+        cb.nextElementSibling.classList.remove('done');
       }
-      const days = Math.floor(diff / (1000*60*60*24));
-      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-      const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-      const seconds = Math.floor((diff % (1000*60)) / 1000);
-      document.getElementById('cd-days').textContent = days;
-      document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
-      document.getElementById('cd-minutes').textContent = String(minutes).padStart(2,'0');
-      document.getElementById('cd-seconds').textContent = String(seconds).padStart(2,'0');
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // 导航高亮
-    const navLinks = document.querySelectorAll('nav a');
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => {
-        const top = sec.offsetTop - 100;
-        if (scrollY >= top) current = sec.getAttribute('id');
-      });
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-      });
+      localStorage.setItem(dateKey + '-tasks', JSON.stringify(tasks));
     });
-
-    // 素材标签切换
-    function switchMaterial(id) {
-      document.querySelectorAll('.material-content').forEach(el => el.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      document.querySelectorAll('.material-tabs button').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-
-    // 本地存储答题
-    const dateKey = 'lily-' + today.toISOString().slice(0,10);
-    function loadAnswers() {
-      for (let i=1; i<=3; i++) {
-        const saved = localStorage.getItem(dateKey + '-answer-' + i);
-        if (saved) {
-          document.getElementById('answer-' + i).value = saved;
-          document.getElementById('saved-' + i).textContent = '✓ 已保存';
-        }
-      }
-      const tasks = JSON.parse(localStorage.getItem(dateKey + '-tasks') || '[]');
-      tasks.forEach(taskId => {
-        const cb = document.querySelector('.task-check[data-task="' + taskId + '"]');
-        if (cb) {
-          cb.checked = true;
-          cb.nextElementSibling.classList.add('done');
-        }
-      });
-    }
-    function saveAnswer(n) {
-      const val = document.getElementById('answer-' + n).value;
-      localStorage.setItem(dateKey + '-answer-' + n, val);
-      document.getElementById('saved-' + n).textContent = '✓ 已保存 ' + new Date().toLocaleTimeString();
-    }
-    function toggleReference(n) {
-      const ref = document.getElementById('ref-' + n);
-      ref.classList.toggle('show');
-      event.target.textContent = ref.classList.contains('show') ? '隐藏参考答案' : '查看参考答案';
-    }
-    document.querySelectorAll('.task-check').forEach(cb => {
-      cb.addEventListener('change', () => {
-        const taskId = cb.getAttribute('data-task');
-        let tasks = JSON.parse(localStorage.getItem(dateKey + '-tasks') || '[]');
-        if (cb.checked) {
-          if (!tasks.includes(taskId)) tasks.push(taskId);
-          cb.nextElementSibling.classList.add('done');
-        } else {
-          tasks = tasks.filter(id => id !== taskId);
-          cb.nextElementSibling.classList.remove('done');
-        }
-        localStorage.setItem(dateKey + '-tasks', JSON.stringify(tasks));
-      });
-    });
-    loadAnswers();
-  </script>
+  });
+}
+setupTasks();
+loadAnswers();
+</script>
 </body>
 </html>
